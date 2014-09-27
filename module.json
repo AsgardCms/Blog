@@ -1,8 +1,11 @@
 {
   "name": "Blog",
   "alias": "blog",
-  "description": "",
+  "description": "A simple blog module",
   "keywords": [
   ],
+  "require": {
+      "dimsav/laravel-translatable": "dev-laravel-5"
+  },
   "active": 1
 }
