@@ -18,7 +18,9 @@ class BlogServiceProvider extends ServiceProvider
      * @var array
      */
     protected $filters = [
-        'permissions' => 'PermissionFilter'
+        'Core' => [
+            'permissions' => 'PermissionFilter'
+        ]
     ];
 
     /**
@@ -41,10 +43,12 @@ class BlogServiceProvider extends ServiceProvider
      */
     public function registerFilters(Router $router)
     {
-        foreach ($this->filters as $name => $filter) {
-            $class = 'Modules\\Blog\\Http\\Filters\\' . $filter;
+        foreach ($this->filters as $module => $filters) {
+            foreach ($filters as $name => $filter) {
+                $class = "Modules\\{$module}\\Http\\Filters\\{$filter}";
 
-            $router->filter($name, $class);
+                $router->filter($name, $class);
+            }
         }
     }
 
