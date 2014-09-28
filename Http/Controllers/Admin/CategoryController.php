@@ -1,6 +1,7 @@
 <?php namespace Modules\Blog\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\View;
+use Modules\Blog\Http\Requests\UpdateCategoryRequest;
 use Modules\Blog\Repositories\CategoryRepository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 
@@ -69,11 +70,12 @@ class CategoryController extends AdminBaseController
      * Update the specified resource in storage.
      *
      * @param  int $id
+     * @param UpdateCategoryRequest $request
      * @return Response
      */
-    public function update($id)
+    public function update($id, UpdateCategoryRequest $request)
     {
-        //
+        dd($request->all());
     }
 
     /**
