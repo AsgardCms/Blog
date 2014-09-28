@@ -1,23 +1,15 @@
 <?php namespace Modules\Blog\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\View;
-use Modules\Blog\Repositories\PostRepository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 
-class PostController extends AdminBaseController
+class CategoryController extends AdminBaseController
 {
-    /**
-     * @var PostRepository
-     */
-    private $post;
-
-    public function __construct(PostRepository $post)
+    public function __construct()
     {
         parent::__construct();
 
         $this->beforeFilter('permissions');
-
-        $this->post = $post;
     }
 
     /**
@@ -27,9 +19,7 @@ class PostController extends AdminBaseController
      */
     public function index()
     {
-        $posts = $this->post->all();
-
-        return View::make('blog::admin.posts.index', compact('posts'));
+        return View::make('blog::admin.category.index');
     }
 
     /**
@@ -39,7 +29,7 @@ class PostController extends AdminBaseController
      */
     public function create()
     {
-        return View::make('collection.create');
+        return \View::make('blog::admin.category.create');
     }
 
     /**
@@ -53,6 +43,17 @@ class PostController extends AdminBaseController
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  int $id
+     * @return Response
+     */
+    public function show($id)
+    {
+        return \View::make('blog::admin.category.show');
+    }
+
+    /**
      * Show the form for editing the specified resource.
      *
      * @param  int $id
@@ -60,7 +61,7 @@ class PostController extends AdminBaseController
      */
     public function edit($id)
     {
-        return View::make('collection.edit');
+        return \View::make('blog::admin.category.edit');
     }
 
     /**

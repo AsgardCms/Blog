@@ -32,6 +32,7 @@ class BlogServiceProvider extends ServiceProvider
     {
         $this->app->booted(function ($app) {
             $this->registerFilters($app['router']);
+            $this->registerBindings();
         });
     }
 
@@ -60,6 +61,14 @@ class BlogServiceProvider extends ServiceProvider
     public function provides()
     {
         return array();
+    }
+
+    private function registerBindings()
+    {
+        $this->app->bind(
+            'Modules\Blog\Repositories\PostRepository',
+            'Modules\Blog\Repositories\Eloquent\EloquentPostRepository'
+        );
     }
 
 }

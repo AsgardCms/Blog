@@ -20,6 +20,12 @@ class SidebarViewComposer
                 'route' => 'dashboard.post.index',
                 'icon-class' => 'fa fa-file-text',
                 'title' => 'Posts',
+            ],
+            [
+                'request' => "{$view->prefix}/categories*",
+                'route' => 'dashboard.category.index',
+                'icon-class' => 'fa fa-file-text',
+                'title' => 'Categories',
             ]
         ]));
     }
