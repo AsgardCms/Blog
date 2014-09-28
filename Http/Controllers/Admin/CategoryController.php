@@ -53,17 +53,6 @@ class CategoryController extends AdminBaseController
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        return \View::make('blog::admin.category.show');
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int $id
@@ -71,7 +60,9 @@ class CategoryController extends AdminBaseController
      */
     public function edit($id)
     {
-        return \View::make('blog::admin.category.edit');
+        $category = $this->category->find($id);
+
+        return View::make('blog::admin.categories.edit', compact('category'));
     }
 
     /**

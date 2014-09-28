@@ -1,7 +1,12 @@
 <?php namespace Modules\Blog\Repositories;
 
 use Illuminate\Support\Collection;
+use Modules\Blog\Entities\Category;
 
+/**
+ * Interface CategoryRepository
+ * @package Modules\Blog\Repositories
+ */
 interface CategoryRepository
 {
     /**
@@ -9,4 +14,11 @@ interface CategoryRepository
      * @return Collection
      */
     public function all();
+
+    /**
+     * Find a category by its ID
+     * @param $id
+     * @return Category
+     */
+    public function find($id);
 }

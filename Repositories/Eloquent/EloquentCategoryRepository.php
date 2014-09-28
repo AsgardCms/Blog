@@ -14,4 +14,14 @@ class EloquentCategoryRepository implements CategoryRepository
     {
         return Category::all();
     }
+
+    /**
+     * Find a category by its ID
+     * @param $id
+     * @return Category
+     */
+    public function find($id)
+    {
+        return Category::find($id);
+    }
 }

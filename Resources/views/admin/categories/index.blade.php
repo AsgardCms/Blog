@@ -40,23 +40,23 @@
                         <?php foreach($categories as $category): ?>
                             <tr>
                                 <td>
-                                    <a href="{{ URL::route('dashboard.post.edit', [$category->id]) }}">
+                                    <a href="{{ URL::route('dashboard.category.edit', [$category->id]) }}">
                                         {{ $category->created_at }}
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ URL::route('dashboard.post.edit', [$category->id]) }}">
+                                    <a href="{{ URL::route('dashboard.category.edit', [$category->id]) }}">
                                         {{ $category->name }}
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ URL::route('dashboard.post.edit', [$category->id]) }}">
+                                    <a href="{{ URL::route('dashboard.category.edit', [$category->id]) }}">
                                         {{ $category->slug }}
                                     </a>
                                 </td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="{{ URL::route('dashboard.post.edit', [$category->id]) }}" class="btn btn-default btn-flat"><i class="glyphicon glyphicon-pencil"></i></a>
+                                        <a href="{{ URL::route('dashboard.category.edit', [$category->id]) }}" class="btn btn-default btn-flat"><i class="glyphicon glyphicon-pencil"></i></a>
                                         <button class="btn btn-danger btn-flat" data-toggle="modal" data-target="#confirmation-{{ $category->id }}"><i class="glyphicon glyphicon-trash"></i></button>
                                     </div>
                                 </td>
