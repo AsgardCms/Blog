@@ -1,15 +1,23 @@
 <?php namespace Modules\Blog\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\View;
+use Modules\Blog\Repositories\CategoryRepository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 
 class CategoryController extends AdminBaseController
 {
-    public function __construct()
+    /**
+     * @var CategoryRepository
+     */
+    private $category;
+
+    public function __construct(CategoryRepository $category)
     {
         parent::__construct();
 
         $this->beforeFilter('permissions');
+
+        $this->category = $category;
     }
 
     /**
@@ -19,7 +27,9 @@ class CategoryController extends AdminBaseController
      */
     public function index()
     {
-        return View::make('blog::admin.category.index');
+        $categories = $this->category->all();
+
+        return View::make('blog::admin.categories.index', compact('categories'));
     }
 
     /**

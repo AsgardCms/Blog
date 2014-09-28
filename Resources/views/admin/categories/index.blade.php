@@ -2,11 +2,11 @@
 
 @section('content-header')
 <h1>
-    Blog posts
+    Categories
 </h1>
 <ol class="breadcrumb">
     <li><a href="{{ URL::route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active">Posts</li>
+    <li class="active">Categories</li>
 </ol>
 @stop
 
@@ -16,8 +16,8 @@
         <div class="row">
             @include('flash::message')
             <div class="btn-group pull-right" style="margin: 0 15px 15px 0;">
-                <a href="{{ URL::route('dashboard.post.create') }}" class="btn btn-primary btn-flat" style="padding: 4px 10px;">
-                    <i class="fa fa-pencil"></i> New Post
+                <a href="{{ URL::route('dashboard.category.create') }}" class="btn btn-primary btn-flat" style="padding: 4px 10px;">
+                    <i class="fa fa-pencil"></i> New Category
                 </a>
             </div>
         </div>
@@ -30,34 +30,34 @@
                     <thead>
                         <tr>
                             <th>Created at</th>
-                            <th>Title</th>
+                            <th>Name</th>
                             <th>Slug</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
-                    <?php if ($posts): ?>
-                        <?php foreach($posts as $post): ?>
+                    <?php if ($categories): ?>
+                        <?php foreach($categories as $category): ?>
                             <tr>
                                 <td>
-                                    <a href="{{ URL::route('dashboard.post.edit', [$post->id]) }}">
-                                        {{ $post->created_at }}
+                                    <a href="{{ URL::route('dashboard.post.edit', [$category->id]) }}">
+                                        {{ $category->created_at }}
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ URL::route('dashboard.post.edit', [$post->id]) }}">
-                                        {{ $post->title }}
+                                    <a href="{{ URL::route('dashboard.post.edit', [$category->id]) }}">
+                                        {{ $category->name }}
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ URL::route('dashboard.post.edit', [$post->id]) }}">
-                                        {{ $post->slug }}
+                                    <a href="{{ URL::route('dashboard.post.edit', [$category->id]) }}">
+                                        {{ $category->slug }}
                                     </a>
                                 </td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="{{ URL::route('dashboard.post.edit', [$post->id]) }}" class="btn btn-default btn-flat"><i class="glyphicon glyphicon-pencil"></i></a>
-                                        <button class="btn btn-danger btn-flat" data-toggle="modal" data-target="#confirmation-{{ $post->id }}"><i class="glyphicon glyphicon-trash"></i></button>
+                                        <a href="{{ URL::route('dashboard.post.edit', [$category->id]) }}" class="btn btn-default btn-flat"><i class="glyphicon glyphicon-pencil"></i></a>
+                                        <button class="btn btn-danger btn-flat" data-toggle="modal" data-target="#confirmation-{{ $category->id }}"><i class="glyphicon glyphicon-trash"></i></button>
                                     </div>
                                 </td>
                             </tr>
@@ -67,7 +67,7 @@
                     <tfoot>
                         <tr>
                             <th>Created at</th>
-                            <th>Title</th>
+                            <th>Name</th>
                             <th>Slug</th>
                             <th>Actions</th>
                         </tr>
