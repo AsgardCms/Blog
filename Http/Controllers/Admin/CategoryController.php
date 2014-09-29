@@ -42,17 +42,7 @@ class CategoryController extends AdminBaseController
      */
     public function create()
     {
-        return \View::make('blog::admin.category.create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @return Response
-     */
-    public function store()
-    {
-        //
+        return View::make('blog::admin.categories.create');
     }
 
     /**
