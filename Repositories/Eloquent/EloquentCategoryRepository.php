@@ -33,7 +33,7 @@ class EloquentCategoryRepository implements CategoryRepository
      */
     public function create($data)
     {
-        return Category::create($data);
+        Helper::createTranslatedFields('Modules\Blog\Entities\Category', $data);
     }
 
     /**

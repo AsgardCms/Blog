@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Laracasts\Flash\Flash;
+use Modules\Blog\Http\Requests\StoreCategoryRequest;
 use Modules\Blog\Http\Requests\UpdateCategoryRequest;
 use Modules\Blog\Repositories\CategoryRepository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
@@ -43,6 +44,20 @@ class CategoryController extends AdminBaseController
     public function create()
     {
         return View::make('blog::admin.categories.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param StoreCategoryRequest $request
+     * @return Response
+     */
+    public function store(StoreCategoryRequest $request)
+    {
+        $this->category->create($request->all());
+
+        Flash::success('Category created');
+        return Redirect::route('dashboard.category.index');
     }
 
     /**
