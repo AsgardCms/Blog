@@ -50,4 +50,16 @@ class EloquentCategoryRepository implements CategoryRepository
 
         return $category;
     }
+
+    /**
+     * Destroy the given category
+     * @param $id
+     * @return mixed
+     */
+    public function destroy($id)
+    {
+        $category = $this->find($id);
+
+        return $category->delete();
+    }
 }

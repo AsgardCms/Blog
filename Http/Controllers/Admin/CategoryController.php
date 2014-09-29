@@ -96,21 +96,9 @@ class CategoryController extends AdminBaseController
      */
     public function destroy($id)
     {
-        //
-    }
+        $this->category->destroy($id);
 
-    private function separateLanguages($data)
-    {
-        $cleanedData = [];
-        foreach ($data as $key => $value) {
-            if (is_array($value)) {
-                foreach ($value as $lang => $input) {
-                    $cleanedData[$lang][$key] = $input;
-                }
-            } else {
-                $cleanedData[$key] = $value;
-            }
-        }
-        return $cleanedData;
+        Flash::success('Category destroyed');
+        return Redirect::route('dashboard.category.index');
     }
 }

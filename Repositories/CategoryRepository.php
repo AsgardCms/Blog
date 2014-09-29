@@ -36,4 +36,11 @@ interface CategoryRepository
      * @return mixed
      */
     public function update($id, $data);
+
+    /**
+     * Destroy the given category
+     * @param $id
+     * @return mixed
+     */
+    public function destroy($id);
 }
