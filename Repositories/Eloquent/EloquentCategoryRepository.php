@@ -24,4 +24,27 @@ class EloquentCategoryRepository implements CategoryRepository
     {
         return Category::find($id);
     }
+
+    /**
+     * Create a category
+     * @param $data
+     * @return mixed
+     */
+    public function create($data)
+    {
+        return Category::create($data);
+    }
+
+    /**
+     * Update a category
+     * @param $id
+     * @param $data
+     * @return mixed
+     */
+    public function update($id, $data)
+    {
+        $category = $this->find($id);
+
+        return $category->update($data);
+    }
 }

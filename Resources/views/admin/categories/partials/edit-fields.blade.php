@@ -1,5 +1,5 @@
 <div class="box-body">
-    <div class='form-group{{ $errors->has("slug[{$lang}]") ? ' has-error' : '' }}'>
+    <div class='form-group{{ $errors->has("name[{$lang}]") ? ' has-error' : '' }}'>
         {!! Form::label("name[{$lang}]", 'Name:') !!}
         {!! Form::text("name[{$lang}]", Input::old("name[{$lang}]", $category->translate($lang)->name), ['class' => 'form-control', 'placeholder' => 'Name']) !!}
         {!! $errors->first("name[{$lang}]", '<span class="help-block">:message</span>') !!}

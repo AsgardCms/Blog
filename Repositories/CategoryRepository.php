@@ -21,4 +21,19 @@ interface CategoryRepository
      * @return Category
      */
     public function find($id);
+
+    /**
+     * Create a category
+     * @param $data
+     * @return mixed
+     */
+    public function create($data);
+
+    /**
+     * Update a category
+     * @param $id
+     * @param $data
+     * @return mixed
+     */
+    public function update($id, $data);
 }

@@ -8,6 +8,7 @@ class Category extends Model
     use Translatable;
 
     public $translatedAttributes = ['name', 'slug'];
+    protected $fillable = ['name', 'slug'];
 
     public function posts()
     {

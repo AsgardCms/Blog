@@ -7,7 +7,7 @@ class UpdateCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-
+           // 'slug[en]' => 'required'
         ];
     }
 

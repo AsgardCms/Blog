@@ -1,6 +1,8 @@
 <?php namespace Modules\Blog\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
+use Laracasts\Flash\Flash;
 use Modules\Blog\Http\Requests\UpdateCategoryRequest;
 use Modules\Blog\Repositories\CategoryRepository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
@@ -75,7 +77,12 @@ class CategoryController extends AdminBaseController
      */
     public function update($id, UpdateCategoryRequest $request)
     {
-        dd($request->all());
+        $data = $this->separateLanguages($request->all());
+
+        $this->category->update($id, $data);
+
+        Flash::success('Category updated');
+        return Redirect::route('dashboard.category.index');
     }
 
     /**
@@ -87,5 +94,20 @@ class CategoryController extends AdminBaseController
     public function destroy($id)
     {
         //
+    }
+
+    private function separateLanguages($data)
+    {
+        $cleanedData = [];
+        foreach ($data as $key => $value) {
+            if (is_array($value)) {
+                foreach ($value as $lang => $input) {
+                    $cleanedData[$lang][$key] = $input;
+                }
+            } else {
+                $cleanedData[$key] = $value;
+            }
+        }
+        return $cleanedData;
     }
 }
