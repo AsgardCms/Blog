@@ -3,6 +3,7 @@
 use Illuminate\Support\Collection;
 use Modules\Blog\Entities\Category;
 use Modules\Blog\Repositories\CategoryRepository;
+use Modules\Core\Internationalisation\Helper;
 
 class EloquentCategoryRepository implements CategoryRepository
 {
@@ -45,6 +46,8 @@ class EloquentCategoryRepository implements CategoryRepository
     {
         $category = $this->find($id);
 
-        return $category->update($data);
+        Helper::saveTranslated($category, $data);
+
+        return $category;
     }
 }

@@ -77,9 +77,7 @@ class CategoryController extends AdminBaseController
      */
     public function update($id, UpdateCategoryRequest $request)
     {
-        $data = $this->separateLanguages($request->all());
-
-        $this->category->update($id, $data);
+        $this->category->update($id, $request->all());
 
         Flash::success('Category updated');
         return Redirect::route('dashboard.category.index');
