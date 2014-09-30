@@ -12,16 +12,16 @@
 
     <div class='box-body pad'>
         <form>
-            <textarea class="ckeditor-{{$lang}}" name="content[{{$lang}}]" rows="10" cols="80">
+            <textarea class="ckeditor" name="content[{{$lang}}]" rows="10" cols="80">
                 This is my textarea to be replaced with CKEditor.
             </textarea>
         </form>
     </div>
 </div>
-<script type="text/javascript">
-    $( document ).ready(function() {
-        var lang = '<?php echo $lang; ?>';
-        console.log(lang);
-        CKEDITOR.replace('ckeditor-' + lang);
-    });
-</script>
+{{--<script type="text/javascript">--}}
+    {{--$( document ).ready(function() {--}}
+        {{--var lang = '<?php echo $lang; ?>';--}}
+        {{--console.log(lang);--}}
+        {{--CKEDITOR.replace('ckeditor-' + lang);--}}
+    {{--});--}}
+{{--</script>--}}

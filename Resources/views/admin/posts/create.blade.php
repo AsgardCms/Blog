@@ -61,10 +61,10 @@
 
 @section('scripts')
 
-{{--<script type="text/javascript">--}}
-    {{--$(function() {--}}
-        {{--CKEDITOR.replace('ckeditor');--}}
-        {{--CKEDITOR.add;--}}
-    {{--});--}}
-{{--</script>--}}
+<script type="text/javascript">
+    $(function() {
+        CKEDITOR.replace('ckeditor');
+        CKEDITOR.add;
+    });
+</script>
 @stop
