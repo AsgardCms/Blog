@@ -9,6 +9,11 @@
        {!! Form::text("slug[{$lang}]", Input::old("slug[{$lang}]"), ['class' => 'form-control', 'placeholder' => 'Slug']) !!}
        {!! $errors->first("slug[{$lang}]", '<span class="help-block">:message</span>') !!}
     </div>
+    <div class='form-group{{ $errors->has("tags[{$lang}]") ? ' has-error' : '' }}'>
+       {!! Form::label("tags[{$lang}]", 'Tags:') !!}
+       {!! Form::text("tags[{$lang}]", Input::old("tags[{$lang}]"), ['class' => 'form-control', 'placeholder' => 'Tags']) !!}
+       {!! $errors->first("tags[{$lang}]", '<span class="help-block">:message</span>') !!}
+    </div>
 
     <div class='box-body pad'>
         <form>
