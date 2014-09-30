@@ -74,6 +74,11 @@ class BlogServiceProvider extends ServiceProvider
             'Modules\Blog\Repositories\CategoryRepository',
             'Modules\Blog\Repositories\Eloquent\EloquentCategoryRepository'
         );
+
+        $this->app->bind(
+            'Modules\Blog\Repositories\TagRepository',
+            'Modules\Blog\Repositories\Eloquent\EloquentTagRepository'
+        );
     }
 
 }
