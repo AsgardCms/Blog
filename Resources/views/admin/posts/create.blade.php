@@ -67,7 +67,7 @@
         CKEDITOR.replace('ckeditor');
         CKEDITOR.add;
     });
-
+    
     $( document ).ready(function() {
         $('.input-tags').selectize({
             delimiter: ',',
