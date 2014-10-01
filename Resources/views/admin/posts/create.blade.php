@@ -64,10 +64,9 @@
 <script src="{{ blog_asset('js/selectize.min.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
     $(function() {
-        CKEDITOR.replace('ckeditor');
-        CKEDITOR.add;
+        CKEDITOR.replaceAll('ckeditor');
     });
-    
+
     $( document ).ready(function() {
         $('.input-tags').selectize({
             delimiter: ',',
