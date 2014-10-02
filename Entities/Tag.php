@@ -1,5 +1,6 @@
 <?php namespace Modules\Blog\Entities;
 
+use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
