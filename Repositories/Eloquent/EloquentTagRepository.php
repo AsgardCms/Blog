@@ -44,4 +44,25 @@ class EloquentTagRepository implements TagRepository
     {
         // TODO: Implement update() method.
     }
+
+    /**
+     * @param string $slug
+     * @return mixed
+     */
+    public function findBySlug($slug)
+    {
+    }
+
+    /**
+     * Find a tag by its name
+     * @param $name
+     * @return mixed
+     */
+    public function findByName($name)
+    {
+        return Tag::whereHas('translations', function($q) use($name)
+        {
+            $q->where('name', 'like', $name);
+        })->get();
+    }
 }

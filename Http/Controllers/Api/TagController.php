@@ -1,6 +1,7 @@
 <?php namespace Modules\Blog\Http\Controllers\Api;
 
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Response;
 use Modules\Blog\Repositories\TagRepository;
 
 class TagController extends Controller
@@ -48,12 +49,12 @@ class TagController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param $name
      * @return Response
      */
-    public function show($id)
+    public function show($name)
     {
-        return \View::make('collection.show');
+        return Response::json($this->tag->findByName($name));
     }
 
     /**

@@ -21,4 +21,9 @@ Route::group([
         'destroy' => 'dashboard.category.destroy',
     ]]);
 });
-Route::resource('tag', 'Modules\Blog\Http\Controllers\Api\TagController', ['except' => ['show']]);
+
+Route::group([
+        'prefix' => 'api',
+        'namespace' => 'Modules\Blog\Http\Controllers'], function () {
+    Route::resource('tag', 'Api\TagController');
+});

@@ -4,6 +4,10 @@
  * Interface TagRepository
  * @package Modules\Blog\Repositories
  */
+/**
+ * Interface TagRepository
+ * @package Modules\Blog\Repositories
+ */
 interface TagRepository
 {
     /**
@@ -33,4 +37,16 @@ interface TagRepository
      * @return mixed
      */
     public function update($id, $data);
+
+    /**
+     * @param string $slug
+     * @return mixed
+     */
+    public function findBySlug($slug);
+
+    /**
+     * @param $name
+     * @return mixed
+     */
+    public function findByName($name);
 }

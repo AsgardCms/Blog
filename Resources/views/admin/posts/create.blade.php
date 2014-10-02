@@ -62,22 +62,27 @@
 
 @section('scripts')
 <script src="{{ blog_asset('js/selectize.min.js') }}" type="text/javascript"></script>
+<script src="{{ blog_asset('js/MySelectize.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
     $(function() {
         CKEDITOR.replaceAll('ckeditor');
     });
 
     $( document ).ready(function() {
-        $('.input-tags').selectize({
-            delimiter: ',',
-            persist: false,
-            create: function(input) {
-                return {
-                    value: input,
-                    text: input
-                }
-            }
+        $('.input-tags').MySelectize({
+            'findUri' : '/api/tag',
+            'createUri' : '/api/tags/create/'
         });
+//        $('.input-tags').selectize({
+//            delimiter: ',',
+//            persist: false,
+//            create: function(input) {
+//                return {
+//                    value: input,
+//                    text: input
+//                }
+//            }
+//        });
     });
 </script>
 @stop

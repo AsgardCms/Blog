@@ -26,9 +26,9 @@
             var self = this;
             this.inputTags = $(this.element).selectize({
                 plugins: ['remove_button'],
-                valueField: 'iId',
-                labelField: 'sName',
-                searchField: 'sName',
+                valueField: 'id',
+                labelField: 'name',
+                searchField: 'name',
                 delimiter: ',',
                 hideSelected: true,
                 persist: false,
@@ -36,6 +36,7 @@
                 load: $.proxy(this.selectizeLoad, this),
                 render: {
                     option_create: function (data, escape) {
+                        addTag = 'Add...'
                         return '<div class="create">' + addTag + ' <strong>"' + escape(data.input) + '"</strong>&hellip;</div>';
                     }
                 },
@@ -54,8 +55,9 @@
         },
         selectizeLoad: function (query, callback) {
             if (!query.length) return callback();
+            console.log(this.settings.findUri + query);
             $.ajax({
-                url: baseurl + this.settings.findUri + query,
+                url: this.settings.findUri + query,
                 type: 'GET',
                 dataType: 'json',
                 error: function () {
@@ -68,7 +70,7 @@
         },
         addTag: function (tagName) {
             $.ajax({
-                url: baseurl + this.settings.createUri + tagName,
+                url: this.settings.createUri + tagName,
                 type: 'GET',
                 dataType: 'json',
                 error: function () {
