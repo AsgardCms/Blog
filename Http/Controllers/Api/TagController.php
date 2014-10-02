@@ -1,9 +1,20 @@
 <?php namespace Modules\Blog\Http\Controllers\Api;
 
 use Illuminate\Routing\Controller;
+use Modules\Blog\Repositories\TagRepository;
 
 class TagController extends Controller
 {
+    /**
+     * @var TagRepository
+     */
+    private $tag;
+
+    public function __construct(TagRepository $tag)
+    {
+        $this->tag = $tag;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -11,7 +22,7 @@ class TagController extends Controller
      */
     public function index()
     {
-        return \View::make('collection.index');
+        return $this->tag->all();
     }
 
     /**

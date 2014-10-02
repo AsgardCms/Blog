@@ -1,5 +1,6 @@
 <?php namespace Modules\Blog\Repositories\Eloquent;
 
+use Modules\Blog\Entities\Tag;
 use Modules\Blog\Repositories\TagRepository;
 
 class EloquentTagRepository implements TagRepository
@@ -30,7 +31,7 @@ class EloquentTagRepository implements TagRepository
      */
     public function all()
     {
-        // TODO: Implement all() method.
+        return Tag::all();
     }
 
     /**
