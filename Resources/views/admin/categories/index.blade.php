@@ -2,11 +2,11 @@
 
 @section('content-header')
 <h1>
-    {{ trans('blog::category.title') }}
+    {{ trans('blog::category.title.category') }}
 </h1>
 <ol class="breadcrumb">
     <li><a href="{{ URL::route('dashboard.index') }}"><i class="fa fa-dashboard"></i> {{ trans('core::core.breadcrumb.home') }}</a></li>
-    <li class="active">{{ trans('blog::category.title') }}</li>
+    <li class="active">{{ trans('blog::category.title.category') }}</li>
 </ol>
 @stop
 

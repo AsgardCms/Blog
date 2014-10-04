@@ -1,7 +1,10 @@
 <?php
 
 return [
-    'title' => 'Categories',
+    'title' => [
+        'category' => 'Categories',
+        'create category' => 'Create category',
+    ],
     'button' => [
         'create category' => 'Create category'
     ],
@@ -14,8 +17,4 @@ return [
         'name' => 'Name',
         'slug' => 'Slug',
     ],
-    'tabs' => [
-        'english' => 'English',
-        'french' => 'French',
-    ]
 ];
