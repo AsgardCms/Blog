@@ -2,11 +2,11 @@
 
 @section('content-header')
 <h1>
-    Categories
+    {{ trans('blog::category.title') }}
 </h1>
 <ol class="breadcrumb">
-    <li><a href="{{ URL::route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li class="active">Categories</li>
+    <li><a href="{{ URL::route('dashboard.index') }}"><i class="fa fa-dashboard"></i> {{ trans('core::core.breadcrumb.home') }}</a></li>
+    <li class="active">{{ trans('blog::category.title') }}</li>
 </ol>
 @stop
 
@@ -17,7 +17,7 @@
             @include('flash::message')
             <div class="btn-group pull-right" style="margin: 0 15px 15px 0;">
                 <a href="{{ URL::route('dashboard.category.create') }}" class="btn btn-primary btn-flat" style="padding: 4px 10px;">
-                    <i class="fa fa-pencil"></i> New Category
+                    <i class="fa fa-pencil"></i> {{ trans('blog::category.button.create category') }}
                 </a>
             </div>
         </div>
@@ -29,10 +29,10 @@
                 <table class="data-table table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>Created at</th>
-                            <th>Name</th>
-                            <th>Slug</th>
-                            <th>Actions</th>
+                            <th>{{ trans('core::core.table.created at') }}</th>
+                            <th>{{ trans('blog::category.table.name') }}</th>
+                            <th>{{ trans('blog::category.table.slug') }}</th>
+                            <th>{{ trans('core::core.table.actions') }}</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,10 +66,10 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>Created at</th>
-                            <th>Name</th>
-                            <th>Slug</th>
-                            <th>Actions</th>
+                            <th>{{ trans('core::core.table.created at') }}</th>
+                            <th>{{ trans('blog::category.table.name') }}</th>
+                            <th>{{ trans('blog::category.table.slug') }}</th>
+                            <th>{{ trans('core::core.table.actions') }}</th>
                         </tr>
                     </tfoot>
                 </table>
@@ -87,15 +87,15 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+                    <h4 class="modal-title" id="myModalLabel">{{ trans('core::core.modal.title') }}</h4>
                 </div>
                 <div class="modal-body">
-                    Are you sure you want to delete this record?
+                    {{ trans('core::core.modal.confirmation-message') }}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">{{ trans('core::core.button.cancel') }}</button>
                     {!! Form::open(['route' => ['dashboard.category.destroy', $category->id], 'method' => 'delete', 'class' => 'pull-left']) !!}
-                        <button type="submit" class="btn btn-danger btn-flat"><i class="glyphicon glyphicon-trash"></i> Delete</button>
+                        <button type="submit" class="btn btn-danger btn-flat"><i class="glyphicon glyphicon-trash"></i> {{ trans('core::core.button.delete') }}</button>
                     {!! Form::close() !!}
                 </div>
             </div>
