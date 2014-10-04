@@ -4,6 +4,7 @@ return [
     'title' => [
         'category' => 'Categories',
         'create category' => 'Create category',
+        'edit category' => 'Edit category',
     ],
     'button' => [
         'create category' => 'Create category'
