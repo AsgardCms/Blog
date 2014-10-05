@@ -7,5 +7,8 @@
   "require": {
       "dimsav/laravel-translatable": "dev-laravel-5"
   },
-  "active": 1
+  "active": 1,
+  "providers": [
+      "Modules\\Blog\\Providers\\BlogServiceProvider"
+  ]
 }
