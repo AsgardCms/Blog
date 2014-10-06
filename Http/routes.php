@@ -1,5 +1,5 @@
 <?php
-Route::group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'LaravelLocalizationRedirectFilter'], function()
+Route::group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'LaravelLocalizationRedirectFilter|admin.auth|permissions'], function()
 {
     Route::group([
         'prefix' => Config::get('core::core.admin-prefix'),

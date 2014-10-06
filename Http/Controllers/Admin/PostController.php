@@ -21,8 +21,6 @@ class PostController extends AdminBaseController
     {
         parent::__construct();
 
-        $this->beforeFilter('permissions');
-
         $this->post = $post;
         $this->category = $category;
     }

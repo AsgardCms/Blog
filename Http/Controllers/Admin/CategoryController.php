@@ -19,8 +19,6 @@ class CategoryController extends AdminBaseController
     {
         parent::__construct();
 
-        $this->beforeFilter('permissions');
-
         $this->category = $category;
     }
 
