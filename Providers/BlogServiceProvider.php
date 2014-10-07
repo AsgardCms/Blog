@@ -19,7 +19,8 @@ class BlogServiceProvider extends ServiceProvider
      */
     protected $filters = [
         'Core' => [
-            'permissions' => 'PermissionFilter'
+            'permissions' => 'PermissionFilter',
+            'auth.admin' => 'AdminFilter',
         ]
     ];
 
