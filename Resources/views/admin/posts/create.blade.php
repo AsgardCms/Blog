@@ -7,12 +7,12 @@
 
 @section('content-header')
 <h1>
-    Create Post
+    {{ trans('blog::post.title.create post') }}
 </h1>
 <ol class="breadcrumb">
-    <li><a href="{{ URL::route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="{{ URL::route('dashboard.post.index') }}">Posts</a></li>
-    <li class="active">Create Post</li>
+    <li><a href="{{ URL::route('dashboard.index') }}"><i class="fa fa-dashboard"></i> {{ trans('core::core.breadcrumb.home') }}</a></li>
+    <li><a href="{{ URL::route('dashboard.post.index') }}">{{ trans('blog::post.title.post') }}</a></li>
+    <li class="active">{{ trans('blog::post.title.create post') }}</li>
 </ol>
 @stop
 
@@ -22,8 +22,8 @@
     <div class="col-md-10">
         <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#tab_1-1" data-toggle="tab">English</a></li>
-                <li><a href="#tab_2-2" data-toggle="tab">French</a></li>
+                <li class="active"><a href="#tab_1-1" data-toggle="tab">{{ trans('core::core.tab.english') }}</a></li>
+                <li><a href="#tab_2-2" data-toggle="tab">{{ trans('core::core.tab.french') }}</a></li>
             </ul>
             <div class="tab-content">
                 <div class="row">
@@ -36,8 +36,8 @@
                     @include('blog::admin.posts.partials.create-fields', ['lang' => 'fr'])
                 </div>
                 <div class="box-footer">
-                    <button type="submit" class="btn btn-primary btn-flat">Create post</button>
-                    <a class="btn btn-danger pull-right btn-flat" href="{{ URL::route('dashboard.post.index')}}"><i class="fa fa-times"></i> Cancel</a>
+                    <button type="submit" class="btn btn-primary btn-flat">{{ trans('blog::post.button.create post') }}</button>
+                    <a class="btn btn-danger pull-right btn-flat" href="{{ URL::route('dashboard.post.index')}}"><i class="fa fa-times"></i> {{ trans('core::core.button.cancel') }}</a>
                 </div>
             </div>
         </div> {{-- end nav-tabs-custom --}}
