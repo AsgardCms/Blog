@@ -1,10 +1,9 @@
 <?php namespace Modules\Blog\Http\Controllers\Api;
 
-use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Response;
 use Modules\Blog\Repositories\TagRepository;
 
-class TagController extends Controller
+class TagController
 {
     /**
      * @var TagRepository
