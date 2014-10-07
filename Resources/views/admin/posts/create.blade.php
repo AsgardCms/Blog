@@ -70,19 +70,9 @@
 
     $( document ).ready(function() {
         $('.input-tags').MySelectize({
-            'findUri' : '/api/tag',
+            'findUri' : '/api/tag/',
             'createUri' : '/api/tags/create/'
         });
-//        $('.input-tags').selectize({
-//            delimiter: ',',
-//            persist: false,
-//            create: function(input) {
-//                return {
-//                    value: input,
-//                    text: input
-//                }
-//            }
-//        });
     });
 </script>
 @stop
