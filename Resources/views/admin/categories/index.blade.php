@@ -106,6 +106,7 @@
 @stop
 
 @section('scripts')
+<?php $locale = LaravelLocalization::setLocale(); ?>
 <script type="text/javascript">
     $(function () {
         $('.data-table').dataTable({
@@ -115,6 +116,9 @@
             "bSort": true,
             "bInfo": true,
             "bAutoWidth": true,
+            "oLanguage": {
+                "sUrl": '<?php echo core_asset("js/vendor/datatables/{$locale}.json") ?>'
+            },
             "aoColumns": [
                 null,
                 null,
