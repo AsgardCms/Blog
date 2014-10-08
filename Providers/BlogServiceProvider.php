@@ -2,6 +2,8 @@
 
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
+use Modules\Blog\Entities\Category;
+use Modules\Blog\Repositories\Eloquent\EloquentCategoryRepository;
 
 class BlogServiceProvider extends ServiceProvider
 {
@@ -73,7 +75,9 @@ class BlogServiceProvider extends ServiceProvider
 
         $this->app->bind(
             'Modules\Blog\Repositories\CategoryRepository',
-            'Modules\Blog\Repositories\Eloquent\EloquentCategoryRepository'
+            function() {
+                return new EloquentCategoryRepository(new Category);
+            }
         );
 
         $this->app->bind(

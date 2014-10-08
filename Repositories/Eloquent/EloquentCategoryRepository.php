@@ -4,28 +4,10 @@ use Illuminate\Support\Collection;
 use Modules\Blog\Entities\Category;
 use Modules\Blog\Repositories\CategoryRepository;
 use Modules\Core\Internationalisation\Helper;
+use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
 
-class EloquentCategoryRepository implements CategoryRepository
+class EloquentCategoryRepository extends EloquentBaseRepository implements CategoryRepository
 {
-    /**
-     * Get all the categories
-     * @return Collection
-     */
-    public function all()
-    {
-        return Category::all();
-    }
-
-    /**
-     * Find a category by its ID
-     * @param $id
-     * @return Category
-     */
-    public function find($id)
-    {
-        return Category::find($id);
-    }
-
     /**
      * Create a category
      * @param $data
@@ -49,17 +31,5 @@ class EloquentCategoryRepository implements CategoryRepository
         Helper::saveTranslated($category, $data);
 
         return $category;
-    }
-
-    /**
-     * Destroy the given category
-     * @param $id
-     * @return mixed
-     */
-    public function destroy($id)
-    {
-        $category = $this->find($id);
-
-        return $category->delete();
     }
 }
