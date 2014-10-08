@@ -29,4 +29,5 @@ Route::group([
         'prefix' => 'api',
         'namespace' => 'Modules\Blog\Http\Controllers'], function () {
     Route::resource('tag', 'Api\TagController');
+    Route::get('tag/findByName/{name}', 'Api\TagController@findByName');
 });

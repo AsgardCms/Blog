@@ -1,6 +1,8 @@
 <?php namespace Modules\Blog\Http\Controllers\Api;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Response;
+use Modules\Blog\Http\Requests\CreateTagRequest;
 use Modules\Blog\Repositories\TagRepository;
 
 class TagController
@@ -38,20 +40,23 @@ class TagController
     /**
      * Store a newly created resource in storage.
      *
+     * @param CreateTagRequest $request
      * @return Response
      */
-    public function store()
+    public function store(CreateTagRequest $request)
     {
-        //
+        $tag = $this->tag->createForLanguage(App::getLocale(), $request->name);
+
+        return Response::json($tag);
     }
 
     /**
-     * Display the specified resource.
+     * Find the resource by name
      *
      * @param $name
      * @return Response
      */
-    public function show($name)
+    public function findByName($name)
     {
         return Response::json($this->tag->findByName($name));
     }

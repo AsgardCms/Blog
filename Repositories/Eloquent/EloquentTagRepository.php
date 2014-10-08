@@ -85,4 +85,19 @@ class EloquentTagRepository implements TagRepository
 
         return $cleanedTags;
     }
+
+    /**
+     * Create the tag for the specified language
+     * @param string $lang
+     * @param array $name
+     * @return mixed
+     */
+    public function createForLanguage($lang = 'en', $name)
+    {
+        $tag = new Tag;
+        $tag->translate($lang)->name = $name;
+        $tag->save();
+
+        return $tag;
+    }
 }

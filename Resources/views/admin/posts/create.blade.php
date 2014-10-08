@@ -53,6 +53,11 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
+                <div class='form-group{{ $errors->has("tags") ? ' has-error' : '' }}'>
+                   {!! Form::label("tags", 'Tags:') !!}
+                   {!! Form::text("tags", Input::old("tags"), ['class' => 'input-tags', 'placeholder' => 'Tags']) !!}
+                   {!! $errors->first("tags", '<span class="help-block">:message</span>') !!}
+                </div>
             </div>
         </div>
     </div>
@@ -70,8 +75,8 @@
 
     $( document ).ready(function() {
         $('.input-tags').MySelectize({
-            'findUri' : '/api/tag/',
-            'createUri' : '/api/tags/create/'
+            'findUri' : '/api/tag/findByName/',
+            'createUri' : '/api/tag'
         });
     });
 </script>

@@ -36,6 +36,9 @@
                 load: $.proxy(this.selectizeLoad, this),
                 onItemAdd: function () {
                     self.control.close();
+                },
+                onType: function() {
+                    self.control.loadedSearches = {};
                 }
             });
             this.control = this.inputTags[0].selectize;
@@ -53,19 +56,20 @@
                 url: this.settings.findUri + query,
                 type: 'GET',
                 dataType: 'json',
+                cache: false,
                 error: function () {
                     callback();
                 },
                 success: function (res) {
-                    console.log(res);
                     callback(res);
                 }
             });
         },
         addTag: function (tagName) {
             $.ajax({
-                url: this.settings.createUri + tagName,
-                type: 'GET',
+                url: this.settings.createUri,
+                type: 'POST',
+                data: {'name': tagName},
                 dataType: 'json',
                 error: function () {
                 },
@@ -74,11 +78,11 @@
         },
         addTagSuccess: function (res) {
             this.control.addOption({
-                iId: res.data.iId,
-                sName: res.data.sName
+                id: res.id,
+                name: res.translations[0].name
             });
             this.storeRefreshedSelectOptions();
-            this.selectOptions.push(res.data.iId);
+            this.selectOptions.push(res.id);
             this.control.setValue(this.selectOptions);
             $(this.element).parent().find('input[type=text]').val('');
         },

@@ -9,11 +9,6 @@
        {!! Form::text("slug[{$lang}]", Input::old("slug[{$lang}]"), ['class' => 'form-control', 'placeholder' => trans('blog::post.form.slug')]) !!}
        {!! $errors->first("slug[{$lang}]", '<span class="help-block">:message</span>') !!}
     </div>
-    <div class='form-group{{ $errors->has("tags[{$lang}]") ? ' has-error' : '' }}'>
-       {!! Form::label("tags[{$lang}]", 'Tags:') !!}
-       {!! Form::text("tags[{$lang}]", Input::old("tags[{$lang}]"), ['class' => 'input-tags', 'placeholder' => 'Tags']) !!}
-       {!! $errors->first("tags[{$lang}]", '<span class="help-block">:message</span>') !!}
-    </div>
 
     <div class='box-body pad'>
         <textarea class="ckeditor" name="content[{{$lang}}]" rows="10" cols="80">

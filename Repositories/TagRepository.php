@@ -4,10 +4,6 @@
  * Interface TagRepository
  * @package Modules\Blog\Repositories
  */
-/**
- * Interface TagRepository
- * @package Modules\Blog\Repositories
- */
 interface TagRepository
 {
     /**
@@ -49,4 +45,12 @@ interface TagRepository
      * @return mixed
      */
     public function findByName($name);
+
+    /**
+     * Create the tag for the specified language
+     * @param string $lang
+     * @param array $name
+     * @return mixed
+     */
+    public function createForLanguage($lang, $name);
 }
