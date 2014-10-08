@@ -34,12 +34,6 @@
                 persist: false,
                 create: $.proxy(this.selectizeCreate, this),
                 load: $.proxy(this.selectizeLoad, this),
-                render: {
-                    option_create: function (data, escape) {
-                        addTag = 'Add...'
-                        return '<div class="create">' + addTag + ' <strong>"' + escape(data.input) + '"</strong>&hellip;</div>';
-                    }
-                },
                 onItemAdd: function () {
                     self.control.close();
                 }
@@ -55,7 +49,6 @@
         },
         selectizeLoad: function (query, callback) {
             if (!query.length) return callback();
-            console.log(this.settings.findUri + query);
             $.ajax({
                 url: this.settings.findUri + query,
                 type: 'GET',
@@ -64,7 +57,8 @@
                     callback();
                 },
                 success: function (res) {
-                    callback(res.data);
+                    console.log(res);
+                    callback(res);
                 }
             });
         },

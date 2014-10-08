@@ -1,5 +1,6 @@
 <?php namespace Modules\Blog\Repositories\Eloquent;
 
+use Illuminate\Support\Facades\App;
 use Modules\Blog\Entities\Tag;
 use Modules\Blog\Repositories\TagRepository;
 
@@ -60,9 +61,28 @@ class EloquentTagRepository implements TagRepository
      */
     public function findByName($name)
     {
-        return Tag::whereHas('translations', function($q) use($name)
+        $tags = Tag::with('translations')->whereHas('translations', function($q) use($name)
         {
-            $q->where('name', 'like', $name);
+            $q->where('name', 'like', "%$name%");
         })->get();
+
+        return $this->setLocaleAsKey($tags);
+    }
+
+    private function setLocaleAsKey($tags)
+    {
+        $cleanedTags = [];
+        foreach ($tags as $tag) {
+            foreach ($tag->translations as $tagTranslation) {
+                if (App::getLocale() == $tagTranslation->locale) {
+                    $cleanedTags[] = [
+                        'id' => $tag->id,
+                        'name' => $tagTranslation->name
+                    ];
+                }
+            }
+        }
+
+        return $cleanedTags;
     }
 }
