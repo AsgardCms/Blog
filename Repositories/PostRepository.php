@@ -1,12 +1,7 @@
 <?php namespace Modules\Blog\Repositories;
 
-use Illuminate\Support\Collection;
+use Modules\Core\Repositories\BaseRepository;
 
-interface PostRepository
+interface PostRepository extends BaseRepository
 {
-    /**
-     * Return all blog posts
-     * @return Collection
-     */
-    public function all();
 }

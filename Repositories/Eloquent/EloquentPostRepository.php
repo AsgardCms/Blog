@@ -3,15 +3,17 @@
 use Illuminate\Support\Collection;
 use Modules\Blog\Entities\Post;
 use Modules\Blog\Repositories\PostRepository;
+use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
 
-class EloquentPostRepository implements PostRepository
+class EloquentPostRepository extends EloquentBaseRepository implements PostRepository
 {
     /**
-     * Return all blog posts
-     * @return Collection
+     * Update a resource
+     * @param $id
+     * @param $data
+     * @return mixed
      */
-    public function all()
+    public function update($id, $data)
     {
-        return Post::all();
     }
 }
