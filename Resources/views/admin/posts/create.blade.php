@@ -22,8 +22,8 @@
     <div class="col-md-10">
         <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
-                <li class="active"><a href="#tab_1-1" data-toggle="tab">{{ trans('core::core.tab.english') }}</a></li>
-                <li><a href="#tab_2-2" data-toggle="tab">{{ trans('core::core.tab.french') }}</a></li>
+                <li class="{{ App::getLocale() == 'en' ? 'active' : '' }}"><a href="#tab_1-1" data-toggle="tab">{{ trans('core::core.tab.english') }}</a></li>
+                <li class="{{ App::getLocale() == 'fr' ? 'active' : '' }}"><a href="#tab_2-2" data-toggle="tab">{{ trans('core::core.tab.french') }}</a></li>
             </ul>
             <div class="tab-content">
                 <div class="row">
