@@ -3,7 +3,9 @@
 use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Modules\Blog\Entities\Category;
+use Modules\Blog\Entities\Post;
 use Modules\Blog\Repositories\Eloquent\EloquentCategoryRepository;
+use Modules\Blog\Repositories\Eloquent\EloquentPostRepository;
 
 class BlogServiceProvider extends ServiceProvider
 {
@@ -70,7 +72,9 @@ class BlogServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             'Modules\Blog\Repositories\PostRepository',
-            'Modules\Blog\Repositories\Eloquent\EloquentPostRepository'
+            function() {
+                return new EloquentPostRepository(new Post);
+            }
         );
 
         $this->app->bind(
