@@ -1,39 +1,13 @@
 <?php namespace Modules\Blog\Repositories;
 
+use Modules\Core\Repositories\BaseRepository;
+
 /**
  * Interface TagRepository
  * @package Modules\Blog\Repositories
  */
-interface TagRepository
+interface TagRepository extends BaseRepository
 {
-    /**
-     * Create a tag
-     * @param $data
-     * @return mixed
-     */
-    public function create($data);
-
-    /**
-     * Find a tag by id
-     * @param $id
-     * @return mixed
-     */
-    public function find($id);
-
-    /**
-     * Find all tags
-     * @return mixed
-     */
-    public function all();
-
-    /**
-     * Update a tag by its ID
-     * @param $id
-     * @param $data
-     * @return mixed
-     */
-    public function update($id, $data);
-
     /**
      * @param string $slug
      * @return mixed

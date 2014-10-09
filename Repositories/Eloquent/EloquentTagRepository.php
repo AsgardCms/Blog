@@ -3,8 +3,9 @@
 use Illuminate\Support\Facades\App;
 use Modules\Blog\Entities\Tag;
 use Modules\Blog\Repositories\TagRepository;
+use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
 
-class EloquentTagRepository implements TagRepository
+class EloquentTagRepository extends EloquentBaseRepository implements TagRepository
 {
     /**
      * Create a tag
@@ -14,25 +15,6 @@ class EloquentTagRepository implements TagRepository
     public function create($data)
     {
         // TODO: Implement create() method.
-    }
-
-    /**
-     * Find a tag by id
-     * @param $id
-     * @return mixed
-     */
-    public function find($id)
-    {
-        // TODO: Implement find() method.
-    }
-
-    /**
-     * Find all tags
-     * @return mixed
-     */
-    public function all()
-    {
-        return Tag::all();
     }
 
     /**

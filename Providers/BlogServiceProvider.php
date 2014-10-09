@@ -4,8 +4,10 @@ use Illuminate\Routing\Router;
 use Illuminate\Support\ServiceProvider;
 use Modules\Blog\Entities\Category;
 use Modules\Blog\Entities\Post;
+use Modules\Blog\Entities\Tag;
 use Modules\Blog\Repositories\Eloquent\EloquentCategoryRepository;
 use Modules\Blog\Repositories\Eloquent\EloquentPostRepository;
+use Modules\Blog\Repositories\Eloquent\EloquentTagRepository;
 
 class BlogServiceProvider extends ServiceProvider
 {
@@ -86,7 +88,9 @@ class BlogServiceProvider extends ServiceProvider
 
         $this->app->bind(
             'Modules\Blog\Repositories\TagRepository',
-            'Modules\Blog\Repositories\Eloquent\EloquentTagRepository'
+            function() {
+                return new EloquentTagRepository(new Tag);
+            }
         );
     }
 
