@@ -57,7 +57,7 @@ class PostController extends AdminBaseController
      */
     public function store(StorePostRequest $request)
     {
-        dd($request->all());
+        $this->post->create($request->all());
     }
 
     /**

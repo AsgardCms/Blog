@@ -12,11 +12,11 @@ class Post extends Model
 
     public function category()
     {
-        return $this->hasOne('Category');
+        return $this->hasOne('Modules\Blog\Entities\Category');
     }
 
     public function tags()
     {
-        return $this->belongsToMany('Tag');
+        return $this->belongsToMany('Modules\Blog\Entities\Tag');
     }
 }
