@@ -1,5 +1,6 @@
 <?php namespace Modules\Blog\Http\Controllers\Admin;
 
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\View;
 use Modules\Blog\Http\Requests\StorePostRequest;
 use Modules\Blog\Repositories\CategoryRepository;
@@ -44,7 +45,7 @@ class PostController extends AdminBaseController
      */
     public function create()
     {
-        $categories = $this->category->all();
+        $categories = $this->category->allTranslatedIn(App::getLocale());
 
         return View::make('blog::admin.posts.create', compact('categories'));
     }

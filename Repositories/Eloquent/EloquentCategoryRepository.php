@@ -32,4 +32,17 @@ class EloquentCategoryRepository extends EloquentBaseRepository implements Categ
 
         return $category;
     }
+
+    /**
+     * Return all categories in the given language
+     * @param $lang
+     * @return mixed
+     */
+    public function allTranslatedIn($lang)
+    {
+        return $this->model->whereHas('translations', function($q) use($lang)
+        {
+            $q->where('locale', "$lang");
+        })->get();
+    }
 }

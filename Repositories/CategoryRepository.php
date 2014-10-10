@@ -10,4 +10,10 @@ use Modules\Core\Repositories\BaseRepository;
  */
 interface CategoryRepository extends BaseRepository
 {
+    /**
+     * Return resources translated in the given language
+     * @param $lang
+     * @return mixed
+     */
+    public function allTranslatedIn($lang);
 }
