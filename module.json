@@ -4,9 +4,6 @@
   "description": "A simple blog module with categories and tags",
   "keywords": [
   ],
-  "require": {
-      "dimsav/laravel-translatable": "dev-laravel-5"
-  },
   "active": 1,
   "providers": [
       "Modules\\Blog\\Providers\\BlogServiceProvider"
