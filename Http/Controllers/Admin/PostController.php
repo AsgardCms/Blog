@@ -59,6 +59,9 @@ class PostController extends AdminBaseController
     public function store(StorePostRequest $request)
     {
         $this->post->create($request->all());
+
+        Flash::success('Post created');
+        return Redirect::route('dashboard.post.index');
     }
 
     /**
