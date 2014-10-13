@@ -104,6 +104,12 @@ class PostController extends AdminBaseController
      */
     public function destroy($id)
     {
-        //
+        $post = $this->post->find($id);
+        $post->tags()->detach();
+
+        $this->post->destroy($id);
+
+        Flash::success('Post destroyed');
+        return Redirect::route('dashboard.post.index');
     }
 }
