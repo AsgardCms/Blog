@@ -1,8 +1,11 @@
 <?php namespace Modules\Blog\Http\Controllers\Admin;
 
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
+use Laracasts\Flash\Flash;
 use Modules\Blog\Http\Requests\StorePostRequest;
+use Modules\Blog\Http\Requests\UpdatePostRequest;
 use Modules\Blog\Repositories\CategoryRepository;
 use Modules\Blog\Repositories\PostRepository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
@@ -72,18 +75,25 @@ class PostController extends AdminBaseController
      */
     public function edit($id)
     {
-        return View::make('collection.edit');
+        $post = $this->post->find($id);
+
+        $categories = $this->category->allTranslatedIn(App::getLocale());
+
+        return View::make('blog::admin.posts.edit', compact('post', 'categories'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  int $id
-     * @return Response
+     * @param UpdatePostRequest $request
      */
-    public function update($id)
+    public function update($id, UpdatePostRequest $request)
     {
-        //
+        $this->post->update($id, $request->all());
+
+        Flash::success('Post updated');
+        return Redirect::route('dashboard.post.index');
     }
 
     /**
