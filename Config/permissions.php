@@ -25,4 +25,12 @@ return [
         'update',
         'destroy'
     ],
+    'files' => [
+        'index',
+        'create',
+        'store',
+        'edit',
+        'update',
+        'destroy'
+    ],
 ];

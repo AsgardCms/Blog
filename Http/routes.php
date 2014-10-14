@@ -20,7 +20,10 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'Laravel
             'update' => 'dashboard.category.update',
             'destroy' => 'dashboard.category.destroy',
         ]]);
+
+        get('files', 'Admin\FileController@index');
     });
+
 });
 
 Route::group(['prefix' => 'api'], function () {

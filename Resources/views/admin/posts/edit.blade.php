@@ -77,7 +77,9 @@
 <script src="{{ blog_asset('js/MySelectize.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
     $(function() {
-        CKEDITOR.replaceAll('ckeditor');
+        CKEDITOR.replaceAll(function( textarea, config ) {
+            config.language = '<?php echo App::getLocale() ?>';
+        } );
     });
 
     $( document ).ready(function() {
