@@ -16,7 +16,6 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      */
     public function update($id, $data)
     {
-
         $post = $this->find($id);
         $post->tags()->sync($data['tags']);
 
@@ -27,6 +26,11 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
         return $post;
     }
 
+    /**
+     * Create a blog post
+     * @param array $data
+     * @return Post
+     */
     public function create($data)
     {
         $post = new Post;
