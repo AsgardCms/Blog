@@ -6,6 +6,7 @@
   ],
   "active": 1,
   "providers": [
-      "Modules\\Blog\\Providers\\BlogServiceProvider"
+      "Modules\\Blog\\Providers\\BlogServiceProvider",
+      "Modules\\Blog\\Providers\\RouteServiceProvider"
   ]
 }

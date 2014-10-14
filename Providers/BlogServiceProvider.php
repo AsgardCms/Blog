@@ -93,5 +93,4 @@ class BlogServiceProvider extends ServiceProvider
             }
         );
     }
-
 }

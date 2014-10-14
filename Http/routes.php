@@ -1,9 +1,7 @@
 <?php
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'LaravelLocalizationRedirectFilter|admin.auth|permissions'], function()
 {
-    Route::group([
-        'prefix' => Config::get('core::core.admin-prefix'),
-        'namespace' => 'Modules\Blog\Http\Controllers'], function () {
+    Route::group(['prefix' => Config::get('core::core.admin-prefix')], function () {
 
         Route::resource('posts', 'Admin\PostController', ['except' => ['show'], 'names' => [
             'index' => 'dashboard.post.index',
@@ -25,9 +23,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'Laravel
     });
 });
 
-Route::group([
-        'prefix' => 'api',
-        'namespace' => 'Modules\Blog\Http\Controllers'], function () {
+Route::group(['prefix' => 'api'], function () {
     Route::resource('tag', 'Api\TagController');
     Route::get('tag/findByName/{name}', 'Api\TagController@findByName');
 });
