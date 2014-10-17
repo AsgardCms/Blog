@@ -1,6 +1,5 @@
 <?php namespace Modules\Blog\Repositories\Eloquent;
 
-use Illuminate\Support\Collection;
 use Modules\Blog\Entities\Post;
 use Modules\Blog\Repositories\PostRepository;
 use Modules\Core\Internationalisation\Helper;

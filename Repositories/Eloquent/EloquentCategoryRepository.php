@@ -1,7 +1,5 @@
 <?php namespace Modules\Blog\Repositories\Eloquent;
 
-use Illuminate\Support\Collection;
-use Modules\Blog\Entities\Category;
 use Modules\Blog\Repositories\CategoryRepository;
 use Modules\Core\Internationalisation\Helper;
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;

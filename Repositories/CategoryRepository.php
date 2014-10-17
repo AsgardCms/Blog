@@ -1,7 +1,5 @@
 <?php namespace Modules\Blog\Repositories;
 
-use Illuminate\Support\Collection;
-use Modules\Blog\Entities\Category;
 use Modules\Core\Repositories\BaseRepository;
 
 /**
