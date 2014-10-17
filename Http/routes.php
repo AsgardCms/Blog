@@ -1,9 +1,9 @@
 <?php
-Route::group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'LaravelLocalizationRedirectFilter|admin.auth|permissions'], function()
+$router->group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'LaravelLocalizationRedirectFilter|admin.auth|permissions'], function($router)
 {
-    Route::group(['prefix' => Config::get('core::core.admin-prefix')], function () {
+    $router->group(['prefix' => Config::get('core::core.admin-prefix')], function ($router) {
 
-        Route::resource('posts', 'Admin\PostController', ['except' => ['show'], 'names' => [
+        $router->resource('posts', 'Admin\PostController', ['except' => ['show'], 'names' => [
             'index' => 'dashboard.post.index',
             'create' => 'dashboard.post.create',
             'store' => 'dashboard.post.store',
@@ -12,7 +12,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'Laravel
             'destroy' => 'dashboard.post.destroy',
         ]]);
 
-        Route::resource('categories', 'Admin\CategoryController', ['except' => ['show'], 'names' => [
+        $router->resource('categories', 'Admin\CategoryController', ['except' => ['show'], 'names' => [
             'index' => 'dashboard.category.index',
             'create' => 'dashboard.category.create',
             'store' => 'dashboard.category.store',
@@ -21,12 +21,12 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'Laravel
             'destroy' => 'dashboard.category.destroy',
         ]]);
 
-        get('files', 'Admin\FileController@index');
+        $router->get('files', 'Admin\FileController@index');
     });
 
 });
 
-Route::group(['prefix' => 'api'], function () {
-    Route::resource('tag', 'Api\TagController');
-    Route::get('tag/findByName/{name}', 'Api\TagController@findByName');
+$router->group(['prefix' => 'api'], function ($router) {
+    $router->resource('tag', 'Api\TagController');
+    $router->get('tag/findByName/{name}', 'Api\TagController@findByName');
 });
