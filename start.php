@@ -18,4 +18,3 @@ Config::addNamespace('blog', __DIR__ . '/Config/');
 
 
 require __DIR__ . '/composers.php';
-require __DIR__ . '/helpers.php';

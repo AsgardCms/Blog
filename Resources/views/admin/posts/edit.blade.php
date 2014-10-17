@@ -1,8 +1,8 @@
 @extends('core::layouts.master')
 
 @section('styles')
-<script src="{{ core_asset('js/vendor/ckeditor/ckeditor.js') }}" type="text/javascript"></script>
-<link href="{{{ blog_asset('css/selectize.css') }}}" rel="stylesheet" type="text/css" />
+<script src="{{ Module::asset('core', 'js/vendor/ckeditor/ckeditor.js') }}" type="text/javascript"></script>
+<link href="{{{ Module::asset('blog', 'css/selectize.css') }}}" rel="stylesheet" type="text/css" />
 @stop
 
 @section('content-header')
@@ -73,8 +73,8 @@
 @stop
 
 @section('scripts')
-<script src="{{ blog_asset('js/selectize.min.js') }}" type="text/javascript"></script>
-<script src="{{ blog_asset('js/MySelectize.js') }}" type="text/javascript"></script>
+<script src="{{ Module::asset('blog', 'js/selectize.min.js') }}" type="text/javascript"></script>
+<script src="{{ Module::asset('blog', 'js/MySelectize.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
     $(function() {
         CKEDITOR.replaceAll(function( textarea, config ) {
