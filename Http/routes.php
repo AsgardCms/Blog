@@ -26,7 +26,7 @@ $router->group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'Larav
 
 });
 
-$router->group(['prefix' => 'api', 'namespace' => 'Modules\Blog\Http\Controller'], function ($router) {
+$router->group(['prefix' => 'api', 'namespace' => 'Modules\Blog\Http\Controllers'], function ($router) {
     $router->resource('tag', 'Api\TagController');
     $router->get('tag/findByName/{name}', 'Api\TagController@findByName');
 });
