@@ -6,7 +6,7 @@ use Illuminate\View\View;
 
 class SidebarViewComposer
 {
-    public function compose($view)
+    public function compose(View $view)
     {
         $view->items->put('blog', Collection::make([
             [
