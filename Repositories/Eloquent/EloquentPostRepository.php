@@ -20,7 +20,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
 
         unset($data['tags']);
         $translatableData = Helper::separateLanguages($data);
-        Helper::saveTranslated($post, $translatableData);
+        Helper::updateTranslated($post, $translatableData);
 
         return $post;
     }
@@ -39,7 +39,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
 
         unset($data['tags']);
         $translatableData = Helper::separateLanguages($data);
-        Helper::saveTranslated($post, $translatableData);
+        Helper::updateTranslated($post, $translatableData);
 
         return $post;
     }

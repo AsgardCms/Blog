@@ -28,7 +28,7 @@ class EloquentCategoryRepository extends EloquentBaseRepository implements Categ
 
         $category = $this->find($id);
 
-        Helper::saveTranslated($category, $translatableData);
+        Helper::updateTranslated($category, $translatableData);
 
         return $category;
     }
