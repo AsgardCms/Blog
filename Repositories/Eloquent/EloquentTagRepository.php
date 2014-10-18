@@ -14,7 +14,6 @@ class EloquentTagRepository extends EloquentBaseRepository implements TagReposit
      */
     public function create($data)
     {
-        // TODO: Implement create() method.
     }
 
     /**
@@ -25,7 +24,6 @@ class EloquentTagRepository extends EloquentBaseRepository implements TagReposit
      */
     public function update($id, $data)
     {
-        // TODO: Implement update() method.
     }
 
     /**
