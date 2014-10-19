@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'posts-per-page' => 'The amount of posts shown on a page',
+    'posts-per-page' => trans('blog::settings.posts-per-page'),
 ];
