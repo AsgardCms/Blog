@@ -22,4 +22,8 @@ return [
         ],
         'view' => 'setting::admin.partials.module-radio-field'
     ],
+    'this-is-a-number-info' => [
+        'description' => 'This is a number input',
+        'view' => 'setting::admin.partials.module-number-field'
+    ],
 ];
