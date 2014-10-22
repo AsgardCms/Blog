@@ -13,4 +13,13 @@ return [
         'description' => 'This is a textarea',
         'view' => 'setting::admin.partials.module-textarea-field'
     ],
+    'this-is-a-radio' => [
+        'description' => 'This is a radio',
+        'options' => [
+            'option1' => 'Option 1',
+            'option2' => 'Option 2',
+            'option3' => 'Option 3',
+        ],
+        'view' => 'setting::admin.partials.module-radio-field'
+    ],
 ];
