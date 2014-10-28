@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Laracasts\Flash\Flash;
-use Modules\Blog\Entities\Category;
 use Modules\Blog\Http\Requests\StoreCategoryRequest;
 use Modules\Blog\Http\Requests\UpdateCategoryRequest;
 use Modules\Blog\Repositories\CategoryRepository;
@@ -62,11 +61,13 @@ class CategoryController extends AdminBaseController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Category $category
+     * @param  int $id
      * @return Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
+        $category = $this->category->find($id);
+
         return View::make('blog::admin.categories.edit', compact('category'));
     }
 

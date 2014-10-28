@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Laracasts\Flash\Flash;
-use Modules\Blog\Entities\Post;
 use Modules\Blog\Http\Requests\StorePostRequest;
 use Modules\Blog\Http\Requests\UpdatePostRequest;
 use Modules\Blog\Repositories\CategoryRepository;
@@ -71,11 +70,13 @@ class PostController extends AdminBaseController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Post $post
+     * @param  int $id
      * @return Response
      */
-    public function edit(Post $post)
+    public function edit($id)
     {
+        $post = $this->post->find($id);
+
         $categories = $this->category->allTranslatedIn(App::getLocale());
 
         return View::make('blog::admin.posts.edit', compact('post', 'categories'));
