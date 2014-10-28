@@ -1,6 +1,7 @@
 <?php
 
 $router->model('posts', 'Modules\Blog\Entities\Post');
+$router->model('categories', 'Modules\Blog\Entities\Category');
 
 $router->group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'LaravelLocalizationRedirectFilter|auth.admin|permissions'], function($router)
 {
