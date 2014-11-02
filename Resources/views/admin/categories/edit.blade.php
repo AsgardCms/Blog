@@ -21,9 +21,6 @@
                 <li><a href="#tab_2-2" data-toggle="tab">{{ trans('core::core.tab.french') }}</a></li>
             </ul>
             <div class="tab-content">
-                <div class="row">
-                    @include('flash::message')
-                </div>
                 <div class="tab-pane active" id="tab_1-1">
                     @include('blog::admin.categories.partials.edit-fields', ['lang' => 'en'])
                 </div>
