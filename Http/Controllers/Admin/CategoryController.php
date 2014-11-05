@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Laracasts\Flash\Flash;
+use Modules\Blog\Entities\Category;
 use Modules\Blog\Http\Requests\StoreCategoryRequest;
 use Modules\Blog\Http\Requests\UpdateCategoryRequest;
 use Modules\Blog\Repositories\CategoryRepository;
@@ -61,26 +62,24 @@ class CategoryController extends AdminBaseController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param Category $category
      * @return Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        $category = $this->category->find($id);
-
         return View::make('blog::admin.categories.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  int $id
+     * @param Category $category
      * @param UpdateCategoryRequest $request
      * @return Response
      */
-    public function update($id, UpdateCategoryRequest $request)
+    public function update(Category $category, UpdateCategoryRequest $request)
     {
-        $this->category->update($id, $request->all());
+        $this->category->update($category, $request->all());
 
         Flash::success('Category updated');
         return Redirect::route('dashboard.category.index');
@@ -89,12 +88,12 @@ class CategoryController extends AdminBaseController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param Category $category
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        $this->category->destroy($id);
+        $this->category->destroy($category);
 
         Flash::success('Category destroyed');
         return Redirect::route('dashboard.category.index');

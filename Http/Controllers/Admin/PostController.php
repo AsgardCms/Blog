@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\View;
 use Laracasts\Flash\Flash;
+use Modules\Blog\Entities\Post;
 use Modules\Blog\Http\Requests\StorePostRequest;
 use Modules\Blog\Http\Requests\UpdatePostRequest;
 use Modules\Blog\Repositories\CategoryRepository;
@@ -70,13 +71,11 @@ class PostController extends AdminBaseController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param Post $post
      * @return Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        $post = $this->post->find($id);
-
         $categories = $this->category->allTranslatedIn(App::getLocale());
 
         return View::make('blog::admin.posts.edit', compact('post', 'categories'));
@@ -85,12 +84,13 @@ class PostController extends AdminBaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param  int $id
+     * @param Post $post
      * @param UpdatePostRequest $request
+     * @return
      */
-    public function update($id, UpdatePostRequest $request)
+    public function update(Post $post, UpdatePostRequest $request)
     {
-        $this->post->update($id, $request->all());
+        $this->post->update($post, $request->all());
 
         Flash::success('Post updated');
         return Redirect::route('dashboard.post.index');
@@ -99,15 +99,14 @@ class PostController extends AdminBaseController
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param Post $post
      * @return Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        $post = $this->post->find($id);
         $post->tags()->detach();
 
-        $this->post->destroy($id);
+        $this->post->destroy($post);
 
         Flash::success('Post destroyed');
         return Redirect::route('dashboard.post.index');

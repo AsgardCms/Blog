@@ -75,7 +75,7 @@
             <!-- /.box-body -->
             </div>
         <!-- /.box -->
-    </div>
+        </div>
     </div>
 </div>
 <?php if ($posts): ?>

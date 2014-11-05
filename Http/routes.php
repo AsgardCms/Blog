@@ -2,6 +2,9 @@
 
 use Illuminate\Routing\Router;
 
+$router->model('posts', 'Modules\Blog\Entities\Post');
+$router->model('categories', 'Modules\Blog\Entities\Category');
+
 $router->group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'LaravelLocalizationRedirectFilter|auth.admin|permissions'], function(Router $router)
 {
     $router->group(['prefix' => Config::get('core::core.admin-prefix'), 'namespace' => 'Modules\Blog\Http\Controllers'], function (Router $router) {

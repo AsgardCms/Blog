@@ -1,5 +1,6 @@
 <?php namespace Modules\Blog\Repositories\Eloquent;
 
+use Modules\Blog\Entities\Category;
 use Modules\Blog\Repositories\CategoryRepository;
 use Modules\Core\Internationalisation\Helper;
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
@@ -18,15 +19,13 @@ class EloquentCategoryRepository extends EloquentBaseRepository implements Categ
 
     /**
      * Update a category
-     * @param $id
-     * @param $data
+     * @param Category $category
+     * @param array $data
      * @return mixed
      */
-    public function update($id, $data)
+    public function update($category, $data)
     {
         $translatableData = Helper::separateLanguages($data);
-
-        $category = $this->find($id);
 
         Helper::updateTranslated($category, $translatableData);
 

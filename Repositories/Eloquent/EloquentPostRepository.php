@@ -9,13 +9,12 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
 {
     /**
      * Update a resource
-     * @param $id
-     * @param $data
+     * @param $post
+     * @param array $data
      * @return mixed
      */
-    public function update($id, $data)
+    public function update($post, $data)
     {
-        $post = $this->find($id);
         $post->tags()->sync($data['tags']);
 
         unset($data['tags']);
