@@ -42,7 +42,7 @@
     </div>
 
     <div class="col-md-2">
-        <div class="box">
+        <div class="box box-info">
             <div class="box-body">
                 <div class="form-group">
                     {!! Form::label("category", 'Category:') !!}
