@@ -25,8 +25,8 @@ $router->group(['namespace' => 'Modules\Blog\Http\Controllers'], function (Route
         if (isset($routes['blog'][$locale])) {
             $uri = $routes['blog'][$locale];
         }
-        $router->get($uri, array('as' => $locale.'.blog', 'uses' => 'PublicController@index'));
-        $router->get($uri.'/{slug}', array('as' => $locale.'.blog.slug', 'uses' => 'PublicController@show'));
+        $router->get($uri, ['as' => $locale.'.blog', 'uses' => 'PublicController@index']);
+        $router->get($uri.'/{slug}', ['as' => $locale.'.blog.slug', 'uses' => 'PublicController@show']);
     }
 });
 
