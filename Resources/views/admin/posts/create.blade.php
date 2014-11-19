@@ -21,17 +21,15 @@
 <div class="row">
     <div class="col-md-10">
         <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs">
-                <li class="{{ App::getLocale() == 'en' ? 'active' : '' }}"><a href="#tab_1-1" data-toggle="tab">{{ trans('core::core.tab.english') }}</a></li>
-                <li class="{{ App::getLocale() == 'fr' ? 'active' : '' }}"><a href="#tab_2-2" data-toggle="tab">{{ trans('core::core.tab.french') }}</a></li>
-            </ul>
+            @include('core::partials.form-tab-headers')
             <div class="tab-content">
-                <div class="tab-pane active" id="tab_1-1">
-                    @include('blog::admin.posts.partials.create-fields', ['lang' => 'en'])
-                </div>
-                <div class="tab-pane" id="tab_2-2">
-                    @include('blog::admin.posts.partials.create-fields', ['lang' => 'fr'])
-                </div>
+                <?php $i = 0; ?>
+                <?php foreach(LaravelLocalization::getSupportedLocales() as $locale => $language): ?>
+                    <?php $i++; ?>
+                    <div class="tab-pane {{ App::getLocale() == $locale ? 'active' : '' }}" id="tab_{{ $i }}">
+                        @include('blog::admin.posts.partials.create-fields', ['lang' => $locale])
+                    </div>
+                <?php endforeach; ?>
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary btn-flat">{{ trans('blog::post.button.create post') }}</button>
                     <a class="btn btn-danger pull-right btn-flat" href="{{ URL::route('dashboard.post.index')}}"><i class="fa fa-times"></i> {{ trans('core::core.button.cancel') }}</a>
