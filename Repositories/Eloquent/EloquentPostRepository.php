@@ -15,11 +15,8 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      */
     public function update($post, $data)
     {
+        $post->update($data);
         $post->tags()->sync($data['tags']);
-
-        unset($data['tags']);
-        $translatableData = Helper::separateLanguages($data);
-        Helper::updateTranslated($post, $translatableData);
 
         return $post;
     }
