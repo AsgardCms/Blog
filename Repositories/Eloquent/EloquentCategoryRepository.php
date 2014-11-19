@@ -14,8 +14,6 @@ class EloquentCategoryRepository extends EloquentBaseRepository implements Categ
      */
     public function create($data)
     {
-        $data = Helper::separateLanguages($data);
-
         $this->model->create($data);
     }
 
@@ -27,8 +25,6 @@ class EloquentCategoryRepository extends EloquentBaseRepository implements Categ
      */
     public function update($category, $data)
     {
-        $data = Helper::separateLanguages($data);
-
         $category->update($data);
 
         return $category;
