@@ -44,7 +44,7 @@
             <div class="box-body">
                 <div class="form-group">
                     {!! Form::label("category", 'Category:') !!}
-                    <select name="category" id="category" class="form-control">
+                    <select name="category_id" id="category" class="form-control">
                         <?php foreach($categories as $category): ?>
                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                         <?php endforeach; ?>
