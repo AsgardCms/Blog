@@ -4,15 +4,6 @@ use Illuminate\Routing\Router;
 
 $router->model('posts', 'Modules\Blog\Entities\Post');
 $router->model('categories', 'Modules\Blog\Entities\Category');
-$router->get('test', function() {
-//        $data = [
-//            'iso' => 'be',
-//            'en' => ['name' => 'English Category'],
-//            'fr' => ['name' => 'French Category']
-//        ];
-//        \Modules\Blog\Entities\Category::create($data);
-//        dd('created?');
-    });
 
 /*
 |--------------------------------------------------------------------------
