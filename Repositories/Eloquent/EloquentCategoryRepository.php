@@ -14,7 +14,9 @@ class EloquentCategoryRepository extends EloquentBaseRepository implements Categ
      */
     public function create($data)
     {
-        Helper::createTranslatedFields('Modules\Blog\Entities\Category', $data);
+        $data = Helper::separateLanguages($data);
+
+        $this->model->create($data);
     }
 
     /**
@@ -25,9 +27,9 @@ class EloquentCategoryRepository extends EloquentBaseRepository implements Categ
      */
     public function update($category, $data)
     {
-        $translatableData = Helper::separateLanguages($data);
+        $data = Helper::separateLanguages($data);
 
-        Helper::updateTranslated($category, $translatableData);
+        $category->update($data);
 
         return $category;
     }
