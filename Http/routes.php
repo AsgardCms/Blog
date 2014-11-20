@@ -10,16 +10,18 @@ $router->model('categories', 'Modules\Blog\Entities\Category');
 | Public routes
 |--------------------------------------------------------------------------
 */
-$router->group(['namespace' => 'Modules\Blog\Http\Controllers'], function (Router $router) {
-    $routes = app('Asgard.routes');
-    foreach(LaravelLocalization::getSupportedLocales() as $locale => $language) {
-        if (isset($routes['blog'][$locale])) {
-            $uri = $routes['blog'][$locale];
+if (! App::runningInConsole()) {
+    $router->group(['namespace' => 'Modules\Blog\Http\Controllers'], function (Router $router) {
+        $routes = app('Asgard.routes');
+        foreach(LaravelLocalization::getSupportedLocales() as $locale => $language) {
+            if (isset($routes['blog'][$locale])) {
+                $uri = $routes['blog'][$locale];
+            }
+            $router->get($uri, ['as' => $locale.'.blog', 'uses' => 'PublicController@index']);
+            $router->get($uri.'/{slug}', ['as' => $locale.'.blog.slug', 'uses' => 'PublicController@show']);
         }
-        $router->get($uri, ['as' => $locale.'.blog', 'uses' => 'PublicController@index']);
-        $router->get($uri.'/{slug}', ['as' => $locale.'.blog.slug', 'uses' => 'PublicController@show']);
-    }
-});
+    });
+}
 
 /*
 |--------------------------------------------------------------------------
