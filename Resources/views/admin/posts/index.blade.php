@@ -116,7 +116,7 @@
             "bInfo": true,
             "bAutoWidth": true,
             "oLanguage": {
-                "sUrl": '<?php echo Module::asset('core', "js/vendor/datatables/{$locale}.json") ?>'
+                "sUrl": '<?php echo Module::asset("core:js/vendor/datatables/{$locale}.json") ?>'
             },
             "aoColumns": [
                 null,
