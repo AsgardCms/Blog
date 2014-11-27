@@ -7,12 +7,12 @@
 
 @section('content-header')
 <h1>
-    Edit post
+    {{ trans('blog::post.title.edit post') }}
 </h1>
 <ol class="breadcrumb">
-    <li><a href="{{ URL::route('dashboard.index') }}"><i class="fa fa-dashboard"></i> Home</a></li>
-    <li><a href="{{ URL::route('dashboard.category.index') }}">Categories</a></li>
-    <li class="active">Edit post</li>
+    <li><a href="{{ URL::route('dashboard.index') }}"><i class="fa fa-dashboard"></i> {{ trans('core::core.breadcrumb.home') }}</a></li>
+    <li><a href="{{ URL::route('dashboard.category.index') }}">{{ trans('blog::post.title.post') }}</a></li>
+    <li class="active">{{ trans('blog::post.title.edit post') }}</li>
 </ol>
 @stop
 
