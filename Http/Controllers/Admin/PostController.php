@@ -64,7 +64,7 @@ class PostController extends AdminBaseController
     {
         $this->post->create($request->all());
 
-        Flash::success('Post created');
+        Flash::success(trans('blog::messages.post created'));
         return Redirect::route('dashboard.post.index');
     }
 
@@ -92,7 +92,7 @@ class PostController extends AdminBaseController
     {
         $this->post->update($post, $request->all());
 
-        Flash::success('Post updated');
+        Flash::success(trans('blog::messages.post updated'));
         return Redirect::route('dashboard.post.index');
     }
 
@@ -108,7 +108,7 @@ class PostController extends AdminBaseController
 
         $this->post->destroy($post);
 
-        Flash::success('Post destroyed');
+        Flash::success(trans('blog::messages.post deleted'));
         return Redirect::route('dashboard.post.index');
     }
 }

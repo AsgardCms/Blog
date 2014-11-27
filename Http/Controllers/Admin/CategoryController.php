@@ -55,7 +55,7 @@ class CategoryController extends AdminBaseController
     {
         $this->category->create($request->all());
 
-        Flash::success('Category created');
+        Flash::success(trans('blog::messages.category created'));
         return Redirect::route('dashboard.category.index');
     }
 
@@ -81,7 +81,7 @@ class CategoryController extends AdminBaseController
     {
         $this->category->update($category, $request->all());
 
-        Flash::success('Category updated');
+        Flash::success(trans('blog::messages.category updated'));
         return Redirect::route('dashboard.category.index');
     }
 
@@ -95,7 +95,7 @@ class CategoryController extends AdminBaseController
     {
         $this->category->destroy($category);
 
-        Flash::success('Category destroyed');
+        Flash::success(trans('blog::messages.category deleted'));
         return Redirect::route('dashboard.category.index');
     }
 }
