@@ -1,10 +1,12 @@
 <?php namespace Modules\Blog\Http\Controllers;
 
-class PublicController
+use Modules\Core\Http\Controllers\BasePublicController;
+
+class PublicController extends BasePublicController
 {
     public function index()
     {
-        dd('hello blog index');
+        return view('index');
     }
 
     public function show($slug)
