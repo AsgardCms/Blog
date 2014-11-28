@@ -17,8 +17,14 @@ if (! App::runningInConsole()) {
             'before' => 'LaravelLocalizationRedirectFilter',
             'namespace' => 'Modules\Blog\Http\Controllers'
     ], function (Router $router) use($locale) {
-        $router->get('blog', ['as' => $locale.'.blog', 'uses' => 'PublicController@index']);
-        $router->get('blog/{slug}', ['as' => $locale.'.blog.slug', 'uses' => 'PublicController@show']);
+        $routes = app('Asgard.routes');
+        if (isset($routes['blog'][$locale])) {
+            $uri = $routes['blog'][$locale];
+        } else {
+            $uri = 'blog';
+        }
+        $router->get($uri, ['as' => $locale.'.blog', 'uses' => 'PublicController@index']);
+        $router->get($uri.'/{slug}', ['as' => $locale.'.blog.slug', 'uses' => 'PublicController@show']);
     });
 }
 
