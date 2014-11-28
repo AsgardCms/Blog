@@ -11,17 +11,14 @@ $router->model('categories', 'Modules\Blog\Entities\Category');
 |--------------------------------------------------------------------------
 */
 if (! App::runningInConsole()) {
-    $router->group(['namespace' => 'Modules\Blog\Http\Controllers'], function (Router $router) {
-        $routes = app('Asgard.routes');
-        foreach(LaravelLocalization::getSupportedLocales() as $locale => $language) {
-            if (isset($routes['blog'][$locale])) {
-                $uri = $routes['blog'][$locale];
-            } else {
-                $uri = 'blog';
-            }
-            $router->get($uri, ['as' => $locale.'.blog', 'uses' => 'PublicController@index']);
-            $router->get($uri.'/{slug}', ['as' => $locale.'.blog.slug', 'uses' => 'PublicController@show']);
-        }
+    $locale = LaravelLocalization::setLocale();
+    $router->group([
+            'prefix' => $locale,
+            'before' => 'LaravelLocalizationRedirectFilter',
+            'namespace' => 'Modules\Blog\Http\Controllers'
+    ], function (Router $router) use($locale) {
+        $router->get('blog', ['as' => $locale.'.blog', 'uses' => 'PublicController@index']);
+        $router->get('blog/{slug}', ['as' => $locale.'.blog.slug', 'uses' => 'PublicController@show']);
     });
 }
 
