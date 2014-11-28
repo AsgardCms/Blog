@@ -1,5 +1,6 @@
 <?php namespace Modules\Blog\Http\Controllers;
 
+use Illuminate\Support\Facades\App;
 use Modules\Blog\Repositories\PostRepository;
 use Modules\Core\Http\Controllers\BasePublicController;
 
@@ -18,7 +19,7 @@ class PublicController extends BasePublicController
 
     public function index()
     {
-        $posts = $this->post->all();
+        $posts = $this->post->allTranslatedIn(App::getLocale());
 
         return view('blog.index', compact('posts'));
     }
