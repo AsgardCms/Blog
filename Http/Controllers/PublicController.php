@@ -26,6 +26,8 @@ class PublicController extends BasePublicController
 
     public function show($slug)
     {
-        dd('showing blog post: '. $slug);
+        $post = $this->post->findBySlug($slug);
+
+        return view('blog.show', compact('post'));
     }
 }
