@@ -21,7 +21,7 @@ if (! App::runningInConsole()) {
         if (isset($routes['blog'][$locale])) {
             $uri = $routes['blog'][$locale];
         } else {
-            $uri = 'blog';
+            $uri = $routes['blog'][Config::get('translatable::fallback_locale')];
         }
         $router->get($uri, ['as' => $locale.'.blog', 'uses' => 'PublicController@index']);
         $router->get($uri.'/{slug}', ['as' => $locale.'.blog.slug', 'uses' => 'PublicController@show']);
