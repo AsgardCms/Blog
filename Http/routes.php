@@ -56,7 +56,6 @@ $router->group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'Larav
             'destroy' => 'dashboard.category.destroy',
         ]]);
 
-        $router->get('files', 'Admin\FileController@index');
     });
 
 });
