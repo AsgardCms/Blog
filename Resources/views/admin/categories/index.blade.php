@@ -35,7 +35,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <?php if ($categories): ?>
+                    <?php if (isset($categories)): ?>
                         <?php foreach($categories as $category): ?>
                             <tr>
                                 <td>
@@ -78,7 +78,7 @@
     </div>
     </div>
 </div>
-<?php if ($categories): ?>
+<?php if (isset($categories)): ?>
     <?php foreach($categories as $category): ?>
     <!-- Modal -->
     <div class="modal fade" id="confirmation-{{ $category->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

@@ -35,7 +35,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <?php if ($posts): ?>
+                    <?php if (isset($posts)): ?>
                         <?php foreach($posts as $post): ?>
                             <tr>
                                 <td>
@@ -78,7 +78,7 @@
         </div>
     </div>
 </div>
-<?php if ($posts): ?>
+<?php if (isset($posts)): ?>
     <?php foreach($posts as $post): ?>
     <!-- Modal -->
     <div class="modal fade" id="confirmation-{{ $post->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
