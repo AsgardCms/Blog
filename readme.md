@@ -13,3 +13,11 @@ Add package to your `require` key in the `composer.json` file:
 ```
 
 Followed by a composer update.
+
+### Package migrations
+
+Run the migrations:
+
+``` bash
+php artisan module:migrate Blog
+```
