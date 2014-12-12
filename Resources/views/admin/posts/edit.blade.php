@@ -80,7 +80,8 @@
     $( document ).ready(function() {
         $('.input-tags').MySelectize({
             'findUri' : '/api/tag/findByName/',
-            'createUri' : '/api/tag'
+            'createUri' : '/api/tag',
+            'token': '<?php csrf_token() ?>'
         });
     });
 </script>
