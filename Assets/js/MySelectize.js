@@ -69,7 +69,7 @@
             $.ajax({
                 url: this.settings.createUri,
                 type: 'POST',
-                data: {'name': tagName},
+                data: {'name': tagName, '_token': this.settings.token},
                 dataType: 'json',
                 error: function () {
                 },

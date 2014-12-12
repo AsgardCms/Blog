@@ -64,6 +64,7 @@
 @section('scripts')
 <script src="{{ Module::asset('blog:js/selectize.min.js') }}" type="text/javascript"></script>
 <script src="{{ Module::asset('blog:js/MySelectize.js') }}" type="text/javascript"></script>
+<?php csrf_token() ?>
 <script type="text/javascript">
     $(function() {
         CKEDITOR.replaceAll(function( textarea, config ) {
@@ -74,7 +75,8 @@
     $( document ).ready(function() {
         $('.input-tags').MySelectize({
             'findUri' : '/api/tag/findByName/',
-            'createUri' : '/api/tag'
+            'createUri' : '/api/tag',
+            'token': '<?php csrf_token() ?>'
         });
     });
 </script>
