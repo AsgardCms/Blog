@@ -6,13 +6,17 @@
 
 ## Installation
 
-Add package to your `require` key in the `composer.json` file:
+Execute the following command in your terminal
 
-``` json
+    composer require "asgardcms/blog-module"  "dev-master"
+    
+Or add the package to your `require` key in the `composer.json` file:
+ 		 
+ ```json
 "asgardcms/blog-module": "dev-master"
 ```
-
-Followed by a composer update.
+ 		 
+Followed by a composer update
 
 ### Package migrations
 
