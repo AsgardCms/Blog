@@ -7,6 +7,7 @@ class Tag extends Model
 {
     use Translatable;
 
+    protected $fillable = ['name', 'slug'];
     public $translatedAttributes = ['name', 'slug'];
 
     public function posts()

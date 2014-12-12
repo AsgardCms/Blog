@@ -8,25 +8,6 @@ use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
 class EloquentTagRepository extends EloquentBaseRepository implements TagRepository
 {
     /**
-     * Create a tag
-     * @param $data
-     * @return mixed
-     */
-    public function create($data)
-    {
-    }
-
-    /**
-     * Update a tag by its ID
-     * @param $id
-     * @param $data
-     * @return mixed
-     */
-    public function update($id, $data)
-    {
-    }
-
-    /**
      * @param string $slug
      * @return mixed
      */
@@ -74,10 +55,12 @@ class EloquentTagRepository extends EloquentBaseRepository implements TagReposit
      */
     public function createForLanguage($lang = 'en', $name)
     {
-        $tag = new Tag;
-        $tag->translate($lang)->name = $name;
-        $tag->save();
+        $data = [
+            $lang => [
+                'name' => $name
+            ]
+        ];
 
-        return $tag;
+        return $this->create($data);
     }
 }
