@@ -15,7 +15,10 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     public function update($post, $data)
     {
         $post->update($data);
-        $post->tags()->sync($data['tags']);
+
+        if (isset($data['tags'])) {
+            $post->tags()->sync($data['tags']);
+        }
 
         return $post;
     }
@@ -28,7 +31,10 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     public function create($data)
     {
         $post = $this->model->create($data);
-        $post->tags()->sync($data['tags']);
+
+        if (isset($data['tags'])) {
+            $post->tags()->sync($data['tags']);
+        }
 
         return $post;
     }
