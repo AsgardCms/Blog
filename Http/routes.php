@@ -22,10 +22,10 @@ if (! App::runningInConsole()) {
             $uri = $routes['blog'][$locale];
         } else {
             $fallbackLang = Config::get('translatable::fallback_locale');
-            $uri = isset($routes['blog']) ? $routes['blog'][$fallbackLang] : '';
+            $uri = isset($routes['blog']) ? $routes['blog'][$fallbackLang] : 'blog';
         }
-        $prefix = Config::get('core::core.admin-prefix');
-        $router->get($uri, ['as' => $locale.'.blog', 'uses' => 'PublicController@index'])->where('uri', "(?!$prefix).*");
+
+        $router->get($uri, ['as' => $locale.'.blog', 'uses' => 'PublicController@index']);
         $router->get($uri.'/{slug}', ['as' => $locale.'.blog.slug', 'uses' => 'PublicController@show']);
     });
 }
