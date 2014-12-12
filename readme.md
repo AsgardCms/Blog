@@ -25,3 +25,9 @@ Run the migrations:
 ``` bash
 php artisan module:migrate Blog
 ```
+
+## Publish package assets
+
+``` bash
+php artisan asgard:publish:module Blog
+```
