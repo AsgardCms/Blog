@@ -24,5 +24,15 @@
     "php": ">=5.4",
     "composer/installers": "~1.0"
   },
+  "scripts": {
+    "post-install-cmd": [
+      "php artisan module:migrate Blog",
+      "php artisan asgard:publish:module Blog"
+    ],
+    "post-update-cmd": [
+      "php artisan module:migrate Blog",
+      "php artisan asgard:publish:module Blog"
+    ]
+  },
   "minimum-stability": "dev"
 }
