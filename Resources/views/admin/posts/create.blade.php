@@ -64,11 +64,10 @@
 @section('scripts')
 <script src="{{ Module::asset('blog:js/selectize.min.js') }}" type="text/javascript"></script>
 <script src="{{ Module::asset('blog:js/MySelectize.js') }}" type="text/javascript"></script>
-<?php csrf_token() ?>
 <script type="text/javascript">
     $(function() {
         CKEDITOR.replaceAll(function( textarea, config ) {
-            config.language = '<?php echo App::getLocale() ?>';
+            config.language = '<?= App::getLocale() ?>';
         } );
     });
 
@@ -76,7 +75,7 @@
         $('.input-tags').MySelectize({
             'findUri' : '/api/tag/findByName/',
             'createUri' : '/api/tag',
-            'token': '<?php csrf_token() ?>'
+            'token': '<?= csrf_token() ?>'
         });
     });
 </script>
