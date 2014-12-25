@@ -7,6 +7,23 @@ use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
 class EloquentPostRepository extends EloquentBaseRepository implements PostRepository
 {
     /**
+     * @param int $id
+     * @return object
+     */
+    public function find($id)
+    {
+        return $this->model->with('translations', 'tags')->find($id);
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function all()
+    {
+        return $this->model->with('translations', 'tags')->orderBy('created_at', 'DESC')->get();
+    }
+
+    /**
      * Update a resource
      * @param $post
      * @param array $data
