@@ -2,8 +2,14 @@
 
 use Illuminate\Routing\Router;
 
-$router->model('posts', 'Modules\Blog\Entities\Post');
-$router->model('categories', 'Modules\Blog\Entities\Category');
+$router->bind('categories', function($id)
+{
+    return app('Modules\Blog\Repositories\CategoryRepository')->find($id);
+});
+$router->bind('posts', function($id)
+{
+    return app('Modules\Blog\Repositories\PostRepository')->find($id);
+});
 
 /*
 |--------------------------------------------------------------------------
