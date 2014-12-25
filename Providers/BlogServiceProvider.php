@@ -7,6 +7,7 @@ use Modules\Blog\Entities\Category;
 use Modules\Blog\Entities\Post;
 use Modules\Blog\Entities\Tag;
 use Modules\Blog\Repositories\Cache\CacheCategoryDecorator;
+use Modules\Blog\Repositories\Cache\CachePostDecorator;
 use Modules\Blog\Repositories\Eloquent\EloquentCategoryRepository;
 use Modules\Blog\Repositories\Eloquent\EloquentPostRepository;
 use Modules\Blog\Repositories\Eloquent\EloquentTagRepository;
@@ -77,7 +78,13 @@ class BlogServiceProvider extends ServiceProvider
         $this->app->bind(
             'Modules\Blog\Repositories\PostRepository',
             function() {
-                return new EloquentPostRepository(new Post);
+                $repository = new EloquentPostRepository(new Post);
+
+                if (! Config::get('app.cache')) {
+                    return $repository;
+                }
+
+                return new CachePostDecorator($repository);
             }
         );
 
