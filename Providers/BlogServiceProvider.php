@@ -1,10 +1,12 @@
 <?php namespace Modules\Blog\Providers;
 
 use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
 use Modules\Blog\Entities\Category;
 use Modules\Blog\Entities\Post;
 use Modules\Blog\Entities\Tag;
+use Modules\Blog\Repositories\Cache\CacheCategoryDecorator;
 use Modules\Blog\Repositories\Eloquent\EloquentCategoryRepository;
 use Modules\Blog\Repositories\Eloquent\EloquentPostRepository;
 use Modules\Blog\Repositories\Eloquent\EloquentTagRepository;
@@ -82,7 +84,13 @@ class BlogServiceProvider extends ServiceProvider
         $this->app->bind(
             'Modules\Blog\Repositories\CategoryRepository',
             function() {
-                return new EloquentCategoryRepository(new Category);
+                $repository = new EloquentCategoryRepository(new Category);
+
+                if (! Config::get('app.cache')) {
+                    return $repository;
+                }
+
+                return new CacheCategoryDecorator($repository);
             }
         );
 
