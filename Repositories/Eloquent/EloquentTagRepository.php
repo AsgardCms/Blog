@@ -1,7 +1,6 @@
 <?php namespace Modules\Blog\Repositories\Eloquent;
 
 use Illuminate\Support\Facades\App;
-use Modules\Blog\Entities\Tag;
 use Modules\Blog\Repositories\TagRepository;
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
 
@@ -22,7 +21,7 @@ class EloquentTagRepository extends EloquentBaseRepository implements TagReposit
      */
     public function findByName($name)
     {
-        $tags = Tag::with('translations')->whereHas('translations', function($q) use($name)
+        $tags = $this->model->with('translations')->whereHas('translations', function($q) use($name)
         {
             $q->where('name', 'like', "%$name%");
         })->get();
