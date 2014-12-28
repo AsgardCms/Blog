@@ -40,7 +40,7 @@ class TagController
     /**
      * Store a newly created resource in storage.
      *
-     * @param CreateTagRequest $request
+     * @param  CreateTagRequest $request
      * @return Response
      */
     public function store(CreateTagRequest $request)

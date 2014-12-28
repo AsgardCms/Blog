@@ -4,7 +4,7 @@ return [
     'blogThumb' => [
         'resize' => [
             'width' => 150,
-            'height' => 150
+            'height' => 150,
         ],
     ]
 ];

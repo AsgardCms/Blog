@@ -7,7 +7,7 @@ return [
         'edit post' => 'Edit post',
     ],
     'button' => [
-        'create post' => 'Create post'
+        'create post' => 'Create post',
     ],
     'table' => [
         'title' => 'Title',

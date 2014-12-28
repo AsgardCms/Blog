@@ -36,7 +36,7 @@
                     </thead>
                     <tbody>
                     <?php if (isset($categories)): ?>
-                        <?php foreach($categories as $category): ?>
+                        <?php foreach ($categories as $category): ?>
                             <tr>
                                 <td>
                                     <a href="{{ URL::route('dashboard.category.edit', [$category->id]) }}">
@@ -79,7 +79,7 @@
     </div>
 </div>
 <?php if (isset($categories)): ?>
-    <?php foreach($categories as $category): ?>
+    <?php foreach ($categories as $category): ?>
     <!-- Modal -->
     <div class="modal fade" id="confirmation-{{ $category->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">

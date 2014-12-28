@@ -9,7 +9,7 @@ use Modules\Core\Repositories\BaseRepository;
 interface TagRepository extends BaseRepository
 {
     /**
-     * @param string $slug
+     * @param  string $slug
      * @return mixed
      */
     public function findBySlug($slug);
@@ -22,8 +22,8 @@ interface TagRepository extends BaseRepository
 
     /**
      * Create the tag for the specified language
-     * @param string $lang
-     * @param array $name
+     * @param  string $lang
+     * @param  array  $name
      * @return mixed
      */
     public function createForLanguage($lang, $name);

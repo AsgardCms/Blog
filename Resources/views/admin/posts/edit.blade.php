@@ -25,7 +25,7 @@
             @include('core::partials.form-tab-headers')
             <div class="tab-content">
                 <?php $i = 0; ?>
-                <?php foreach(LaravelLocalization::getSupportedLocales() as $locale => $language): ?>
+                <?php foreach (LaravelLocalization::getSupportedLocales() as $locale => $language): ?>
                     <?php $i++; ?>
                     <div class="tab-pane {{ App::getLocale() == $locale ? 'active' : '' }}" id="tab_{{ $i }}">
                         @include('blog::admin.posts.partials.edit-fields', ['lang' => $locale])
@@ -45,7 +45,7 @@
                 <div class="form-group">
                     {!! Form::label("category", 'Category:') !!}
                     <select name="category_id" id="category" class="form-control">
-                        <?php foreach($categories as $category): ?>
+                        <?php foreach ($categories as $category): ?>
                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                         <?php endforeach; ?>
                     </select>
@@ -53,7 +53,7 @@
                 <div class='form-group{{ $errors->has("tags") ? ' has-error' : '' }}'>
                     {!! Form::label("tags", 'Tags:') !!}
                     <select name="tags[]" id="tags" class="input-tags" multiple>
-                       <?php foreach($post->tags()->get() as $tag): ?>
+                       <?php foreach ($post->tags()->get() as $tag): ?>
                            <option value="{{ $tag->id }}" selected>{{ $tag->translate('en')->name }}</option>
                        <?php endforeach; ?>
                     </select>

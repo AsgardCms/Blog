@@ -7,7 +7,7 @@ return [
         'edit category' => 'Edition d\'une catégorie',
     ],
     'button' => [
-        'create category' => 'Création de catégorie'
+        'create category' => 'Création de catégorie',
     ],
     'table' => [
         'name' => 'Nom',

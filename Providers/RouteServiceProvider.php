@@ -41,7 +41,6 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function map(Router $router)
     {
-        require __DIR__ . '/../Http/routes.php';
+        require __DIR__.'/../Http/routes.php';
     }
-
 }

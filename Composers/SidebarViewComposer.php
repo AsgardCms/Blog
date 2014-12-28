@@ -16,7 +16,7 @@ class SidebarViewComposer extends BaseSidebarViewComposer
                 'route' => '#',
                 'icon-class' => 'fa fa-copy',
                 'title' => 'Blog',
-                'permission' => $this->auth->hasAccess('posts.index') or $this->auth->hasAccess('categories.index')
+                'permission' => $this->auth->hasAccess('posts.index') or $this->auth->hasAccess('categories.index'),
             ],
             [
                 'request' => "*/{$view->prefix}/posts*",
@@ -31,7 +31,7 @@ class SidebarViewComposer extends BaseSidebarViewComposer
                 'icon-class' => 'fa fa-file-text',
                 'title' => 'Categories',
                 'permission' => $this->auth->hasAccess('categories.index')
-            ]
+            ],
         ]));
     }
 }

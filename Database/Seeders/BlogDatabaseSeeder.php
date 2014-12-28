@@ -5,7 +5,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class BlogDatabaseSeeder extends Seeder
 {
-
     /**
      * Run the database seeds.
      *
@@ -15,5 +14,4 @@ class BlogDatabaseSeeder extends Seeder
     {
         Model::unguard();
     }
-
 }

@@ -2,12 +2,10 @@
 
 use Illuminate\Routing\Router;
 
-$router->bind('categories', function($id)
-{
+$router->bind('categories', function ($id) {
     return app('Modules\Blog\Repositories\CategoryRepository')->find($id);
 });
-$router->bind('posts', function($id)
-{
+$router->bind('posts', function ($id) {
     return app('Modules\Blog\Repositories\PostRepository')->find($id);
 });
 
@@ -21,15 +19,15 @@ if (! App::runningInConsole()) {
     $router->group([
             'prefix' => $locale,
             'before' => 'LaravelLocalizationRedirectFilter|public.checkLocale',
-            'namespace' => 'Modules\Blog\Http\Controllers'
-    ], function (Router $router) use($locale) {
+            'namespace' => 'Modules\Blog\Http\Controllers',
+    ], function (Router $router) use ($locale) {
         $routes = app('Asgard.routes');
         if (isset($routes['blog'][$locale])) {
             $uri = $routes['blog'][$locale];
         } else {
             $uri = 'blog';
             if (Config::get('app.locale_in_url')) {
-                $uri = $locale . '/' . $uri;
+                $uri = $locale.'/'.$uri;
             }
         }
 
@@ -44,8 +42,7 @@ if (! App::runningInConsole()) {
 | Admin routes
 |--------------------------------------------------------------------------
 */
-$router->group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'LaravelLocalizationRedirectFilter|auth.admin|permissions'], function(Router $router)
-{
+$router->group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'LaravelLocalizationRedirectFilter|auth.admin|permissions'], function (Router $router) {
     $router->group(['prefix' => Config::get('core::core.admin-prefix'), 'namespace' => 'Modules\Blog\Http\Controllers'], function (Router $router) {
 
         $router->resource('posts', 'Admin\PostController', ['except' => ['show'], 'names' => [

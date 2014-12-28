@@ -7,7 +7,7 @@ return [
         'edit category' => 'Edit category',
     ],
     'button' => [
-        'create category' => 'Create category'
+        'create category' => 'Create category',
     ],
     'table' => [
         'created at' => 'Create at',

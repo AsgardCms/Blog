@@ -57,7 +57,7 @@ class PostController extends AdminBaseController
     /**
      * Store a newly created resource in storage.
      *
-     * @param StorePostRequest $request
+     * @param  StorePostRequest $request
      * @return Response
      */
     public function store(StorePostRequest $request)
@@ -65,13 +65,14 @@ class PostController extends AdminBaseController
         $this->post->create($request->all());
 
         Flash::success(trans('blog::messages.post created'));
+
         return Redirect::route('dashboard.post.index');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Post $post
+     * @param  Post     $post
      * @return Response
      */
     public function edit(Post $post)
@@ -84,7 +85,7 @@ class PostController extends AdminBaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param Post $post
+     * @param Post              $post
      * @param UpdatePostRequest $request
      * @return
      */
@@ -93,13 +94,14 @@ class PostController extends AdminBaseController
         $this->post->update($post, $request->all());
 
         Flash::success(trans('blog::messages.post updated'));
+
         return Redirect::route('dashboard.post.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param Post $post
+     * @param  Post     $post
      * @return Response
      */
     public function destroy(Post $post)
@@ -109,6 +111,7 @@ class PostController extends AdminBaseController
         $this->post->destroy($post);
 
         Flash::success(trans('blog::messages.post deleted'));
+
         return Redirect::route('dashboard.post.index');
     }
 }

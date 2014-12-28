@@ -7,7 +7,7 @@ return [
         'store',
         'edit',
         'update',
-        'destroy'
+        'destroy',
     ],
     'categories' => [
         'index',
@@ -15,7 +15,7 @@ return [
         'store',
         'edit',
         'update',
-        'destroy'
+        'destroy',
     ],
     'tags' => [
         'index',
@@ -23,7 +23,7 @@ return [
         'store',
         'edit',
         'update',
-        'destroy'
+        'destroy',
     ],
     'files' => [
         'index',
@@ -31,6 +31,6 @@ return [
         'store',
         'edit',
         'update',
-        'destroy'
+        'destroy',
     ],
 ];

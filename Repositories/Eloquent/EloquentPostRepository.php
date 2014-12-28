@@ -7,7 +7,7 @@ use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
 class EloquentPostRepository extends EloquentBaseRepository implements PostRepository
 {
     /**
-     * @param int $id
+     * @param  int    $id
      * @return object
      */
     public function find($id)
@@ -26,7 +26,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     /**
      * Update a resource
      * @param $post
-     * @param array $data
+     * @param  array $data
      * @return mixed
      */
     public function update($post, $data)
@@ -42,7 +42,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
 
     /**
      * Create a blog post
-     * @param array $data
+     * @param  array $data
      * @return Post
      */
     public function create($data)

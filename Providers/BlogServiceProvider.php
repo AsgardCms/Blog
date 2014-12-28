@@ -31,7 +31,7 @@ class BlogServiceProvider extends ServiceProvider
         'Core' => [
             'permissions' => 'PermissionFilter',
             'auth.admin' => 'AdminFilter',
-        ]
+        ],
     ];
 
     /**
@@ -78,8 +78,8 @@ class BlogServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             'Modules\Blog\Repositories\PostRepository',
-            function() {
-                $repository = new EloquentPostRepository(new Post);
+            function () {
+                $repository = new EloquentPostRepository(new Post());
 
                 if (! Config::get('app.cache')) {
                     return $repository;
@@ -91,8 +91,8 @@ class BlogServiceProvider extends ServiceProvider
 
         $this->app->bind(
             'Modules\Blog\Repositories\CategoryRepository',
-            function() {
-                $repository = new EloquentCategoryRepository(new Category);
+            function () {
+                $repository = new EloquentCategoryRepository(new Category());
 
                 if (! Config::get('app.cache')) {
                     return $repository;
@@ -104,8 +104,8 @@ class BlogServiceProvider extends ServiceProvider
 
         $this->app->bind(
             'Modules\Blog\Repositories\TagRepository',
-            function() {
-                $repository = new EloquentTagRepository(new Tag);
+            function () {
+                $repository = new EloquentTagRepository(new Tag());
 
                 if (! Config::get('app.cache')) {
                     return $repository;
