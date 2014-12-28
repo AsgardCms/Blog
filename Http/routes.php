@@ -17,22 +17,25 @@ $router->bind('posts', function($id)
 |--------------------------------------------------------------------------
 */
 if (! App::runningInConsole()) {
-    $locale = LaravelLocalization::setLocale();
+    $locale = LaravelLocalization::setLocale() ?: App::getLocale();
     $router->group([
             'prefix' => $locale,
-            'before' => 'LaravelLocalizationRedirectFilter',
+            'before' => 'LaravelLocalizationRedirectFilter|public.checkLocale',
             'namespace' => 'Modules\Blog\Http\Controllers'
     ], function (Router $router) use($locale) {
         $routes = app('Asgard.routes');
         if (isset($routes['blog'][$locale])) {
             $uri = $routes['blog'][$locale];
         } else {
-            $fallbackLang = Config::get('translatable::fallback_locale');
-            $uri = isset($routes['blog']) ? $routes['blog'][$fallbackLang] : 'blog';
+            $uri = 'blog';
+            if (Config::get('app.locale_in_url')) {
+                $uri = $locale . '/' . $uri;
+            }
         }
 
-        $router->get($uri, ['as' => $locale.'.blog', 'uses' => 'PublicController@index']);
-        $router->get($uri.'/{slug}', ['as' => $locale.'.blog.slug', 'uses' => 'PublicController@show']);
+        $prefix = Config::get('core::core.admin-prefix');
+        $router->get($uri, ['as' => $locale.'.blog', 'uses' => 'PublicController@index'])->where('uri', "(?!$prefix).*");
+        $router->get($uri.'/{slug}', ['as' => $locale.'.blog.slug', 'uses' => 'PublicController@show'])->where('uri', "(?!$prefix).*");
     });
 }
 
