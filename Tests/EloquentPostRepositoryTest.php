@@ -12,9 +12,9 @@ class EloquentPostRepositoryTest extends BaseBlogTestCase
             'en' => [
                 'title' => 'One language title',
                 'slug' => 'slug',
-                'content' => 'lorem ipsum'
+                'content' => 'lorem ipsum',
             ],
-            'category_id' => 1
+            'category_id' => 1,
         ];
         $this->post->create($data);
 

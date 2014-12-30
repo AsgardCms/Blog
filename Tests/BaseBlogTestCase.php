@@ -37,14 +37,14 @@ abstract class BaseBlogTestCase extends BaseTestCase
             'en' => [
                 'title' => $title,
                 'slug' => $slug,
-                'content' => $faker->paragraph()
+                'content' => $faker->paragraph(),
             ],
             'fr' => [
                 'title' => $title,
                 'slug' => $slug,
-                'content' => $faker->paragraph()
+                'content' => $faker->paragraph(),
             ],
-            'category_id' => 1
+            'category_id' => 1,
         ];
 
         return $this->post->create($data);
