@@ -1,6 +1,7 @@
 <?php namespace Modules\Blog\Repositories\Eloquent;
 
 use Modules\Blog\Entities\Post;
+use Illuminate\Database\Eloquent\Builder;
 use Modules\Blog\Repositories\PostRepository;
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
 
@@ -54,5 +55,19 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
         }
 
         return $post;
+    }
+
+    /**
+     * Return all resources in the given language
+     *
+     * @param  string                                   $lang
+     * @return \Illuminate\Database\Eloquent\Collection
+     */
+    public function allTranslatedIn($lang)
+    {
+        return $this->model->whereHas('translations', function (Builder $q) use ($lang) {
+            $q->where('locale', "$lang");
+            $q->where('title', '!=', '');
+        })->with('translations')->orderBy('created_at', 'DESC')->get();
     }
 }
