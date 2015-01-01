@@ -11,6 +11,11 @@ abstract class BaseBlogTestCase extends BaseTestCase
      */
     protected $post;
 
+    /**
+     * @var \Modules\Blog\Repositories\TagRepository
+     */
+    protected $tag;
+
     public function setUp()
     {
         parent::setUp();
@@ -20,6 +25,7 @@ abstract class BaseBlogTestCase extends BaseTestCase
         $artisan->call('module:migrate', ['module' => 'Blog']);
 
         $this->post = app('Modules\Blog\Repositories\PostRepository');
+        $this->tag = app('Modules\Blog\Repositories\TagRepository');
     }
 
     /**
@@ -48,5 +54,29 @@ abstract class BaseBlogTestCase extends BaseTestCase
         ];
 
         return $this->post->create($data);
+    }
+
+    public function createTag()
+    {
+        $faker = Factory::create();
+
+        $enName = $faker->word;
+        $enSlug = Str::slug($enName);
+
+        $frName = $faker->word;
+        $frSlug = Str::slug($enName);
+
+        $data = [
+            'en' => [
+                'name' => $enName,
+                'slug' => $enSlug,
+            ],
+            'fr' => [
+                'name' => $frName,
+                'slug' => $frSlug,
+            ],
+        ];
+
+        return $this->tag->create($data);
     }
 }
