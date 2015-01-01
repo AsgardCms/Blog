@@ -8,12 +8,12 @@
 
 Execute the following command in your terminal
 
-    composer require "asgardcms/blog-module"  "dev-master"
+    composer require "asgardcms/blog-module"  "0.1.0-beta.1"
     
 Or add the package to your `require` key in the `composer.json` file:
  		 
  ```json
-"asgardcms/blog-module": "dev-master"
+"asgardcms/blog-module": "0.1.0-beta.1"
 ```
  		 
 Followed by a composer update
