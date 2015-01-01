@@ -31,3 +31,14 @@ php artisan module:migrate Blog
 ``` bash
 php artisan asgard:publish:module Blog
 ```
+
+## Resources
+
+- [View the changelog](CHANGELOG.md)
+- [Contribute to AsgardCMS](CONTRIBUTING.md)
+- [License](LICENSE.md)
+
+
+## Info
+
+All AsgardCMS modules respect [Semantic Versioning](http://semver.org/).
