@@ -1,5 +1,7 @@
 <?php namespace Modules\Blog\Tests;
 
+use Illuminate\Support\Facades\App;
+
 class EloquentTagRepositoryTest extends BaseBlogTestCase
 {
     /** @test */
@@ -10,10 +12,12 @@ class EloquentTagRepositoryTest extends BaseBlogTestCase
         $this->createTag();
         $tag = $this->createTag();
 
-        // Run
-        $foundTag = $this->tag->findByName($tag->name);
-
         // Assert
-        $this->assertEquals($tag->name, $foundTag[0]['name']);
+        $foundTag = $this->tag->findByName($tag->name);
+        $this->assertEquals($tag->translate('en')->name, $foundTag[0]['name']);
+
+        App::setLocale('fr');
+        $foundTag = $this->tag->findByName($tag->name);
+        $this->assertEquals($tag->translate('fr')->name, $foundTag[0]['name']);
     }
 }
