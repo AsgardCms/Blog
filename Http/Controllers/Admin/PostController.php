@@ -66,7 +66,7 @@ class PostController extends AdminBaseController
 
         Flash::success(trans('blog::messages.post created'));
 
-        return Redirect::route('dashboard.post.index');
+        return Redirect::route('admin.blog.post.index');
     }
 
     /**
@@ -95,7 +95,7 @@ class PostController extends AdminBaseController
 
         Flash::success(trans('blog::messages.post updated'));
 
-        return Redirect::route('dashboard.post.index');
+        return Redirect::route('admin.blog.post.index');
     }
 
     /**
@@ -112,6 +112,6 @@ class PostController extends AdminBaseController
 
         Flash::success(trans('blog::messages.post deleted'));
 
-        return Redirect::route('dashboard.post.index');
+        return Redirect::route('admin.blog.post.index');
     }
 }

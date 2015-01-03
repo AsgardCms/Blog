@@ -11,13 +11,13 @@
 </h1>
 <ol class="breadcrumb">
     <li><a href="{{ URL::route('dashboard.index') }}"><i class="fa fa-dashboard"></i> {{ trans('core::core.breadcrumb.home') }}</a></li>
-    <li><a href="{{ URL::route('dashboard.post.index') }}">{{ trans('blog::post.title.post') }}</a></li>
+    <li><a href="{{ URL::route('admin.blog.post.index') }}">{{ trans('blog::post.title.post') }}</a></li>
     <li class="active">{{ trans('blog::post.title.create post') }}</li>
 </ol>
 @stop
 
 @section('content')
-{!! Form::open(['route' => ['dashboard.post.store'], 'method' => 'post']) !!}
+{!! Form::open(['route' => ['admin.blog.post.store'], 'method' => 'post']) !!}
 <div class="row">
     <div class="col-md-10">
         <div class="nav-tabs-custom">
@@ -32,7 +32,7 @@
                 <?php endforeach; ?>
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary btn-flat">{{ trans('blog::post.button.create post') }}</button>
-                    <a class="btn btn-danger pull-right btn-flat" href="{{ URL::route('dashboard.post.index')}}"><i class="fa fa-times"></i> {{ trans('core::core.button.cancel') }}</a>
+                    <a class="btn btn-danger pull-right btn-flat" href="{{ URL::route('admin.blog.post.index')}}"><i class="fa fa-times"></i> {{ trans('core::core.button.cancel') }}</a>
                 </div>
             </div>
         </div> {{-- end nav-tabs-custom --}}

@@ -43,24 +43,24 @@ if (! App::runningInConsole()) {
 |--------------------------------------------------------------------------
 */
 $router->group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'LaravelLocalizationRedirectFilter|auth.admin|permissions'], function (Router $router) {
-    $router->group(['prefix' => Config::get('core::core.admin-prefix'), 'namespace' => 'Modules\Blog\Http\Controllers'], function (Router $router) {
+    $router->group(['prefix' => Config::get('core::core.admin-prefix') . '/blog', 'namespace' => 'Modules\Blog\Http\Controllers'], function (Router $router) {
 
         $router->resource('posts', 'Admin\PostController', ['except' => ['show'], 'names' => [
-            'index' => 'dashboard.post.index',
-            'create' => 'dashboard.post.create',
-            'store' => 'dashboard.post.store',
-            'edit' => 'dashboard.post.edit',
-            'update' => 'dashboard.post.update',
-            'destroy' => 'dashboard.post.destroy',
+            'index' => 'admin.blog.post.index',
+            'create' => 'admin.blog.post.create',
+            'store' => 'admin.blog.post.store',
+            'edit' => 'admin.blog.post.edit',
+            'update' => 'admin.blog.post.update',
+            'destroy' => 'admin.blog.post.destroy',
         ]]);
 
         $router->resource('categories', 'Admin\CategoryController', ['except' => ['show'], 'names' => [
-            'index' => 'dashboard.category.index',
-            'create' => 'dashboard.category.create',
-            'store' => 'dashboard.category.store',
-            'edit' => 'dashboard.category.edit',
-            'update' => 'dashboard.category.update',
-            'destroy' => 'dashboard.category.destroy',
+            'index' => 'admin.blog.category.index',
+            'create' => 'admin.blog.category.create',
+            'store' => 'admin.blog.category.store',
+            'edit' => 'admin.blog.category.edit',
+            'update' => 'admin.blog.category.update',
+            'destroy' => 'admin.blog.category.destroy',
         ]]);
 
     });

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'posts' => [
+    'blog.posts' => [
         'index',
         'create',
         'store',
@@ -9,7 +9,7 @@ return [
         'update',
         'destroy',
     ],
-    'categories' => [
+    'blog.categories' => [
         'index',
         'create',
         'store',
@@ -17,15 +17,7 @@ return [
         'update',
         'destroy',
     ],
-    'tags' => [
-        'index',
-        'create',
-        'store',
-        'edit',
-        'update',
-        'destroy',
-    ],
-    'files' => [
+    'blog.tags' => [
         'index',
         'create',
         'store',

@@ -57,7 +57,7 @@ class CategoryController extends AdminBaseController
 
         Flash::success(trans('blog::messages.category created'));
 
-        return Redirect::route('dashboard.category.index');
+        return Redirect::route('admin.blog.category.index');
     }
 
     /**
@@ -84,7 +84,7 @@ class CategoryController extends AdminBaseController
 
         Flash::success(trans('blog::messages.category updated'));
 
-        return Redirect::route('dashboard.category.index');
+        return Redirect::route('admin.blog.category.index');
     }
 
     /**
@@ -99,6 +99,6 @@ class CategoryController extends AdminBaseController
 
         Flash::success(trans('blog::messages.category deleted'));
 
-        return Redirect::route('dashboard.category.index');
+        return Redirect::route('admin.blog.category.index');
     }
 }
