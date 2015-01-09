@@ -43,7 +43,7 @@ if (! App::runningInConsole()) {
 |--------------------------------------------------------------------------
 */
 $router->group(['prefix' => LaravelLocalization::setLocale(), 'before' => 'LaravelLocalizationRedirectFilter|auth.admin|permissions'], function (Router $router) {
-    $router->group(['prefix' => Config::get('core::core.admin-prefix') . '/blog', 'namespace' => 'Modules\Blog\Http\Controllers'], function (Router $router) {
+    $router->group(['prefix' => Config::get('core::core.admin-prefix').'/blog', 'namespace' => 'Modules\Blog\Http\Controllers'], function (Router $router) {
 
         $router->resource('posts', 'Admin\PostController', ['except' => ['show'], 'names' => [
             'index' => 'admin.blog.post.index',

@@ -1,16 +1,15 @@
 {
-  "name": "Blog",
-  "alias": "blog",
-  "description": "A simple blog module with categories and tags",
-  "keywords": [
-  ],
-  "active": 1,
-  "priority": 1,
-  "providers": [
-    "Modules\\Blog\\Providers\\BlogServiceProvider",
-    "Modules\\Blog\\Providers\\RouteServiceProvider"
-  ],
-  "files": [
-    "start.php"
-  ]
+    "name": "Blog",
+    "alias": "blog",
+    "description": "A simple blog module with categories and tags",
+    "keywords": [],
+    "active": 1,
+    "priority": 1,
+    "providers": [
+        "Modules\\Blog\\Providers\\BlogServiceProvider",
+        "Modules\\Blog\\Providers\\RouteServiceProvider"
+    ],
+    "files": [
+        "start.php"
+    ]
 }
