@@ -1,6 +1,7 @@
 rules:
   php.interface_has_no_interface_suffix:
     enabled: false
-pre_composer_script:
 
-post_composer_scrip:
+pre_composer_script: ~
+
+post_composer_script: ~
