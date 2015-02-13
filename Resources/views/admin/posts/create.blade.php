@@ -73,8 +73,8 @@
 
     $( document ).ready(function() {
         $('.input-tags').MySelectize({
-            'findUri' : '/api/tag/findByName/',
-            'createUri' : '/api/tag',
+            'findUri' : '<?= route('api.tag.findByName') ?>/',
+            'createUri' : '<?= route('api.tag.store') ?>',
             'token': '<?= csrf_token() ?>'
         });
     });
