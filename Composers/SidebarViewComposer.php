@@ -10,6 +10,7 @@ class SidebarViewComposer extends BaseSidebarViewComposer
     public function compose(View $view)
     {
         $view->sidebar->group('Blog', function (SidebarGroup $group) {
+            $group->weight = 7;
             $group->authorize(
                 $this->auth->hasAccess('blog.posts.index') or $this->auth->hasAccess('blog.categories.index')
             );
