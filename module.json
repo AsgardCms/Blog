@@ -10,6 +10,6 @@
         "Modules\\Blog\\Providers\\RouteServiceProvider"
     ],
     "files": [
-        "start.php"
+        "composers.php"
     ]
 }
