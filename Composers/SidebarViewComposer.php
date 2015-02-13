@@ -14,23 +14,27 @@ class SidebarViewComposer extends BaseSidebarViewComposer
                 $this->auth->hasAccess('blog.posts.index') or $this->auth->hasAccess('blog.categories.index')
             );
 
-            $group->addItem('posts', function (SidebarItem $item) {
-                $item->route('admin.user.user.index');
-                $item->icon = 'fa fa-copy';
-                $item->name = 'Blog';
-                $item->authorize(
-                    $this->auth->hasAccess('blog.posts.index')
-                );
+            $group->addItem('Blog', function (SidebarItem $item) {
+
+                $item->addItem('posts', function (SidebarItem $item) {
+                    $item->route('admin.user.user.index');
+                    $item->icon = 'fa fa-copy';
+                    $item->name = 'Blog';
+                    $item->authorize(
+                        $this->auth->hasAccess('blog.posts.index')
+                    );
+                });
+
+                $item->addItem('categories', function (SidebarItem $item) {
+                    $item->route('admin.user.user.index');
+                    $item->icon = 'fa fa-file-text';
+                    $item->name = 'Categories';
+                    $item->authorize(
+                        $this->auth->hasAccess('blog.categories.index')
+                    );
+                });
             });
 
-            $group->addItem('categories', function (SidebarItem $item) {
-                $item->route('admin.user.user.index');
-                $item->icon = 'fa fa-file-text';
-                $item->name = 'Categories';
-                $item->authorize(
-                    $this->auth->hasAccess('blog.categories.index')
-                );
-            });
         });
     }
 }
