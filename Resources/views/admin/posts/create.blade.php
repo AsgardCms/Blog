@@ -1,4 +1,4 @@
-@extends('core::layouts.master')
+@extends('layouts.master')
 
 @section('styles')
 <script src="{{ Module::asset('core:js/vendor/ckeditor/ckeditor.js') }}" type="text/javascript"></script>
@@ -21,7 +21,7 @@
 <div class="row">
     <div class="col-md-10">
         <div class="nav-tabs-custom">
-            @include('core::partials.form-tab-headers')
+            @include('partials.form-tab-headers')
             <div class="tab-content">
                 <?php $i = 0; ?>
                 <?php foreach (LaravelLocalization::getSupportedLocales() as $locale => $language): ?>
