@@ -1,11 +1,12 @@
 <?php namespace Modules\Blog\Http\Controllers\Api;
 
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Response;
 use Modules\Blog\Http\Requests\CreateTagRequest;
 use Modules\Blog\Repositories\TagRepository;
 
-class TagController
+class TagController extends Controller
 {
     /**
      * @var TagRepository
