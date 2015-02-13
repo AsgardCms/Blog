@@ -1,7 +1,7 @@
 <?php namespace Modules\Blog\Composers;
 
-use Illuminate\Support\Collection;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Request;
 use Modules\Core\Composers\BaseSidebarViewComposer;
 

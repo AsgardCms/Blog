@@ -8,11 +8,11 @@ if (! App::runningInConsole()) {
     } else {
         $uri = 'blog';
         if (config('app.locale_in_url')) {
-            $uri = $locale.'/'.$uri;
+            $uri = $locale . '/' . $uri;
         }
     }
 
     $prefix = config('asgard.core.core.admin-prefix');
-    $router->get($uri, ['as' => $locale.'.blog', 'uses' => 'PublicController@index'])->where('uri', "(?!$prefix).*");
-    $router->get($uri.'/{slug}', ['as' => $locale.'.blog.slug', 'uses' => 'PublicController@show'])->where('uri', "(?!$prefix).*");
+    $router->get($uri, ['as' => $locale . '.blog', 'uses' => 'PublicController@index'])->where('uri', "(?!$prefix).*");
+    $router->get($uri . '/{slug}', ['as' => $locale . '.blog.slug', 'uses' => 'PublicController@show'])->where('uri', "(?!$prefix).*");
 }

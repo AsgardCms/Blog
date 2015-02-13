@@ -1,7 +1,7 @@
 <?php namespace Modules\Blog\Repositories\Eloquent;
 
-use Modules\Blog\Entities\Post;
 use Illuminate\Database\Eloquent\Builder;
+use Modules\Blog\Entities\Post;
 use Modules\Blog\Repositories\PostRepository;
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
 
