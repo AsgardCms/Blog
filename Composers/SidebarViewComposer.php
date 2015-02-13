@@ -18,7 +18,7 @@ class SidebarViewComposer extends BaseSidebarViewComposer
             $group->addItem('Blog', function (SidebarItem $item) {
 
                 $item->addItem('posts', function (SidebarItem $item) {
-                    $item->route('admin.user.user.index');
+                    $item->route('admin.blog.post.index');
                     $item->icon = 'fa fa-copy';
                     $item->name = 'Blog';
                     $item->authorize(
@@ -27,7 +27,7 @@ class SidebarViewComposer extends BaseSidebarViewComposer
                 });
 
                 $item->addItem('categories', function (SidebarItem $item) {
-                    $item->route('admin.user.user.index');
+                    $item->route('admin.blog.category.index');
                     $item->icon = 'fa fa-file-text';
                     $item->name = 'Categories';
                     $item->authorize(
