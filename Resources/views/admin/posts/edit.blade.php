@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('styles')
-<script src="{{ Module::asset('core:js/vendor/ckeditor/ckeditor.js') }}" type="text/javascript"></script>
+{!! Theme::script('js/vendor/ckeditor/ckeditor.js') !!}
 <link href="{{{ Module::asset('blog:css/selectize.css') }}}" rel="stylesheet" type="text/css" />
 @stop
 
