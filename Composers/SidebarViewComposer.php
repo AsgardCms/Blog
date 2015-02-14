@@ -19,6 +19,7 @@ class SidebarViewComposer extends BaseSidebarViewComposer
 
                 $item->addItem('posts', function (SidebarItem $item) {
                     $item->weight = 0;
+                    // $item->append('admin.blog.post.create');
                     $item->route('admin.blog.post.index');
                     $item->icon = 'fa fa-copy';
                     $item->name = 'Posts';
@@ -30,6 +31,7 @@ class SidebarViewComposer extends BaseSidebarViewComposer
                 $item->addItem('categories', function (SidebarItem $item) {
                     $item->weight = 1;
                     $item->route('admin.blog.category.index');
+                    // $item->append('admin.blog.category.create');
                     $item->icon = 'fa fa-file-text';
                     $item->name = 'Categories';
                     $item->authorize(
