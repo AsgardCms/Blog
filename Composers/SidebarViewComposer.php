@@ -18,15 +18,17 @@ class SidebarViewComposer extends BaseSidebarViewComposer
             $group->addItem('Blog', function (SidebarItem $item) {
 
                 $item->addItem('posts', function (SidebarItem $item) {
+                    $item->weight = 0;
                     $item->route('admin.blog.post.index');
                     $item->icon = 'fa fa-copy';
-                    $item->name = 'Blog';
+                    $item->name = 'Posts';
                     $item->authorize(
                         $this->auth->hasAccess('blog.posts.index')
                     );
                 });
 
                 $item->addItem('categories', function (SidebarItem $item) {
+                    $item->weight = 1;
                     $item->route('admin.blog.category.index');
                     $item->icon = 'fa fa-file-text';
                     $item->name = 'Categories';
