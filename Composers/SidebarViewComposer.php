@@ -17,10 +17,12 @@ class SidebarViewComposer extends BaseSidebarViewComposer
 
             $group->addItem(trans('blog::blog.title'), function (SidebarItem $item) {
 
+                $item->icon = 'fa fa-copy';
                 $item->weight = 0;
 
                 $item->addItem(trans('blog::post.title.post'), function (SidebarItem $item) {
                     $item->icon = 'fa fa-copy';
+                    $item->weight = 0;
                     $item->append('admin.blog.post.create');
                     $item->route('admin.blog.post.index');
                     $item->authorize(
@@ -30,6 +32,7 @@ class SidebarViewComposer extends BaseSidebarViewComposer
 
                 $item->addItem(trans('blog::category.title.category'), function (SidebarItem $item) {
                     $item->icon = 'fa fa-file-text';
+                    $item->weight = 1;
                     $item->route('admin.blog.category.index');
                     $item->append('admin.blog.category.create');
                     $item->authorize(
