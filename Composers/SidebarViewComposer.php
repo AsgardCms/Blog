@@ -11,9 +11,6 @@ class SidebarViewComposer extends BaseSidebarViewComposer
     {
         $view->sidebar->group(trans('core::sidebar.content'), function (SidebarGroup $group) {
             $group->weight = 50;
-            $group->authorize(
-                $this->auth->hasAccess('blog.posts.index') or $this->auth->hasAccess('blog.categories.index')
-            );
 
             $group->addItem(trans('blog::blog.title'), function (SidebarItem $item) {
 
