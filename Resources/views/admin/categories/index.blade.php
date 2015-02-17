@@ -122,7 +122,7 @@
     $( document ).ready(function() {
         $(document).keypressAction({
             actions: [
-                { key: 99, route: "<?= route('admin.blog.category.create') ?>" }
+                { key: 'c', route: "<?= route('admin.blog.category.create') ?>" }
             ]
         });
     });
