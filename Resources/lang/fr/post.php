@@ -17,4 +17,7 @@ return [
         'title' => 'Titre',
         'slug' => 'Slug',
     ],
+    'navigation' => [
+        'back to index' => 'Retour vers l\'index des posts'
+    ],
 ];

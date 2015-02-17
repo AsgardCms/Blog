@@ -36,3 +36,27 @@
 
 {!! Form::close() !!}
 @stop
+
+@section('footer')
+    <p class="text-muted">
+        <a data-toggle="modal" data-target="#keyboardShortcutsModal"><i class="fa fa-keyboard-o"></i></a>
+    </p>
+@stop
+@section('shortcuts')
+    <dl class="dl-horizontal">
+        <dt><code>b</code></dt>
+        <dd>{{ trans('blog::category.navigation.back to index') }}</dd>
+    </dl>
+@stop
+
+@section('scripts')
+    <script>
+        $( document ).ready(function() {
+            $(document).keypressAction({
+                actions: [
+                    { key: 'b', route: "<?= route('admin.blog.category.index') ?>" }
+                ]
+            });
+        });
+    </script>
+@stop
