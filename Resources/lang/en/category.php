@@ -18,4 +18,7 @@ return [
         'name' => 'Name',
         'slug' => 'Slug',
     ],
+    'navigation' => [
+        'back to index' => 'Back to category index'
+    ],
 ];

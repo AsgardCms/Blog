@@ -67,6 +67,18 @@
 {!! Form::close() !!}
 @stop
 
+@section('footer')
+    <p class="text-muted">
+        <a data-toggle="modal" data-target="#keyboardShortcutsModal"><i class="fa fa-keyboard-o"></i></a>
+    </p>
+@stop
+@section('shortcuts')
+    <dl class="dl-horizontal">
+        <dt><code>b</code></dt>
+        <dd>{{ trans('blog::post.navigation.back to index') }}</dd>
+    </dl>
+@stop
+
 @section('scripts')
 <script src="{{ Module::asset('blog:js/selectize.min.js') }}" type="text/javascript"></script>
 <script src="{{ Module::asset('blog:js/MySelectize.js') }}" type="text/javascript"></script>
@@ -78,6 +90,12 @@
     });
 
     $( document ).ready(function() {
+        $(document).keypressAction({
+            actions: [
+                { key: 'b', route: "<?= route('admin.blog.post.index') ?>" }
+            ]
+        });
+
         $('.input-tags').MySelectize({
             'findUri' : '<?= route('api.tag.findByName') ?>/',
             'createUri' : '<?= route('api.tag.store') ?>',
