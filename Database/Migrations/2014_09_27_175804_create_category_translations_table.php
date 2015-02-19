@@ -12,7 +12,7 @@ class CreateCategoryTranslationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('category_translations', function (Blueprint $table) {
+        Schema::create('blog__category_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('slug');
@@ -30,6 +30,6 @@ class CreateCategoryTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('category_translations');
+        Schema::drop('blog__category_translations');
     }
 }

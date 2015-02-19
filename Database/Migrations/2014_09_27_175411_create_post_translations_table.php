@@ -12,7 +12,7 @@ class CreatePostTranslationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('post_translations', function (Blueprint $table) {
+        Schema::create('blog__post_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('post_id')->unsigned();
             $table->string('locale')->index();
@@ -31,6 +31,6 @@ class CreatePostTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('post_translations');
+        Schema::drop('blog__post_translations');
     }
 }

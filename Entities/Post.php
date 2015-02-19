@@ -9,6 +9,7 @@ class Post extends Model
 
     public $translatedAttributes = ['title', 'slug', 'content'];
     protected $fillable = ['category_id', 'title', 'slug', 'content'];
+    protected $table = 'blog__posts';
 
     public function category()
     {
@@ -17,6 +18,6 @@ class Post extends Model
 
     public function tags()
     {
-        return $this->belongsToMany('Modules\Blog\Entities\Tag');
+        return $this->belongsToMany('Modules\Blog\Entities\Tag', 'blog__post_tag');
     }
 }

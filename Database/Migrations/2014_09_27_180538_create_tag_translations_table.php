@@ -12,7 +12,7 @@ class CreateTagTranslationsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tag_translations', function (Blueprint $table) {
+        Schema::create('blog__tag_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->string('slug');
@@ -30,6 +30,6 @@ class CreateTagTranslationsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('tag_translations');
+        Schema::drop('blog__tag_translations');
     }
 }

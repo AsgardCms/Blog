@@ -9,6 +9,7 @@ class Category extends Model
 
     public $translatedAttributes = ['name', 'slug'];
     protected $fillable = ['name', 'slug'];
+    protected $table = 'blog__categories';
 
     public function posts()
     {
