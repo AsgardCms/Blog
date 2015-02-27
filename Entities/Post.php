@@ -2,10 +2,11 @@
 
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Media\Support\Traits\MediaRelation;
 
 class Post extends Model
 {
-    use Translatable;
+    use Translatable, MediaRelation;
 
     public $translatedAttributes = ['title', 'slug', 'content'];
     protected $fillable = ['category_id', 'title', 'slug', 'content'];
