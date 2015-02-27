@@ -38,7 +38,6 @@
             </div>
         </div> {{-- end nav-tabs-custom --}}
     </div>
-
     <div class="col-md-2">
         <div class="box box-info">
             <div class="box-body">
@@ -58,6 +57,24 @@
                        <?php endforeach; ?>
                     </select>
                     {!! $errors->first("tags", '<span class="help-block">:message</span>') !!}
+                </div>
+                <div class="form-group">
+                    <script>
+                        function includeMedia(mediaId) {
+                            $.ajax({
+                                type: 'POST',
+                                url: '{{ route('api.media.link') }}',
+                                data: {'mediaId': mediaId, '_token': '{{ csrf_token() }}'},
+                                success: function(data) {
+                                    // Insert a thumbnail of the selected image
+                                }
+                            });
+                        }
+                    </script>
+                    {!! Form::label("thumbnail", 'Thumbnail:') !!}
+                    <div class="clearfix"></div>
+                    <?php $url = route('media.grid.select') ?>
+                    <a class="btn btn-primary" onclick="window.open('{!! $url !!}', '_blank', 'menubar=no,status=no,toolbar=no,scrollbars=yes,height=500,width=1000');"><i class="fa fa-upload"></i> Browse ..</a>
                 </div>
             </div>
         </div>
@@ -89,7 +106,6 @@
 //            config.language = '<?= App::getLocale() ?>';
 //        } );
     });
-
     $( document ).ready(function() {
         $(document).keypressAction({
             actions: [
