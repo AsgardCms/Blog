@@ -11,4 +11,21 @@ class CachePostDecorator extends BaseCacheDecorator implements PostRepository
         $this->entityName = 'posts';
         $this->repository = $post;
     }
+
+    /**
+     * Find a file for the post by zone
+     * @param $zone
+     * @param object $post
+     * @return object
+     */
+    public function findFileByZoneForEntity($zone, $post)
+    {
+        return $this->cache
+            ->tags($this->entityName, 'global')
+            ->remember("{$this->locale}.{$this->entityName}.findFileByZone.{$zone}.{$post->id}", $this->cacheTime,
+                function () use ($zone, $post) {
+                    return $this->repository->findFileByZoneForEntity($zone, $post);
+                }
+            );
+    }
 }
