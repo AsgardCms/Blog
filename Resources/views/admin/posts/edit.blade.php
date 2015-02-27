@@ -58,24 +58,11 @@
                     </select>
                     {!! $errors->first("tags", '<span class="help-block">:message</span>') !!}
                 </div>
-                <div class="form-group">
-                    <script>
-                        function includeMedia(mediaId) {
-                            $.ajax({
-                                type: 'POST',
-                                url: '{{ route('api.media.link') }}',
-                                data: {'mediaId': mediaId, '_token': '{{ csrf_token() }}'},
-                                success: function(data) {
-                                    // Insert a thumbnail of the selected image
-                                }
-                            });
-                        }
-                    </script>
-                    {!! Form::label("thumbnail", 'Thumbnail:') !!}
-                    <div class="clearfix"></div>
-                    <?php $url = route('media.grid.select') ?>
-                    <a class="btn btn-primary" onclick="window.open('{!! $url !!}', '_blank', 'menubar=no,status=no,toolbar=no,scrollbars=yes,height=500,width=1000');"><i class="fa fa-upload"></i> Browse ..</a>
-                </div>
+                @include('media::admin.fields.file-link', [
+                    'entityClass' => 'Modules\\Blog\\Entities\\Post',
+                    'entityId' => $post->id,
+                    'zone' => 'thumbnail'
+                ])
             </div>
         </div>
     </div>
