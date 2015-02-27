@@ -78,9 +78,9 @@
 <script src="{{ Module::asset('blog:js/MySelectize.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
     $(function() {
-        CKEDITOR.replaceAll(function( textarea, config ) {
-            config.language = '<?= App::getLocale() ?>';
-        } );
+        //CKEDITOR.replaceAll(function( textarea, config ) {
+          //  config.language = '<?= App::getLocale() ?>';
+        //} );
     });
 
     $( document ).ready(function() {
