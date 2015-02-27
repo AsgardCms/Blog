@@ -59,7 +59,7 @@
                     {!! $errors->first("tags", '<span class="help-block">:message</span>') !!}
                 </div>
                 @include('media::admin.fields.file-link', [
-                    'entityClass' => 'Modules\\Blog\\Entities\\Post',
+                    'entityClass' => 'Modules\\\\Blog\\\\Entities\\\\Post',
                     'entityId' => $post->id,
                     'zone' => 'thumbnail'
                 ])
