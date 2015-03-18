@@ -38,9 +38,7 @@
 @stop
 
 @section('footer')
-    <p class="text-muted">
-        <a data-toggle="modal" data-target="#keyboardShortcutsModal"><i class="fa fa-keyboard-o"></i></a>
-    </p>
+    <a data-toggle="modal" data-target="#keyboardShortcutsModal"><i class="fa fa-keyboard-o"></i></a> &nbsp;
 @stop
 @section('shortcuts')
     <dl class="dl-horizontal">
