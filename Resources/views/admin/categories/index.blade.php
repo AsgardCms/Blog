@@ -20,11 +20,11 @@
                 </a>
             </div>
         </div>
-        <div class="box box-info">
+        <div class="box box-primary">
             <div class="box-header">
             </div>
             <!-- /.box-header -->
-            <div class="box-body table-responsive">
+            <div class="box-body">
                 <table class="data-table table table-bordered table-hover">
                     <thead>
                         <tr>
