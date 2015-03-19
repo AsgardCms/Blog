@@ -10,8 +10,6 @@ class SidebarViewComposer extends BaseSidebarViewComposer
     public function compose(View $view)
     {
         $view->sidebar->group(trans('core::sidebar.content'), function (SidebarGroup $group) {
-            $group->weight = 50;
-
             $group->addItem(trans('blog::blog.title'), function (SidebarItem $item) {
 
                 $item->icon = 'fa fa-copy';
