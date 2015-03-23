@@ -4,7 +4,7 @@
     "description": "A simple blog module with categories and tags",
     "keywords": [],
     "active": 1,
-    "priority": 1,
+    "order": 1,
     "providers": [
         "Modules\\Blog\\Providers\\BlogServiceProvider",
         "Modules\\Blog\\Providers\\RouteServiceProvider"
