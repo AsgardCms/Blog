@@ -70,21 +70,4 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
             $q->where('title', '!=', '');
         })->with('translations')->orderBy('created_at', 'DESC')->get();
     }
-
-    /**
-     * Find a file for the post by zone
-     * @param $zone
-     * @param object $post
-     * @return object
-     */
-    public function findFileByZoneForEntity($zone, $post)
-    {
-        foreach ($post->files as $file) {
-            if ($file->pivot->zone == $zone) {
-                return $file;
-            }
-        }
-
-        return '';
-    }
 }
