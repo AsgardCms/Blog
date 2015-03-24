@@ -10,6 +10,7 @@ use Modules\Blog\Http\Requests\UpdatePostRequest;
 use Modules\Blog\Repositories\CategoryRepository;
 use Modules\Blog\Repositories\PostRepository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
+use Modules\Media\Repositories\FileRepository;
 
 class PostController extends AdminBaseController
 {
@@ -21,13 +22,18 @@ class PostController extends AdminBaseController
      * @var CategoryRepository
      */
     private $category;
+    /**
+     * @var FileRepository
+     */
+    private $file;
 
-    public function __construct(PostRepository $post, CategoryRepository $category)
+    public function __construct(PostRepository $post, CategoryRepository $category, FileRepository $file)
     {
         parent::__construct();
 
         $this->post = $post;
         $this->category = $category;
+        $this->file = $file;
     }
 
     /**
@@ -77,7 +83,7 @@ class PostController extends AdminBaseController
      */
     public function edit(Post $post)
     {
-        $thumbnail = $this->post->findFileByZoneForEntity('thumbnail', $post);
+        $thumbnail = $this->file->findFileByZoneForEntity('thumbnail', $post);
         $categories = $this->category->allTranslatedIn(App::getLocale());
 
         return View::make('blog::admin.posts.edit', compact('post', 'categories', 'thumbnail'));
