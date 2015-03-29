@@ -41,10 +41,8 @@ class BlogServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->booted(function ($app) {
-            $this->registerFilters($app['router']);
-            $this->registerBindings();
-        });
+        $this->registerFilters($this->app['router']);
+        $this->registerBindings();
     }
 
     /**
