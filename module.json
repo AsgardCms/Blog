@@ -10,6 +10,10 @@
         "Modules\\Blog\\Providers\\BlogServiceProvider",
         "Modules\\Blog\\Providers\\RouteServiceProvider"
     ],
+    "widgets": [
+        "Modules\\Blog\\Widgets\\PostsWidget",
+        "Modules\\Blog\\Widgets\\CategoriesWidget"
+    ],
     "files": [
         "composers.php"
     ]
