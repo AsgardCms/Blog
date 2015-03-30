@@ -46,8 +46,12 @@ class CategoriesWidget extends BaseWidget
      * Get the widget type
      * @return string
      */
-    protected function type()
+    protected function options()
     {
-        return 'col-md-6';
+        return [
+            'width' => '2',
+            'height' => '1',
+            'x' => '2',
+        ];
     }
 }

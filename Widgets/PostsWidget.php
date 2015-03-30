@@ -42,12 +42,16 @@ class PostsWidget extends BaseWidget
        return ['postCount' => $this->post->all()->count()];
     }
 
-    /**
+     /**
      * Get the widget type
      * @return string
      */
-    protected function type()
+    protected function options()
     {
-        return 'col-md-6';
+        return [
+            'width' => '2',
+            'height' => '1',
+            'x' => '0',
+        ];
     }
 }
