@@ -39,7 +39,7 @@ class PostsWidget extends BaseWidget
      */
     protected function data()
     {
-       return ['postCount' => $this->post->all()->count()];
+        return ['postCount' => $this->post->all()->count()];
     }
 
      /**
