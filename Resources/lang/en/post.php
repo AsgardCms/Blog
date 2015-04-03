@@ -20,4 +20,5 @@ return [
     'navigation' => [
         'back to index' => 'Back to posts index'
     ],
+    'latest posts' => 'Latest posts',
 ];
