@@ -21,7 +21,7 @@ class LatestPostsWidget extends BaseWidget
      */
     protected function name()
     {
-        return get_class();
+        return 'LatestPostsWidget';
     }
 
     /**
