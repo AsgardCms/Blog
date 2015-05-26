@@ -4,4 +4,10 @@ use Modules\Core\Repositories\BaseRepository;
 
 interface PostRepository extends BaseRepository
 {
+    /**
+     * Return the latest x blog posts
+     * @param int $amount
+     * @return Collection
+     */
+    public function latest($amount = 5);
 }

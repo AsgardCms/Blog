@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Blog\Entities\Post;
+use Modules\Blog\Repositories\Collection;
 use Modules\Blog\Repositories\PostRepository;
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
 
@@ -69,5 +70,15 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
             $q->where('locale', "$lang");
             $q->where('title', '!=', '');
         })->with('translations')->orderBy('created_at', 'DESC')->get();
+    }
+
+    /**
+     * Return the latest x blog posts
+     * @param int $amount
+     * @return Collection
+     */
+    public function latest($amount = 5)
+    {
+        return $this->model->orderBy('created_at')->take($amount)->get();
     }
 }
