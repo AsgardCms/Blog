@@ -28,4 +28,21 @@ class CachePostDecorator extends BaseCacheDecorator implements PostRepository
                 }
             );
     }
+
+    /**
+     * Get the previous post of the given post
+     * @param object $post
+     * @return object
+     */
+    public function getPreviousOf($post)
+    {
+        $postId = $post->id;
+        return $this->cache
+            ->tags($this->entityName, 'global')
+            ->remember("{$this->locale}.{$this->entityName}.getPreviousOf.{$postId}", $this->cacheTime,
+                function () use ($post) {
+                    return $this->repository->getPreviousOf($post);
+                }
+            );
+    }
 }

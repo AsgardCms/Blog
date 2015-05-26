@@ -81,4 +81,14 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     {
         return $this->model->orderBy('created_at', 'desc')->take($amount)->get();
     }
+
+    /**
+     * Get the previous post of the given post
+     * @param object $post
+     * @return object
+     */
+    public function getPreviousOf($post)
+    {
+        return $this->model->where('created_at', '<', $post->created_at)->first();
+    }
 }

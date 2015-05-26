@@ -10,4 +10,11 @@ interface PostRepository extends BaseRepository
      * @return Collection
      */
     public function latest($amount = 5);
+
+    /**
+     * Get the previous post of the given post
+     * @param object $post
+     * @return object
+     */
+    public function getPreviousOf($post);
 }
