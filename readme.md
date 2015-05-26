@@ -19,19 +19,16 @@ Or add the package to your `require` key in the `composer.json` file:
 
 Followed by a composer update
 
-### Package migrations
+**Note: After installation you'll have to give you the required permissions to get to the blog module pages in the backend.**
 
-Run the migrations:
 
-``` bash
-php artisan module:migrate Blog
-```
+## Usage
 
-## Publish package assets
-
-``` bash
-php artisan asgard:publish:module Blog
-```
+- You have to create a `blog.index` and `blog.show` page in your front end theme.
+- You can link to the blog index page using : `route(locale() . '.blog')`
+- In the blog index you'll have access to a `$posts` variable on which you can loop
+- To create a link to a specific post: `route(locale() . '.blog.slug', [$post->slug])`
+- On the blog index and blog show pages you'll have access to a `$latestPosts` variable containing the latest posts, this amount can be configured in the admin.
 
 ## Resources
 
