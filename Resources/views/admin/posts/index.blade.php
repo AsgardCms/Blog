@@ -29,6 +29,7 @@
                     <thead>
                         <tr>
                             <th>{{ trans('core::core.table.created at') }}</th>
+                            <th>{{ trans('blog::post.table.status') }}</th>
                             <th>{{ trans('blog::post.table.title') }}</th>
                             <th>{{ trans('blog::post.table.slug') }}</th>
                             <th>{{ trans('core::core.table.actions') }}</th>
@@ -41,6 +42,11 @@
                                 <td>
                                     <a href="{{ URL::route('admin.blog.post.edit', [$post->id]) }}">
                                         {{ $post->created_at }}
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{{ URL::route('admin.blog.post.edit', [$post->id]) }}">
+                                        {{ $post->present()->status }}
                                     </a>
                                 </td>
                                 <td>
@@ -66,6 +72,7 @@
                     <tfoot>
                         <tr>
                             <th>{{ trans('core::core.table.created at') }}</th>
+                            <th>{{ trans('blog::post.table.status') }}</th>
                             <th>{{ trans('blog::post.table.title') }}</th>
                             <th>{{ trans('blog::post.table.slug') }}</th>
                             <th>{{ trans('core::core.table.actions') }}</th>

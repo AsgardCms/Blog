@@ -34,4 +34,18 @@ class Status
     {
         return $this->statuses;
     }
+
+    /**
+     * Get the post status
+     * @param int $statusId
+     * @return string
+     */
+    public function get($statusId)
+    {
+        if (isset($this->statuses[$statusId])) {
+            return $this->statuses[$statusId];
+        }
+
+        return $this->statuses[self::draft];
+    }
 }
