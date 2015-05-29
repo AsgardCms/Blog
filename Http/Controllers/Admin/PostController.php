@@ -1,12 +1,9 @@
 <?php namespace Modules\Blog\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\App;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\View;
 use Laracasts\Flash\Flash;
 use Modules\Blog\Entities\Post;
-use Modules\Blog\Http\Requests\StorePostRequest;
 use Modules\Blog\Http\Requests\UpdatePostRequest;
+use Modules\Blog\Http\Requests\CreatePostRequest;
 use Modules\Blog\Repositories\CategoryRepository;
 use Modules\Blog\Repositories\PostRepository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
@@ -39,62 +36,62 @@ class PostController extends AdminBaseController
     /**
      * Display a listing of the resource.
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function index()
     {
         $posts = $this->post->all();
 
-        return View::make('blog::admin.posts.index', compact('posts'));
+        return view('blog::admin.posts.index', compact('posts'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return Response
+     * @return \Illuminate\View\View
      */
     public function create()
     {
-        $categories = $this->category->allTranslatedIn(App::getLocale());
+        $categories = $this->category->allTranslatedIn(app()->getLocale());
 
-        return View::make('blog::admin.posts.create', compact('categories'));
+        return view('blog::admin.posts.create', compact('categories'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  StorePostRequest $request
-     * @return Response
+     * @param CreatePostRequest $request
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function store(StorePostRequest $request)
+    public function store(CreatePostRequest $request)
     {
         $this->post->create($request->all());
 
         Flash::success(trans('blog::messages.post created'));
 
-        return Redirect::route('admin.blog.post.index');
+        return redirect()->route('admin.blog.post.index');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  Post     $post
-     * @return Response
+     * @param Post $post
+     * @return \Illuminate\View\View
      */
     public function edit(Post $post)
     {
         $thumbnail = $this->file->findFileByZoneForEntity('thumbnail', $post);
-        $categories = $this->category->allTranslatedIn(App::getLocale());
+        $categories = $this->category->allTranslatedIn(app()->getLocale());
 
-        return View::make('blog::admin.posts.edit', compact('post', 'categories', 'thumbnail'));
+        return view('blog::admin.posts.edit', compact('post', 'categories', 'thumbnail'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param Post              $post
+     * @param Post $post
      * @param UpdatePostRequest $request
-     * @return
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Post $post, UpdatePostRequest $request)
     {
@@ -102,14 +99,14 @@ class PostController extends AdminBaseController
 
         Flash::success(trans('blog::messages.post updated'));
 
-        return Redirect::route('admin.blog.post.index');
+        return redirect()->route('admin.blog.post.index');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  Post     $post
-     * @return Response
+     * @param  Post $post
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Post $post)
     {
@@ -119,6 +116,6 @@ class PostController extends AdminBaseController
 
         Flash::success(trans('blog::messages.post deleted'));
 
-        return Redirect::route('admin.blog.post.index');
+        return redirect()->route('admin.blog.post.index');
     }
 }
