@@ -6,6 +6,11 @@
  */
 class Status
 {
+    const draft = 0;
+    const pending = 1;
+    const published = 2;
+    const unpublished = 3;
+
     /**
      * @var array
      */
@@ -14,10 +19,10 @@ class Status
     public function __construct()
     {
         $this->statuses = [
-            0 => trans('blog::status.draft'),
-            1 => trans('blog::status.pending review'),
-            2 => trans('blog::status.published'),
-            3 => trans('blog::status.unpublished'),
+            self::draft => trans('blog::status.draft'),
+            self::pending => trans('blog::status.pending review'),
+            self::published => trans('blog::status.published'),
+            self::unpublished => trans('blog::status.unpublished'),
         ];
     }
 
