@@ -21,7 +21,7 @@
 <div class="row">
     <div class="col-md-10">
         <div class="nav-tabs-custom">
-            @include('partials.form-tab-headers')
+            @include('partials.form-tab-headers', ['fields' => ['title', 'slug']])
             <div class="tab-content">
                 <?php $i = 0; ?>
                 <?php foreach (LaravelLocalization::getSupportedLocales() as $locale => $language): ?>
