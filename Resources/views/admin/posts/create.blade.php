@@ -49,6 +49,14 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
+                <div class="form-group">
+                    {!! Form::label("status", 'Post status:') !!}
+                    <select name="status" id="status" class="form-control">
+                        <?php foreach ($statuses as $id => $status): ?>
+                        <option value="{{ $id }}" {{ old('status', 0) == $id ? 'selected' : '' }}>{{ $status }}</option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
                 <div class='form-group{{ $errors->has("tags") ? ' has-error' : '' }}'>
                    {!! Form::label("tags", 'Tags:') !!}
                    {{--{!! Form::text("tags", Input::old("tags"), ['class' => 'input-tags', 'placeholder' => 'Tags']) !!}--}}

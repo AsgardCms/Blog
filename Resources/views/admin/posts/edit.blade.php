@@ -50,6 +50,16 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
+                <div class="form-group">
+                    {!! Form::label("status", 'Post status:') !!}
+                    <select name="status" id="status" class="form-control">
+                        <?php foreach ($statuses as $id => $status): ?>
+                        <option value="{{ $id }}" {{ old('status', $post->status) == $id ? 'selected' : '' }}>
+                            {{ $status }}
+                        </option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
                 <div class='form-group{{ $errors->has("tags") ? ' has-error' : '' }}'>
                     {!! Form::label("tags", 'Tags:') !!}
                     <select name="tags[]" id="tags" class="input-tags" multiple>

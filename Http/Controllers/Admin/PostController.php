@@ -2,6 +2,7 @@
 
 use Laracasts\Flash\Flash;
 use Modules\Blog\Entities\Post;
+use Modules\Blog\Entities\Status;
 use Modules\Blog\Http\Requests\UpdatePostRequest;
 use Modules\Blog\Http\Requests\CreatePostRequest;
 use Modules\Blog\Repositories\CategoryRepository;
@@ -23,14 +24,24 @@ class PostController extends AdminBaseController
      * @var FileRepository
      */
     private $file;
+    /**
+     * @var Status
+     */
+    private $status;
 
-    public function __construct(PostRepository $post, CategoryRepository $category, FileRepository $file)
+    public function __construct(
+        PostRepository $post,
+        CategoryRepository $category,
+        FileRepository $file,
+        Status $status
+    )
     {
         parent::__construct();
 
         $this->post = $post;
         $this->category = $category;
         $this->file = $file;
+        $this->status = $status;
     }
 
     /**
@@ -53,8 +64,9 @@ class PostController extends AdminBaseController
     public function create()
     {
         $categories = $this->category->allTranslatedIn(app()->getLocale());
+        $statuses = $this->status->lists();
 
-        return view('blog::admin.posts.create', compact('categories'));
+        return view('blog::admin.posts.create', compact('categories', 'statuses'));
     }
 
     /**
@@ -82,8 +94,9 @@ class PostController extends AdminBaseController
     {
         $thumbnail = $this->file->findFileByZoneForEntity('thumbnail', $post);
         $categories = $this->category->allTranslatedIn(app()->getLocale());
+        $statuses = $this->status->lists();
 
-        return view('blog::admin.posts.edit', compact('post', 'categories', 'thumbnail'));
+        return view('blog::admin.posts.edit', compact('post', 'categories', 'thumbnail', 'statuses'));
     }
 
     /**
