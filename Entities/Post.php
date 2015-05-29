@@ -13,6 +13,9 @@ class Post extends Model
     protected $fillable = ['category_id', 'status', 'title', 'slug', 'content'];
     protected $table = 'blog__posts';
     protected $presenter = 'Modules\Blog\Presenters\PostPresenter';
+    protected $casts = [
+        'status' => 'int',
+    ];
 
     public function category()
     {
