@@ -45,9 +45,9 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ URL::route('admin.blog.post.edit', [$post->id]) }}">
+                                    <span class="label {{ $post->present()->statusLabelClass }}">
                                         {{ $post->present()->status }}
-                                    </a>
+                                    </span>
                                 </td>
                                 <td>
                                     <a href="{{ URL::route('admin.blog.post.edit', [$post->id]) }}">

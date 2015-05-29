@@ -46,4 +46,29 @@ class PostPresenter extends Presenter
     {
         return $this->status->get($this->entity->status);
     }
+
+    /**
+     * Getting the label class for the appropriate status
+     * @return string
+     */
+    public function statusLabelClass()
+    {
+        switch ($this->entity->status) {
+            case 0:
+                return 'bg-red';
+                break;
+            case 1:
+                return 'bg-orange';
+                break;
+            case 2:
+                return 'bg-green';
+                break;
+            case 3:
+                return 'bg-purple';
+                break;
+            default:
+                return 'bg-red';
+                break;
+        }
+    }
 }
