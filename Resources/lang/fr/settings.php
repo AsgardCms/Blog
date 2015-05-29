@@ -2,5 +2,5 @@
 
 return [
     'posts-per-page' => 'Posts par page',
-    'latest-posts-amount' => 'Nombre de dernier posts',
+    'latest-posts-amount' => 'Nombre de derniers posts',
 ];

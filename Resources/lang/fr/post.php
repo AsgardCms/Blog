@@ -4,7 +4,7 @@ return [
     'title' => [
         'post' => 'Posts',
         'create post' => 'Créer un post',
-        'edit post' => 'Editition d\'un post',
+        'edit post' => 'Edition d\'un post',
     ],
     'button' => [
         'create post' => 'Créer un post',
