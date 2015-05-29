@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Blog\Entities\Post;
+use Modules\Blog\Entities\Status;
 use Modules\Blog\Repositories\Collection;
 use Modules\Blog\Repositories\PostRepository;
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
@@ -69,7 +70,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
         return $this->model->whereHas('translations', function (Builder $q) use ($lang) {
             $q->where('locale', "$lang");
             $q->where('title', '!=', '');
-        })->with('translations')->orderBy('created_at', 'DESC')->get();
+        })->with('translations')->whereStatus(Status::published)->orderBy('created_at', 'DESC')->get();
     }
 
     /**
