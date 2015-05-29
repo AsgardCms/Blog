@@ -12,6 +12,7 @@ return [
     'table' => [
         'title' => 'Title',
         'slug' => 'Slug',
+        'status' => 'Status',
     ],
     'form' => [
         'title' => 'Title',
