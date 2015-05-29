@@ -102,4 +102,17 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     {
         return $this->model->where('created_at', '>', $post->created_at)->first();
     }
+
+    /**
+     * Find a resource by the given slug
+     *
+     * @param  string $slug
+     * @return object
+     */
+    public function findBySlug($slug)
+    {
+        return $this->model->whereHas('translations', function (Builder $q) use ($slug) {
+            $q->where('slug', "$slug");
+        })->with('translations')->whereStatus(Status::published)->firstOrFail();
+    }
 }
