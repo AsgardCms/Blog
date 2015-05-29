@@ -1,6 +1,7 @@
 <?php namespace Modules\Blog\Presenters;
 
 use Laracasts\Presenter\Presenter;
+use Modules\Blog\Entities\Status;
 
 class PostPresenter extends Presenter
 {
@@ -54,16 +55,16 @@ class PostPresenter extends Presenter
     public function statusLabelClass()
     {
         switch ($this->entity->status) {
-            case 0:
+            case Status::draft:
                 return 'bg-red';
                 break;
-            case 1:
+            case Status::pending:
                 return 'bg-orange';
                 break;
-            case 2:
+            case Status::published:
                 return 'bg-green';
                 break;
-            case 3:
+            case Status::unpublished:
                 return 'bg-purple';
                 break;
             default:
