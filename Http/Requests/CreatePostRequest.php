@@ -2,7 +2,7 @@
 
 use Modules\Core\Internationalisation\BaseFormRequest;
 
-class UpdatePostRequest extends BaseFormRequest
+class CreatePostRequest extends BaseFormRequest
 {
     public function rules()
     {
@@ -11,7 +11,7 @@ class UpdatePostRequest extends BaseFormRequest
 
     public function translationRules()
     {
-        $id = $this->route()->getParameter('posts')->id;
+        $id = null;
         return [
             "title" => "required",
             "slug" => "required|unique:blog__post_translations,slug,$id,post_id,locale,$this->localeKey",

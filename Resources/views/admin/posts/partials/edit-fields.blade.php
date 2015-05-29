@@ -12,10 +12,8 @@
        {!! $errors->first("$lang.slug", '<span class="help-block">:message</span>') !!}
     </div>
 
-    <div class='box-body pad'>
-        <?php $oldContent = isset($post->translate($lang)->content) ? $post->translate($lang)->content : ''; ?>
-        <textarea class="ckeditor" name="{{$lang}}[content]" rows="10" cols="80">
-        {!! $oldContent !!}
-        </textarea>
-    </div>
+    <?php $oldContent = isset($post->translate($lang)->content) ? $post->translate($lang)->content : ''; ?>
+    <textarea class="ckeditor" name="{{$lang}}[content]" rows="10" cols="80">
+    {!! $oldContent !!}
+    </textarea>
 </div>
