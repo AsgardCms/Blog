@@ -90,7 +90,8 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      */
     public function getPreviousOf($post)
     {
-        return $this->model->where('created_at', '<', $post->created_at)->first();
+        return $this->model->where('created_at', '<', $post->created_at)
+            ->whereStatus(Status::published)->first();
     }
 
     /**
@@ -100,7 +101,8 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      */
     public function getNextOf($post)
     {
-        return $this->model->where('created_at', '>', $post->created_at)->first();
+        return $this->model->where('created_at', '>', $post->created_at)
+            ->whereStatus(Status::published)->first();
     }
 
     /**
