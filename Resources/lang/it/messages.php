@@ -7,9 +7,9 @@ return [
     'post updated' => 'Post aggiornato con successo.',
     'post deleted' => 'Post cancellato con successo.',
 
-    'title is required' => 'Titolo è richiesto',
-    'slug is required' => 'Slug è richiesto',
-    'slug is unique' => 'Questo slug è stato già usato',
+    'title is required' => 'Titolo Ã¨ richiesto',
+    'slug is required' => 'Slug Ã¨ richiesto',
+    'slug is unique' => 'Questo slug Ã¨ stato giÃ  usato',
 
     /* Category management */
     'category created' => 'Categoria creata con successo.',
