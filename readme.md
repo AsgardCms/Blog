@@ -9,13 +9,8 @@
 
 Execute the following command in your terminal
 
-    composer require "asgardcms/blog-module"  "dev-develop"
+    composer require asgardcms/blog-module
 
-Or add the package to your `require` key in the `composer.json` file:
-
- ```json
-"asgardcms/blog-module": "dev-develop"
-```
 
 Followed by a composer update
 
