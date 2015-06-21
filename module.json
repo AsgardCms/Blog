@@ -3,7 +3,7 @@
     "alias": "blog",
     "description": "A simple blog module with categories and tags",
     "keywords": [],
-    "version": "v1.0.1",
+    "version": "v1.0.2",
     "active": 1,
     "order": 1,
     "providers": [
