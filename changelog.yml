@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Blog
 versions:
+    "1.0.3":
+        changde:
+            - Fixing typos in french translations
     "1.0.2":
         added:
             - Using new sidebar extender class
