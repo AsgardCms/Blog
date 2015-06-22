@@ -12,8 +12,8 @@ return [
     'slug is unique' => 'Ce slug est déjà utilisé',
 
     /* Category management */
-    'category created' => 'Categorie créée',
-    'category not found' => 'Categorie non trouvée',
-    'category updated' => 'Categorie mise à jour',
-    'category deleted' => 'Categorie supprimée',
+    'category created' => 'Catégorie créée',
+    'category not found' => 'Catégorie non trouvée',
+    'category updated' => 'Catégorie mise à jour',
+    'category deleted' => 'Catégorie supprimée',
 ];
