@@ -28,9 +28,10 @@
                 <table class="data-table table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>{{ trans('core::core.table.created at') }}</th>
+                            <th>Id</th>
                             <th>{{ trans('blog::category.table.name') }}</th>
                             <th>{{ trans('blog::category.table.slug') }}</th>
+                            <th>{{ trans('core::core.table.created at') }}</th>
                             <th>{{ trans('core::core.table.actions') }}</th>
                         </tr>
                     </thead>
@@ -40,7 +41,7 @@
                             <tr>
                                 <td>
                                     <a href="{{ URL::route('admin.blog.category.edit', [$category->id]) }}">
-                                        {{ $category->created_at }}
+                                        {{ $category->id }}
                                     </a>
                                 </td>
                                 <td>
@@ -51,6 +52,11 @@
                                 <td>
                                     <a href="{{ URL::route('admin.blog.category.edit', [$category->id]) }}">
                                         {{ $category->slug }}
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="{{ URL::route('admin.blog.category.edit', [$category->id]) }}">
+                                        {{ $category->created_at }}
                                     </a>
                                 </td>
                                 <td>
@@ -65,9 +71,10 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>{{ trans('core::core.table.created at') }}</th>
+                            <th>Id</th>
                             <th>{{ trans('blog::category.table.name') }}</th>
                             <th>{{ trans('blog::category.table.slug') }}</th>
+                            <th>{{ trans('core::core.table.created at') }}</th>
                             <th>{{ trans('core::core.table.actions') }}</th>
                         </tr>
                     </tfoot>

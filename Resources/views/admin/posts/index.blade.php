@@ -28,10 +28,11 @@
                 <table class="data-table table table-bordered table-hover">
                     <thead>
                         <tr>
-                            <th>{{ trans('core::core.table.created at') }}</th>
+                            <th>Id</th>
                             <th>{{ trans('blog::post.table.status') }}</th>
                             <th>{{ trans('blog::post.table.title') }}</th>
                             <th>{{ trans('blog::post.table.slug') }}</th>
+                            <th>{{ trans('core::core.table.created at') }}</th>
                             <th>{{ trans('core::core.table.actions') }}</th>
                         </tr>
                     </thead>
@@ -41,7 +42,7 @@
                             <tr>
                                 <td>
                                     <a href="{{ URL::route('admin.blog.post.edit', [$post->id]) }}">
-                                        {{ $post->created_at }}
+                                        {{ $post->id }}
                                     </a>
                                 </td>
                                 <td>
@@ -60,6 +61,11 @@
                                     </a>
                                 </td>
                                 <td>
+                                    <a href="{{ URL::route('admin.blog.post.edit', [$post->id]) }}">
+                                        {{ $post->created_at }}
+                                    </a>
+                                </td>
+                                <td>
                                     <div class="btn-group">
                                         <a href="{{ URL::route('admin.blog.post.edit', [$post->id]) }}" class="btn btn-default btn-flat"><i class="glyphicon glyphicon-pencil"></i></a>
                                         <button class="btn btn-danger btn-flat" data-toggle="modal" data-target="#confirmation-{{ $post->id }}"><i class="glyphicon glyphicon-trash"></i></button>
@@ -71,10 +77,11 @@
                     </tbody>
                     <tfoot>
                         <tr>
-                            <th>{{ trans('core::core.table.created at') }}</th>
+                            <th>Id</th>
                             <th>{{ trans('blog::post.table.status') }}</th>
                             <th>{{ trans('blog::post.table.title') }}</th>
                             <th>{{ trans('blog::post.table.slug') }}</th>
+                            <th>{{ trans('core::core.table.created at') }}</th>
                             <th>{{ trans('core::core.table.actions') }}</th>
                         </tr>
                     </tfoot>
