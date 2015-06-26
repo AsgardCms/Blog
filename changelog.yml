@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Blog
 versions:
+    "1.0.4":
+        changde:
+            - Changing column ordering in index view
     "1.0.3":
         changde:
             - Fixing typos in french translations
