@@ -1,10 +1,13 @@
 url: https://github.com/AsgardCms/Blog
 versions:
+    "1.0.5":
+        changed:
+            - Fixing datatable
     "1.0.4":
-        changde:
+        changed:
             - Changing column ordering in index view
     "1.0.3":
-        changde:
+        changed:
             - Fixing typos in french translations
     "1.0.2":
         added:

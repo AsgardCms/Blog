@@ -155,6 +155,7 @@
                 null,
                 null,
                 null,
+                null,
                 { "sortable": false }
             ]
         });
