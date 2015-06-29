@@ -13,6 +13,7 @@ class CreateCategoryTranslationsTable extends Migration
     public function up()
     {
         Schema::create('blog__category_translations', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('name');
             $table->string('slug');

@@ -13,6 +13,7 @@ class CreatePostsTable extends Migration
     public function up()
     {
         Schema::create('blog__posts', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('category_id')->index();
             $table->timestamps();

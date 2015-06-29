@@ -13,6 +13,7 @@ class CreatePostTranslationsTable extends Migration
     public function up()
     {
         Schema::create('blog__post_translations', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('post_id')->unsigned();
             $table->string('locale')->index();

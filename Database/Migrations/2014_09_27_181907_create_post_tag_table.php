@@ -13,6 +13,7 @@ class CreatePostTagTable extends Migration
     public function up()
     {
         Schema::create('blog__post_tag', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->integer('tag_id');
             $table->integer('post_id');
             $table->timestamps();
