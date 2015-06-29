@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Blog
 versions:
+    "1.1.0":
+        changed:
+            - Adding table engine into migrations
     "1.0.5":
         changed:
             - Fixing datatable
