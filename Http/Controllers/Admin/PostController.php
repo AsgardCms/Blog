@@ -3,8 +3,8 @@
 use Laracasts\Flash\Flash;
 use Modules\Blog\Entities\Post;
 use Modules\Blog\Entities\Status;
-use Modules\Blog\Http\Requests\UpdatePostRequest;
 use Modules\Blog\Http\Requests\CreatePostRequest;
+use Modules\Blog\Http\Requests\UpdatePostRequest;
 use Modules\Blog\Repositories\CategoryRepository;
 use Modules\Blog\Repositories\PostRepository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
@@ -34,8 +34,7 @@ class PostController extends AdminBaseController
         CategoryRepository $category,
         FileRepository $file,
         Status $status
-    )
-    {
+    ) {
         parent::__construct();
 
         $this->post = $post;

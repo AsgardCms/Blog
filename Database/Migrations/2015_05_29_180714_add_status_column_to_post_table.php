@@ -27,5 +27,4 @@ class AddStatusColumnToPostTable extends Migration
             $table->dropColumn('status');
         });
     }
-
 }

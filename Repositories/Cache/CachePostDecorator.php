@@ -37,6 +37,7 @@ class CachePostDecorator extends BaseCacheDecorator implements PostRepository
     public function getPreviousOf($post)
     {
         $postId = $post->id;
+
         return $this->cache
             ->tags($this->entityName, 'global')
             ->remember("{$this->locale}.{$this->entityName}.getPreviousOf.{$postId}", $this->cacheTime,
@@ -54,6 +55,7 @@ class CachePostDecorator extends BaseCacheDecorator implements PostRepository
     public function getNextOf($post)
     {
         $postId = $post->id;
+
         return $this->cache
             ->tags($this->entityName, 'global')
             ->remember("{$this->locale}.{$this->entityName}.getNextOf.{$postId}", $this->cacheTime,
