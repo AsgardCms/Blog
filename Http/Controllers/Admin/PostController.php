@@ -1,6 +1,5 @@
 <?php namespace Modules\Blog\Http\Controllers\Admin;
 
-use Laracasts\Flash\Flash;
 use Modules\Blog\Entities\Post;
 use Modules\Blog\Entities\Status;
 use Modules\Blog\Http\Requests\CreatePostRequest;
@@ -78,7 +77,7 @@ class PostController extends AdminBaseController
     {
         $this->post->create($request->all());
 
-        Flash::success(trans('blog::messages.post created'));
+        flash(trans('blog::messages.post created'));
 
         return redirect()->route('admin.blog.post.index');
     }
@@ -109,7 +108,7 @@ class PostController extends AdminBaseController
     {
         $this->post->update($post, $request->all());
 
-        Flash::success(trans('blog::messages.post updated'));
+        flash(trans('blog::messages.post updated'));
 
         return redirect()->route('admin.blog.post.index');
     }
@@ -126,7 +125,7 @@ class PostController extends AdminBaseController
 
         $this->post->destroy($post);
 
-        Flash::success(trans('blog::messages.post deleted'));
+        flash(trans('blog::messages.post deleted'));
 
         return redirect()->route('admin.blog.post.index');
     }

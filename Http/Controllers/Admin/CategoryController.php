@@ -1,8 +1,5 @@
 <?php namespace Modules\Blog\Http\Controllers\Admin;
 
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\View;
-use Laracasts\Flash\Flash;
 use Modules\Blog\Entities\Category;
 use Modules\Blog\Http\Requests\StoreCategoryRequest;
 use Modules\Blog\Http\Requests\UpdateCategoryRequest;
@@ -32,7 +29,7 @@ class CategoryController extends AdminBaseController
     {
         $categories = $this->category->all();
 
-        return View::make('blog::admin.categories.index', compact('categories'));
+        return view('blog::admin.categories.index', compact('categories'));
     }
 
     /**
@@ -42,7 +39,7 @@ class CategoryController extends AdminBaseController
      */
     public function create()
     {
-        return View::make('blog::admin.categories.create');
+        return view('blog::admin.categories.create');
     }
 
     /**
@@ -55,9 +52,9 @@ class CategoryController extends AdminBaseController
     {
         $this->category->create($request->all());
 
-        Flash::success(trans('blog::messages.category created'));
+        flash(trans('blog::messages.category created'));
 
-        return Redirect::route('admin.blog.category.index');
+        return redirect()->route('admin.blog.category.index');
     }
 
     /**
@@ -68,7 +65,7 @@ class CategoryController extends AdminBaseController
      */
     public function edit(Category $category)
     {
-        return View::make('blog::admin.categories.edit', compact('category'));
+        return view('blog::admin.categories.edit', compact('category'));
     }
 
     /**
@@ -82,9 +79,9 @@ class CategoryController extends AdminBaseController
     {
         $this->category->update($category, $request->all());
 
-        Flash::success(trans('blog::messages.category updated'));
+        flash(trans('blog::messages.category updated'));
 
-        return Redirect::route('admin.blog.category.index');
+        return redirect()->route('admin.blog.category.index');
     }
 
     /**
@@ -97,8 +94,8 @@ class CategoryController extends AdminBaseController
     {
         $this->category->destroy($category);
 
-        Flash::success(trans('blog::messages.category deleted'));
+        flash(trans('blog::messages.category deleted'));
 
-        return Redirect::route('admin.blog.category.index');
+        return redirect()->route('admin.blog.category.index');
     }
 }
