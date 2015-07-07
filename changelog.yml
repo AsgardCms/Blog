@@ -1,5 +1,9 @@
 url: https://github.com/AsgardCms/Blog
 versions:
+    "1.2.0":
+        changed:
+            - Use the helper functions in controller
+            - Use manual route definition over the route resource shortcut
     "1.1.0":
         changed:
             - Adding table engine into migrations
