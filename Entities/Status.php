@@ -6,10 +6,10 @@
  */
 class Status
 {
-    const draft = 0;
-    const pending = 1;
-    const published = 2;
-    const unpublished = 3;
+    const DRAFT = 0;
+    const PENDING = 1;
+    const PUBLISHED = 2;
+    const UNPUBLISHED = 3;
 
     /**
      * @var array
@@ -19,10 +19,10 @@ class Status
     public function __construct()
     {
         $this->statuses = [
-            self::draft => trans('blog::status.draft'),
-            self::pending => trans('blog::status.pending review'),
-            self::published => trans('blog::status.published'),
-            self::unpublished => trans('blog::status.unpublished'),
+            self::DRAFT => trans('blog::status.draft'),
+            self::PENDING => trans('blog::status.pending review'),
+            self::PUBLISHED => trans('blog::status.published'),
+            self::UNPUBLISHED => trans('blog::status.unpublished'),
         ];
     }
 
@@ -46,6 +46,6 @@ class Status
             return $this->statuses[$statusId];
         }
 
-        return $this->statuses[self::draft];
+        return $this->statuses[self::DRAFT];
     }
 }

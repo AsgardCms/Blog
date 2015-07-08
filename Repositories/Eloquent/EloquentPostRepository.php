@@ -70,7 +70,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
         return $this->model->whereHas('translations', function (Builder $q) use ($lang) {
             $q->where('locale', "$lang");
             $q->where('title', '!=', '');
-        })->with('translations')->whereStatus(Status::published)->orderBy('created_at', 'DESC')->get();
+        })->with('translations')->whereStatus(Status::PUBLISHED)->orderBy('created_at', 'DESC')->get();
     }
 
     /**
@@ -91,7 +91,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     public function getPreviousOf($post)
     {
         return $this->model->where('created_at', '<', $post->created_at)
-            ->whereStatus(Status::published)->first();
+            ->whereStatus(Status::PUBLISHED)->first();
     }
 
     /**
@@ -102,7 +102,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     public function getNextOf($post)
     {
         return $this->model->where('created_at', '>', $post->created_at)
-            ->whereStatus(Status::published)->first();
+            ->whereStatus(Status::PUBLISHED)->first();
     }
 
     /**
@@ -115,6 +115,6 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     {
         return $this->model->whereHas('translations', function (Builder $q) use ($slug) {
             $q->where('slug', "$slug");
-        })->with('translations')->whereStatus(Status::published)->firstOrFail();
+        })->with('translations')->whereStatus(Status::PUBLISHED)->firstOrFail();
     }
 }

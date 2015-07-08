@@ -55,16 +55,16 @@ class PostPresenter extends Presenter
     public function statusLabelClass()
     {
         switch ($this->entity->status) {
-            case Status::draft:
+            case Status::DRAFT:
                 return 'bg-red';
                 break;
-            case Status::pending:
+            case Status::PENDING:
                 return 'bg-orange';
                 break;
-            case Status::published:
+            case Status::PUBLISHED:
                 return 'bg-green';
                 break;
-            case Status::unpublished:
+            case Status::UNPUBLISHED:
                 return 'bg-purple';
                 break;
             default:
