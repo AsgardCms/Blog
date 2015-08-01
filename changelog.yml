@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Blog
 versions:
+    "1.4.0":
+        added:
+            - Spanish translations
     "1.3.0":
         changed:
             - Use singular route parameters
