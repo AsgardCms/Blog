@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Blog
 versions:
+    "1.5.0":
+        changed:
+            - Don't show if posts is not published on latests blog posts
     "1.4.0":
         added:
             - Spanish translations
