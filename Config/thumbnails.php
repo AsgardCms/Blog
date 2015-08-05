@@ -2,9 +2,12 @@
 
 return [
     'blogThumb' => [
-        'resize' => [
-            'width' => 150,
-            'height' => 150,
+        'fit' => [
+            'width' => '150',
+            'height' => '150',
+            'callback' => function($constraint) {
+                $constraint->upsize();
+            }
         ],
     ]
 ];
