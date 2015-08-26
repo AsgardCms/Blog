@@ -44,7 +44,7 @@
 @section('shortcuts')
     <dl class="dl-horizontal">
         <dt><code>b</code></dt>
-        <dd>{{ trans('blog::category.navigation.back to index') }}</dd>
+        <dd>{{ trans('core::core.back to index', ['name' => 'categories']) }}</dd>
     </dl>
 @stop
 
