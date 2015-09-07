@@ -17,4 +17,3 @@ return [
     'category updated' => 'Categoría actualizada éxitosamente.',
     'category deleted' => 'Categoría eliminada éxitosamente.',
 ];
-
