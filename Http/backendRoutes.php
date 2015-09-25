@@ -26,13 +26,11 @@ $router->group(['prefix' => '/blog'], function () {
     put('categories/{category}', ['as' => 'admin.blog.category.update', 'uses' => 'CategoryController@update']);
     delete('categories/{category}', ['as' => 'admin.blog.category.destroy', 'uses' => 'CategoryController@destroy']);
 
-
     get('tags', ['as' => 'admin.blog.tag.index', 'uses' => 'TagController@index']);
     get('tags/create', ['as' => 'admin.blog.tag.create', 'uses' => 'TagController@create']);
     post('tags', ['as' => 'admin.blog.tag.store', 'uses' => 'TagController@store']);
     get('tags/{tag}/edit', ['as' => 'admin.blog.tag.edit', 'uses' => 'TagController@edit']);
     put('tags/{tag}', ['as' => 'admin.blog.tag.update', 'uses' => 'TagController@update']);
     delete('tags/{tag}', ['as' => 'admin.blog.tag.destroy', 'uses' => 'TagController@destroy']);
-
 
 });

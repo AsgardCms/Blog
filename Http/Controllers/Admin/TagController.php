@@ -1,7 +1,7 @@
 <?php namespace Modules\Blog\Http\Controllers\Admin;
 
-use Laracasts\Flash\Flash;
 use Illuminate\Http\Request;
+use Laracasts\Flash\Flash;
 use Modules\Blog\Entities\Tag;
 use Modules\Blog\Repositories\TagRepository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;

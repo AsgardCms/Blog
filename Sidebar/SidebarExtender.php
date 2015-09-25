@@ -35,7 +35,6 @@ class SidebarExtender implements \Maatwebsite\Sidebar\SidebarExtender
                 $item->icon('fa fa-copy');
                 $item->weight(0);
 
-
                 $item->item(trans('blog::post.title.post'), function (Item $item) {
                     $item->icon('fa fa-copy');
                     $item->weight(0);
@@ -63,7 +62,6 @@ class SidebarExtender implements \Maatwebsite\Sidebar\SidebarExtender
                         $this->auth->hasAccess('blog.categories.index')
                     );
                 });
-
 
             });
         });
