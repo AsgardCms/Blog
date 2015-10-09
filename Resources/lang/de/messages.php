@@ -9,7 +9,7 @@ return [
 
     'title is required' => 'Titel ist erforderlich',
     'slug is required' => 'Slug ist erforderlich',
-    'slug is unique' => 'Diese slug ist bereits vergeben',
+    'slug is unique' => 'Dieser Slug ist bereits vergeben',
 
     /* Category management */
     'category created' => 'Kategorie erfolgreich erstellt.',
