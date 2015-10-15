@@ -2,5 +2,5 @@
 
 return [
     'posts-per-page' => 'Beiträge pro Seite',
-    'latest-posts-amount' => 'Menge neusten Beiträge',
+    'latest-posts-amount' => 'Anzahl neuster Beiträge',
 ];
