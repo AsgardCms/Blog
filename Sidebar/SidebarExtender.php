@@ -45,7 +45,7 @@ class SidebarExtender implements \Maatwebsite\Sidebar\SidebarExtender
                     );
                 });
                 $item->item(trans('blog::tag.title.tag'), function (Item $item) {
-                    $item->icon('fa fa-copy');
+                    $item->icon('fa fa-tags');
                     $item->weight(0);
                     $item->append('admin.blog.tag.create');
                     $item->route('admin.blog.tag.index');
