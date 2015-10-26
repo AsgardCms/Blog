@@ -1,6 +1,7 @@
 <?php namespace Modules\Blog\Widgets;
 
 use Modules\Blog\Repositories\PostRepository;
+use Modules\Core\Contracts\Setting;
 use Modules\Dashboard\Foundation\Widgets\BaseWidget;
 
 class LatestPostsWidget extends BaseWidget
@@ -10,9 +11,10 @@ class LatestPostsWidget extends BaseWidget
      */
     private $post;
 
-    public function __construct(PostRepository $post)
+    public function __construct(PostRepository $post, Setting $setting)
     {
         $this->post = $post;
+        $this->setting = $setting;
     }
 
     /**
@@ -33,10 +35,8 @@ class LatestPostsWidget extends BaseWidget
     protected function options()
     {
         return [
-            'width' => '3',
-            'height' => '3',
-            'x' => '0',
-            'y' => '0',
+            'width' => '4',
+            'height' => '4',
         ];
     }
 
@@ -55,6 +55,8 @@ class LatestPostsWidget extends BaseWidget
      */
     protected function data()
     {
-        return ['posts' => $this->post->all()];
+        $limit = $this->setting->get('blog::latest-posts-amount', locale(), 5);
+
+        return ['posts' => $this->post->latest($limit)];
     }
 }
