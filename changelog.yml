@@ -1,5 +1,11 @@
 url: https://github.com/AsgardCms/Blog
 versions:
+    "1.9.0":
+        added:
+            - Added Russian translations
+        changed:
+            - Improving german translations
+            - Changing sidebar icon for the tags
     "1.8.0":
         added:
             - Tag management
