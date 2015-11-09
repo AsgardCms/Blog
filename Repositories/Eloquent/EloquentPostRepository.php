@@ -91,7 +91,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     public function getPreviousOf($post)
     {
         return $this->model->where('created_at', '<', $post->created_at)
-            ->whereStatus(Status::PUBLISHED)->first();
+            ->whereStatus(Status::PUBLISHED)->orderBy('created_at', 'desc')->first();
     }
 
     /**
