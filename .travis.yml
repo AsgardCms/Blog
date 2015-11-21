@@ -4,3 +4,8 @@ php:
   - 5.5
   - 5.4
   - hhvm
+
+notifications:
+  email:
+    - n.widart@gmail.com
+    - josh@joshbrown.me
