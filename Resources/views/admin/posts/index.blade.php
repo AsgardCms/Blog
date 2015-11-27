@@ -5,7 +5,7 @@
     {{ trans('blog::post.title.post') }}
 </h1>
 <ol class="breadcrumb">
-    <li><a href="{{ URL::route('dashboard.index') }}"><i class="fa fa-dashboard"></i> {{ trans('core::core.breadcrumb.home') }}</a></li>
+    <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> {{ trans('core::core.breadcrumb.home') }}</a></li>
     <li class="active">{{ trans('blog::post.title.post') }}</li>
 </ol>
 @stop
@@ -15,7 +15,7 @@
     <div class="col-xs-12">
         <div class="row">
             <div class="btn-group pull-right" style="margin: 0 15px 15px 0;">
-                <a href="{{ URL::route('admin.blog.post.create') }}" class="btn btn-primary btn-flat" style="padding: 4px 10px;">
+                <a href="{{ route('admin.blog.post.create') }}" class="btn btn-primary btn-flat" style="padding: 4px 10px;">
                     <i class="fa fa-pencil"></i> {{ trans('blog::post.button.create post') }}
                 </a>
             </div>
@@ -41,7 +41,7 @@
                         <?php foreach ($posts as $post): ?>
                             <tr>
                                 <td>
-                                    <a href="{{ URL::route('admin.blog.post.edit', [$post->id]) }}">
+                                    <a href="{{ route('admin.blog.post.edit', [$post->id]) }}">
                                         {{ $post->id }}
                                     </a>
                                 </td>
@@ -51,24 +51,24 @@
                                     </span>
                                 </td>
                                 <td>
-                                    <a href="{{ URL::route('admin.blog.post.edit', [$post->id]) }}">
+                                    <a href="{{ route('admin.blog.post.edit', [$post->id]) }}">
                                         {{ $post->title }}
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ URL::route('admin.blog.post.edit', [$post->id]) }}">
+                                    <a href="{{ route('admin.blog.post.edit', [$post->id]) }}">
                                         {{ $post->slug }}
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ URL::route('admin.blog.post.edit', [$post->id]) }}">
+                                    <a href="{{ route('admin.blog.post.edit', [$post->id]) }}">
                                         {{ $post->created_at }}
                                     </a>
                                 </td>
                                 <td>
                                     <div class="btn-group">
-                                        <a href="{{ URL::route('admin.blog.post.edit', [$post->id]) }}" class="btn btn-default btn-flat"><i class="glyphicon glyphicon-pencil"></i></a>
-                                        <button class="btn btn-danger btn-flat" data-toggle="modal" data-target="#confirmation-{{ $post->id }}"><i class="glyphicon glyphicon-trash"></i></button>
+                                        <a href="{{ route('admin.blog.post.edit', [$post->id]) }}" class="btn btn-default btn-flat"><i class="fa fa-pencil"></i></a>
+                                        <button class="btn btn-danger btn-flat" data-toggle="modal" data-target="#modal-delete-confirmation" data-action-target="{{ route('admin.blog.post.destroy', [$post->id]) }}"><i class="fa fa-trash"></i></button>
                                     </div>
                                 </td>
                             </tr>
@@ -92,30 +92,7 @@
         </div>
     </div>
 </div>
-<?php if (isset($posts)): ?>
-    <?php foreach ($posts as $post): ?>
-    <!-- Modal -->
-    <div class="modal fade modal-danger" id="confirmation-{{ $post->id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                    <h4 class="modal-title" id="myModalLabel">{{ trans('core::core.modal.title') }}</h4>
-                </div>
-                <div class="modal-body">
-                    {{ trans('core::core.modal.confirmation-message') }}
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline btn-flat" data-dismiss="modal">{{ trans('core::core.button.cancel') }}</button>
-                    {!! Form::open(['route' => ['admin.blog.post.destroy', $post->id], 'method' => 'delete', 'class' => 'pull-left']) !!}
-                        <button type="submit" class="btn btn-outline btn-flat"><i class="glyphicon glyphicon-trash"></i> {{ trans('core::core.button.delete') }}</button>
-                    {!! Form::close() !!}
-                </div>
-            </div>
-        </div>
-    </div>
-    <?php endforeach; ?>
-<?php endif; ?>
+@include('core::partials.delete-modal')
 @stop
 
 @section('footer')

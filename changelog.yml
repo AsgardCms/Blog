@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Blog
 versions:
+    "1.11.0":
+        changed:
+            - Use the single removal modal setup
     "1.10.0":
         changed:
             - Manual inclusing of iCheck css file has been removed
