@@ -1,5 +1,10 @@
 url: https://github.com/AsgardCms/Blog
 versions:
+    "1.10.0":
+        changed:
+            - Manual inclusing of iCheck css file has been removed
+            - Adding automatic slug generation on slug fields
+            - Use the new datatables way of marking column not sortable
     "1.9.0":
         added:
             - Added Russian translations
