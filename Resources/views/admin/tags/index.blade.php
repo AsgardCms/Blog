@@ -32,7 +32,7 @@
                             <th>{{ trans('blog::tag.table.name') }}</th>
                             <th>{{ trans('blog::tag.table.slug') }}</th>
                             <th>{{ trans('core::core.table.created at') }}</th>
-                            <th>{{ trans('core::core.table.actions') }}</th>
+                            <th data-sortable="false">{{ trans('core::core.table.actions') }}</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -143,13 +143,7 @@
                 "order": [[ 0, "desc" ]],
                 "language": {
                     "url": '<?php echo Module::asset("core:js/vendor/datatables/{$locale}.json") ?>'
-                },
-                "columns": [
-                    null,
-                    null,
-                    null,
-                    { "sortable": false }
-                ]
+                }
             });
         });
     </script>
