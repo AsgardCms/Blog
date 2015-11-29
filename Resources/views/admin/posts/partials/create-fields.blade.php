@@ -10,5 +10,7 @@
        {!! $errors->first("$lang.slug", '<span class="help-block">:message</span>') !!}
     </div>
 
-    <textarea class="ckeditor" name="{{$lang}}[content]" rows="10" cols="80"></textarea>
+    <textarea class="ckeditor" name="{{$lang}}[content]" rows="10" cols="80">
+        {!! old("{$lang}.content") !!}
+    </textarea>
 </div>
