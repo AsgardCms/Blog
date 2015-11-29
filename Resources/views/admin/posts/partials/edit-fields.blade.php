@@ -14,6 +14,6 @@
 
     <?php $oldContent = isset($post->translate($lang)->content) ? $post->translate($lang)->content : ''; ?>
     <textarea class="ckeditor" name="{{$lang}}[content]" rows="10" cols="80">
-    {!! $oldContent !!}
+    {!! old("{$lang}.content", $oldContent) !!}
     </textarea>
 </div>
