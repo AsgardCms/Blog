@@ -37,8 +37,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                    <?php if (isset($posts)): ?>
-                        <?php foreach ($posts as $post): ?>
+                    @if (isset($posts))
+                        @foreach ($posts as $post)
                             <tr>
                                 <td>
                                     <a href="{{ route('admin.blog.post.edit', [$post->id]) }}">
@@ -72,8 +72,8 @@
                                     </div>
                                 </td>
                             </tr>
-                        <?php endforeach; ?>
-                    <?php endif; ?>
+                        @endforeach
+                    @endif
                     </tbody>
                     <tfoot>
                         <tr>
@@ -111,7 +111,7 @@
     $( document ).ready(function() {
         $(document).keypressAction({
             actions: [
-                { key: 'c', route: "<?= route('admin.blog.post.create') ?>" }
+                { key: 'c', route: "{{ route('admin.blog.post.create') }}" }
             ]
         });
     });
@@ -125,7 +125,7 @@
             "autoWidth": true,
             "order": [[ 0, "desc" ]],
             "language": {
-                "url": '<?php echo Module::asset("core:js/vendor/datatables/{$locale}.json") ?>'
+                "url": '{{ Module::asset("core:js/vendor/datatables/{$locale}.json") }}'
             }
         });
     });

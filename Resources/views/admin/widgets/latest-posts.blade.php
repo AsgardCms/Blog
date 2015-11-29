@@ -9,8 +9,8 @@
                 <th>{{ trans('blog::post.table.title') }}</th>
                 <th>{{ trans('blog::post.table.slug') }}</th>
             </tr>
-            <?php if (isset($posts)): ?>
-                <?php foreach ($posts as $post): ?>
+            @if (isset($posts))
+                @foreach ($posts as $post)
                     <tr>
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
@@ -18,8 +18,8 @@
                             {{ $post->slug }}
                         </td>
                     </tr>
-                <?php endforeach; ?>
-            <?php endif; ?>
+                @endforeach
+            @endif
             </tbody>
         </table>
     </div><!-- /.box-body -->

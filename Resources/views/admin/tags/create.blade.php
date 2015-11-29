@@ -56,7 +56,7 @@
         $( document ).ready(function() {
             $(document).keypressAction({
                 actions: [
-                    { key: 'b', route: "<?= route('admin.blog.tag.index') ?>" }
+                    { key: 'b', route: "{{ route('admin.blog.tag.index') }}" }
                 ]
             });
         });

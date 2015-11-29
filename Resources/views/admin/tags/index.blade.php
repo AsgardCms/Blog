@@ -36,8 +36,8 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <?php if (isset($tags)): ?>
-                        <?php foreach ($tags as $tag): ?>
+                        @if (isset($tags))
+                        @foreach ($tags as $tag)
                         <tr>
                             {{--<td>--}}
                                 {{--<a href="{{ URL::route('admin.blog.tag.edit', [$tag->id]) }}">--}}
@@ -66,8 +66,8 @@
                                 </div>
                             </td>
                         </tr>
-                        <?php endforeach; ?>
-                        <?php endif; ?>
+                        @endforeach
+                        @endif
                         </tbody>
                         <tfoot>
                         <tr>
@@ -102,7 +102,7 @@
         $( document ).ready(function() {
             $(document).keypressAction({
                 actions: [
-                    { key: 'c', route: "<?= route('admin.blog.tag.create') ?>" }
+                    { key: 'c', route: "{{ route('admin.blog.tag.create') }}" }
                 ]
             });
         });
@@ -119,7 +119,7 @@
                 "autoWidth": true,
                 "order": [[ 0, "desc" ]],
                 "language": {
-                    "url": '<?php echo Module::asset("core:js/vendor/datatables/{$locale}.json") ?>'
+                    "url": '{{ Module::asset("core:js/vendor/datatables/{$locale}.json") }}'
                 }
             });
         });
