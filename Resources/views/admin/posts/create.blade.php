@@ -24,12 +24,12 @@
             @include('partials.form-tab-headers', ['fields' => ['title', 'slug']])
             <div class="tab-content">
                 <?php $i = 0; ?>
-                <?php foreach (LaravelLocalization::getSupportedLocales() as $locale => $language): ?>
+                @foreach (LaravelLocalization::getSupportedLocales() as $locale => $language)
                     <?php $i++; ?>
                     <div class="tab-pane {{ App::getLocale() == $locale ? 'active' : '' }}" id="tab_{{ $i }}">
                         @include('blog::admin.posts.partials.create-fields', ['lang' => $locale])
                     </div>
-                <?php endforeach; ?>
+                @endforeach
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary btn-flat">{{ trans('blog::post.button.create post') }}</button>
                     <button class="btn btn-default btn-flat" name="button" type="reset">{{ trans('core::core.button.reset') }}</button>
@@ -44,17 +44,17 @@
                 <div class="form-group">
                     {!! Form::label("category", 'Category:') !!}
                     <select name="category_id" id="category" class="form-control">
-                        <?php foreach ($categories as $category): ?>
+                        @foreach ($categories as $category)
                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        <?php endforeach; ?>
+                        @endforeach
                     </select>
                 </div>
                 <div class="form-group">
                     {!! Form::label("status", 'Post status:') !!}
                     <select name="status" id="status" class="form-control">
-                        <?php foreach ($statuses as $id => $status): ?>
+                        @foreach ($statuses as $id => $status)
                         <option value="{{ $id }}" {{ old('status', 0) == $id ? 'selected' : '' }}>{{ $status }}</option>
-                        <?php endforeach; ?>
+                        @endforeach
                     </select>
                 </div>
                 <div class='form-group{{ $errors->has("tags") ? ' has-error' : '' }}'>
@@ -86,20 +86,20 @@
 <script type="text/javascript">
     $(function() {
         //CKEDITOR.replaceAll(function( textarea, config ) {
-          //  config.language = '<?= App::getLocale() ?>';
+          //  config.language = '{{ App::getLocale() }}';
         //} );
     });
 
     $( document ).ready(function() {
         $(document).keypressAction({
             actions: [
-                { key: 'b', route: "<?= route('admin.blog.post.index') ?>" }
+                { key: 'b', route: "{{ route('admin.blog.post.index') }}" }
             ]
         });
         $('.input-tags').MySelectize({
-            'findUri' : '<?= route('api.tag.findByName') ?>/',
-            'createUri' : '<?= route('api.tag.store') ?>',
-            'token': '<?= csrf_token() ?>'
+            'findUri' : '{{ route('api.tag.findByName') }}/',
+            'createUri' : '{{ route('api.tag.store') }}',
+            'token': '{{ csrf_token() }}'
         });
     });
 </script>
