@@ -3,6 +3,7 @@ versions:
     "1.12.0":
         changed:
             - Added calls to old() for the post content field
+            - Fixing form request for postgres
     "1.11.0":
         changed:
             - Use the single removal modal setup
