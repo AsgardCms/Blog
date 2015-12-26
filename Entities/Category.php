@@ -13,6 +13,6 @@ class Category extends Model
 
     public function posts()
     {
-        return $this->belongsToMany('Post');
+        return $this->belongsToMany(Post::class);
     }
 }
