@@ -5,6 +5,7 @@ versions:
             - Using the <code>::class</code> notation on relations
             - Dix postgres not null constraint slug issue on post create/edit view
             - Adding timestamps on the post_tags relation
+            - Fixed tags syncing if only one tag, and it was removed
     "1.12.0":
         changed:
             - Added calls to old() for the post content field
