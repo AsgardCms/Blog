@@ -49,6 +49,7 @@ class EloquentTagRepository extends EloquentBaseRepository implements TagReposit
         $data = [
             $lang => [
                 'name' => $name,
+                'slug' => ''
             ],
         ];
 
