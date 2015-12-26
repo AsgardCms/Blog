@@ -36,9 +36,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     {
         $post->update($data);
 
-        if (isset($data['tags'])) {
-            $post->tags()->sync($data['tags']);
-        }
+        $post->tags()->sync(array_get($data, 'tags', []));
 
         return $post;
     }
@@ -52,9 +50,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
     {
         $post = $this->model->create($data);
 
-        if (isset($data['tags'])) {
-            $post->tags()->sync($data['tags']);
-        }
+        $post->tags()->sync(array_get($data, 'tags', []));
 
         return $post;
     }
