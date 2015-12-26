@@ -4,6 +4,7 @@ use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Laracasts\Presenter\PresentableTrait;
+use Modules\Blog\Presenters\PostPresenter;
 use Modules\Media\Support\Traits\MediaRelation;
 
 class Post extends Model
@@ -13,19 +14,19 @@ class Post extends Model
     public $translatedAttributes = ['title', 'slug', 'content'];
     protected $fillable = ['category_id', 'status', 'title', 'slug', 'content'];
     protected $table = 'blog__posts';
-    protected $presenter = 'Modules\Blog\Presenters\PostPresenter';
+    protected $presenter = PostPresenter::class;
     protected $casts = [
         'status' => 'int',
     ];
 
     public function category()
     {
-        return $this->hasOne('Modules\Blog\Entities\Category');
+        return $this->hasOne(Category::class);
     }
 
     public function tags()
     {
-        return $this->belongsToMany('Modules\Blog\Entities\Tag', 'blog__post_tag')->withTimestamps();
+        return $this->belongsToMany(Tag::class, 'blog__post_tag')->withTimestamps();
     }
 
     /**
