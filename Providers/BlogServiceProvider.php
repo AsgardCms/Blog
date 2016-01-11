@@ -23,25 +23,12 @@ class BlogServiceProvider extends ServiceProvider
     protected $defer = false;
 
     /**
-     * The filters base class name.
-     *
-     * @var array
-     */
-    protected $filters = [
-        'Core' => [
-            'permissions' => 'PermissionFilter',
-            'auth.admin' => 'AdminFilter',
-        ],
-    ];
-
-    /**
      * Register the service provider.
      *
      * @return void
      */
     public function register()
     {
-        $this->registerFilters($this->app['router']);
         $this->registerBindings();
     }
 
@@ -49,23 +36,6 @@ class BlogServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__ . '/../Config/config.php', 'asgard.blog.config');
         $this->publishes([__DIR__ . '/../Config/config.php' => config_path('asgard.blog.config' . '.php'), ], 'config');
-    }
-
-    /**
-     * Register the filters.
-     *
-     * @param  Router $router
-     * @return void
-     */
-    public function registerFilters(Router $router)
-    {
-        foreach ($this->filters as $module => $filters) {
-            foreach ($filters as $name => $filter) {
-                $class = "Modules\\{$module}\\Http\\Filters\\{$filter}";
-
-                $router->filter($name, $class);
-            }
-        }
     }
 
     /**
