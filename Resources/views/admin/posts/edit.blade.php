@@ -11,7 +11,7 @@
 </h1>
 <ol class="breadcrumb">
     <li><a href="{{ URL::route('dashboard.index') }}"><i class="fa fa-dashboard"></i> {{ trans('core::core.breadcrumb.home') }}</a></li>
-    <li><a href="{{ URL::route('admin.blog.category.index') }}">{{ trans('blog::post.title.post') }}</a></li>
+    <li><a href="{{ URL::route('admin.blog.post.index') }}">{{ trans('blog::post.title.post') }}</a></li>
     <li class="active">{{ trans('blog::post.title.edit post') }}</li>
 </ol>
 @stop
