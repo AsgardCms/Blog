@@ -62,7 +62,9 @@ class SidebarExtender implements \Maatwebsite\Sidebar\SidebarExtender
                         $this->auth->hasAccess('blog.categories.index')
                     );
                 });
-
+                $item->authorize(
+                    $this->auth->hasAccess('blog.tags.index') || $this->auth->hasAccess('blog.posts.index') || $this->auth->hasAccess('blog.categories.index')
+                );
             });
         });
 
