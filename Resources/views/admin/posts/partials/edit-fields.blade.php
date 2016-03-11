@@ -12,8 +12,8 @@
        {!! $errors->first("$lang.slug", '<span class="help-block">:message</span>') !!}
     </div>
 
-    <?php if (config('asgard.blog.post.config.partials.translatable.edit') !== []): ?>
-        <?php foreach (config('asgard.blog.post.config.partials.translatable.edit') as $partial): ?>
+    <?php if (config('asgard.blog.config.post.partials.translatable.edit') !== []): ?>
+        <?php foreach (config('asgard.blog.config.post.partials.translatable.edit') as $partial): ?>
         @include($partial)
         <?php endforeach; ?>
     <?php endif; ?>

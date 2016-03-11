@@ -30,8 +30,8 @@
                         @include('blog::admin.posts.partials.create-fields', ['lang' => $locale])
                     </div>
                 <?php endforeach; ?>
-                <?php if (config('asgard.blog.post.config.partials.normal.create') !== []): ?>
-                    <?php foreach (config('asgard.blog.post.config.partials.normal.create') as $partial): ?>
+                <?php if (config('asgard.blog.config.post.partials.normal.create') !== []): ?>
+                    <?php foreach (config('asgard.blog.config.post.partials.normal.create') as $partial): ?>
                     @include($partial)
                     <?php endforeach; ?>
                 <?php endif; ?>

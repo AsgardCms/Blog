@@ -77,7 +77,7 @@ class Post extends Model
     public function __call($method, $parameters)
     {
         #i: Convert array to dot notation
-        $config = implode('.', ['asgard.blog.post.config.relations', $method]);
+        $config = implode('.', ['asgard.blog.config.post.relations', $method]);
 
         #i: Relation method resolver
         if (config()->has($config)) {
