@@ -30,6 +30,11 @@
                         @include('blog::admin.posts.partials.create-fields', ['lang' => $locale])
                     </div>
                 <?php endforeach; ?>
+                <?php if (config('asgard.blog.post.config.partials.normal.create') !== []): ?>
+                    <?php foreach (config('asgard.blog.post.config.partials.normal.create') as $partial): ?>
+                    @include($partial)
+                    <?php endforeach; ?>
+                <?php endif; ?>
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary btn-flat">{{ trans('blog::post.button.create post') }}</button>
                     <button class="btn btn-default btn-flat" name="button" type="reset">{{ trans('core::core.button.reset') }}</button>

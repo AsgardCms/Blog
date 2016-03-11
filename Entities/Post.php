@@ -68,4 +68,25 @@ class Post extends Model
     {
         return (bool) $query->whereStatus(3);
     }
+
+    /**
+     * @param $method
+     * @param $parameters
+     * @return mixed
+     */
+    public function __call($method, $parameters)
+    {
+        #i: Convert array to dot notation
+        $config = implode('.', ['asgard.blog.post.config.relations', $method]);
+
+        #i: Relation method resolver
+        if (config()->has($config)) {
+            $function = config()->get($config);
+
+            return $function($this);
+        }
+
+        #i: No relation found, return the call to parent (Eloquent) to handle it.
+        return parent::__call($method, $parameters);
+    }
 }
