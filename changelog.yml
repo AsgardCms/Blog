@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Blog
 versions:
+    "1.14.0":
+        added:
+            - Ability to add custom data to the Post views
     "1.13.0":
         added:
             - The <code>LatestPostsComposer</code> is bound to the array of views defined in configuration file
