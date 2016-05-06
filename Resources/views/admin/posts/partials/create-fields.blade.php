@@ -13,4 +13,10 @@
     <textarea class="ckeditor" name="{{$lang}}[content]" rows="10" cols="80">
         {!! old("{$lang}.content") !!}
     </textarea>
+
+    <?php if (config('asgard.blog.config.post.partials.translatable.create') !== []): ?>
+        <?php foreach (config('asgard.blog.config.post.partials.translatable.create') as $partial): ?>
+        @include($partial)
+        <?php endforeach; ?>
+    <?php endif; ?>
 </div>

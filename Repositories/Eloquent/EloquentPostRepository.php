@@ -3,6 +3,8 @@
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Blog\Entities\Post;
 use Modules\Blog\Entities\Status;
+use Modules\Blog\Events\PostWasCreated;
+use Modules\Blog\Events\PostWasUpdated;
 use Modules\Blog\Repositories\Collection;
 use Modules\Blog\Repositories\PostRepository;
 use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
@@ -38,6 +40,8 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
 
         $post->tags()->sync(array_get($data, 'tags', []));
 
+        event(new PostWasUpdated($post->id, $data));
+
         return $post;
     }
 
@@ -51,6 +55,8 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
         $post = $this->model->create($data);
 
         $post->tags()->sync(array_get($data, 'tags', []));
+
+        event(new PostWasCreated($post->id, $data));
 
         return $post;
     }
