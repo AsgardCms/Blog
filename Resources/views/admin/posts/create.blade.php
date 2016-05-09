@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('styles')
-{!! Theme::script('js/vendor/ckeditor/ckeditor.js') !!}
 <link href="{{{ Module::asset('blog:css/selectize.css') }}}" rel="stylesheet" type="text/css" />
 @stop
 
