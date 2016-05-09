@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Blog
 versions:
+    "1.14.1":
+        changed:
+            - Load ckeditor using the assetPipeline
     "1.14.0":
         added:
             - Ability to add custom data to the Post views
