@@ -8,6 +8,7 @@ use Modules\Blog\Repositories\CategoryRepository;
 use Modules\Blog\Repositories\PostRepository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 use Modules\Media\Repositories\FileRepository;
+use Modules\Blog\Events\PostWasDeleted;
 
 class PostController extends AdminBaseController
 {
@@ -126,6 +127,8 @@ class PostController extends AdminBaseController
         $post->tags()->detach();
 
         $this->post->destroy($post);
+        
+        event(new PostWasDeleted($post->id));
 
         flash(trans('blog::messages.post deleted'));
 
