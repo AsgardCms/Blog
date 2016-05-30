@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Blog
 versions:
+    "1.14.2":
+        changed:
+            - Auto-generate slugs on tags creation via API
     "1.14.1":
         changed:
             - Load ckeditor using the assetPipeline
