@@ -124,7 +124,7 @@ class PostController extends AdminBaseController
      */
     public function destroy(Post $post)
     {
-        
+
         $post->tags()->detach();
 
         $this->post->destroy($post);
