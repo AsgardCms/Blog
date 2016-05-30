@@ -5,12 +5,12 @@ namespace Modules\Blog\Events;
 class PostWasDeleted
 {
     /**
-     * @var int
+     * @var object
      */
-    public $postId;
+    public $post;
 
-    public function __construct($postId)
+    public function __construct($post)
     {
-        $this->postId = $postId;
+        $this->post = $post;
     }
 }
