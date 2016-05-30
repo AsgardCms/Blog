@@ -128,7 +128,7 @@ class PostController extends AdminBaseController
 
         $this->post->destroy($post);
         
-        event(new PostWasDeleted($post->id));
+        event(new PostWasDeleted($post));
 
         flash(trans('blog::messages.post deleted'));
 
