@@ -1,8 +1,12 @@
 url: https://github.com/AsgardCms/Blog
 versions:
     "1.15.0":
+        added:
+            - Added the partial to add a thumbnail on the Post create view
+            - Added <code>PostWasDeleted</code> event
         changed:
             - Use <code>$router</code> variable in routes file
+            - <code>PostWasCreatedEvent</code> now gets the full post sent to it
     "1.14.2":
         changed:
             - Auto-generate slugs on tags creation via API
