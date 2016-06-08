@@ -4,6 +4,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Modules\Blog\Entities\Post;
 use Modules\Blog\Entities\Status;
 use Modules\Blog\Events\PostWasCreated;
+use Modules\Blog\Events\PostWasDeleted;
 use Modules\Blog\Events\PostWasUpdated;
 use Modules\Blog\Repositories\Collection;
 use Modules\Blog\Repositories\PostRepository;
@@ -56,9 +57,16 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
 
         $post->tags()->sync(array_get($data, 'tags', []));
 
-        event(new PostWasCreated($post->id, $data));
+        event(new PostWasCreated($post, $data));
 
         return $post;
+    }
+
+    public function destroy($model)
+    {
+        event(new PostWasDeleted($model->id, get_class($model)));
+
+        return $model->delete();
     }
 
     /**
