@@ -67,6 +67,9 @@
                    <select name="tags[]" id="tags" class="input-tags" multiple></select>
                    {!! $errors->first("tags", '<span class="help-block">:message</span>') !!}
                 </div>
+                @include('media::admin.fields.new-file-link-single', [
+                    'zone' => 'thumbnail'
+                ])
             </div>
         </div>
     </div>
