@@ -2,7 +2,9 @@
 
 namespace Modules\Blog\Events;
 
-class PostWasCreated
+use Modules\Media\Contracts\StoringMedia;
+
+class PostWasCreated implements StoringMedia
 {
     /**
      * @var array
@@ -17,5 +19,23 @@ class PostWasCreated
     {
         $this->data = $data;
         $this->postId = $postId;
+    }
+
+    /**
+     * Return the entity
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function getEntity()
+    {
+        return $this->postId;
+    }
+
+    /**
+     * Return the ALL data sent
+     * @return array
+     */
+    public function getSubmissionData()
+    {
+        return $this->data;
     }
 }
