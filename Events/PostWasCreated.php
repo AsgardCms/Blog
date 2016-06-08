@@ -2,6 +2,7 @@
 
 namespace Modules\Blog\Events;
 
+use Modules\Blog\Entities\Post;
 use Modules\Media\Contracts\StoringMedia;
 
 class PostWasCreated implements StoringMedia
@@ -11,14 +12,14 @@ class PostWasCreated implements StoringMedia
      */
     public $data;
     /**
-     * @var int
+     * @var Post
      */
-    public $postId;
+    public $post;
 
-    public function __construct($postId, array $data)
+    public function __construct($post, array $data)
     {
         $this->data = $data;
-        $this->postId = $postId;
+        $this->post = $post;
     }
 
     /**
@@ -27,7 +28,7 @@ class PostWasCreated implements StoringMedia
      */
     public function getEntity()
     {
-        return $this->postId;
+        return $this->post;
     }
 
     /**
