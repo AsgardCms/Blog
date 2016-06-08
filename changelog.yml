@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Blog
 versions:
+    "1.15.0":
+        changed:
+            - Use <code>$router</code> variable in routes file
     "1.14.2":
         changed:
             - Auto-generate slugs on tags creation via API
