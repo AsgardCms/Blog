@@ -13,9 +13,11 @@ use Modules\Blog\Repositories\Eloquent\EloquentPostRepository;
 use Modules\Blog\Repositories\Eloquent\EloquentTagRepository;
 use Modules\Blog\Repositories\PostRepository;
 use Modules\Blog\Repositories\TagRepository;
+use Modules\Core\Traits\CanPublishConfiguration;
 
 class BlogServiceProvider extends ServiceProvider
 {
+    use CanPublishConfiguration;
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -35,8 +37,10 @@ class BlogServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../Config/config.php', 'asgard.blog.config');
-        $this->publishes([__DIR__ . '/../Config/config.php' => config_path('asgard.blog.config' . '.php'), ], 'config');
+        $this->publishConfig('blog', 'config');
+        $this->publishConfig('blog', 'permissions');
+        $this->publishConfig('blog', 'settings');
+        $this->publishConfig('blog', 'thumbnails');
     }
 
     /**
