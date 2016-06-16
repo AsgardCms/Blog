@@ -56,36 +56,33 @@ class BlogServiceProvider extends ServiceProvider
     private function registerBindings()
     {
         $this->app->bind(PostRepository::class, function () {
-                $repository = new EloquentPostRepository(new Post());
+            $repository = new EloquentPostRepository(new Post());
 
-                if (config('app.cache') === false) {
-                    return $repository;
-                }
-
-                return new CachePostDecorator($repository);
+            if (config('app.cache') === false) {
+                return $repository;
             }
-        );
+
+            return new CachePostDecorator($repository);
+        });
 
         $this->app->bind(CategoryRepository::class, function () {
-                $repository = new EloquentCategoryRepository(new Category());
+            $repository = new EloquentCategoryRepository(new Category());
 
-                if (config('app.cache') === false) {
-                    return $repository;
-                }
-
-                return new CacheCategoryDecorator($repository);
+            if (config('app.cache') === false) {
+                return $repository;
             }
-        );
+
+            return new CacheCategoryDecorator($repository);
+        });
 
         $this->app->bind(TagRepository::class, function () {
-                $repository = new EloquentTagRepository(new Tag());
+            $repository = new EloquentTagRepository(new Tag());
 
-                if (config('app.cache') === false) {
-                    return $repository;
-                }
-
-                return new CacheTagDecorator($repository);
+            if (config('app.cache') === false) {
+                return $repository;
             }
-        );
+
+            return new CacheTagDecorator($repository);
+        });
     }
 }
