@@ -1,5 +1,10 @@
 url: https://github.com/AsgardCms/Blog
 versions:
+    "2.0@unreleased":
+        added:
+            - Laravel 5.2 compatibility
+        changed:
+            - Using new more flexible way of handle permissions via middleware
     "1.15.0":
         added:
             - Added the partial to add a thumbnail on the Post create view
