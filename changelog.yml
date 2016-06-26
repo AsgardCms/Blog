@@ -7,6 +7,8 @@ versions:
             - Using new more flexible way of handle permissions via middleware
             - Removing api resource controller to manual route definition
             - Adding api protection via api tokens
+        removed:
+            - Removing laracasts/flash dependency
     "1.15.0":
         added:
             - Added the partial to add a thumbnail on the Post create view
