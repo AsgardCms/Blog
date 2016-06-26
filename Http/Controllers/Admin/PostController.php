@@ -78,9 +78,8 @@ class PostController extends AdminBaseController
     {
         $this->post->create($request->all());
 
-        flash(trans('blog::messages.post created'));
-
-        return redirect()->route('admin.blog.post.index');
+        return redirect()->route('admin.blog.post.index')
+            ->withSuccess(trans('blog::messages.post created'));
     }
 
     /**
@@ -110,9 +109,8 @@ class PostController extends AdminBaseController
     {
         $this->post->update($post, $request->all());
 
-        flash(trans('blog::messages.post updated'));
-
-        return redirect()->route('admin.blog.post.index');
+        return redirect()->route('admin.blog.post.index')
+            ->withSuccess(trans('blog::messages.post updated'));
     }
 
     /**
@@ -127,8 +125,7 @@ class PostController extends AdminBaseController
 
         $this->post->destroy($post);
 
-        flash(trans('blog::messages.post deleted'));
-
-        return redirect()->route('admin.blog.post.index');
+        return redirect()->route('admin.blog.post.index')
+            ->withSuccess(trans('blog::messages.post deleted'));
     }
 }

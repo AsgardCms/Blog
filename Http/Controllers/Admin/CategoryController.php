@@ -52,9 +52,8 @@ class CategoryController extends AdminBaseController
     {
         $this->category->create($request->all());
 
-        flash(trans('blog::messages.category created'));
-
-        return redirect()->route('admin.blog.category.index');
+        return redirect()->route('admin.blog.category.index')
+            ->withSuccess(trans('blog::messages.category created'));
     }
 
     /**
@@ -79,9 +78,8 @@ class CategoryController extends AdminBaseController
     {
         $this->category->update($category, $request->all());
 
-        flash(trans('blog::messages.category updated'));
-
-        return redirect()->route('admin.blog.category.index');
+        return redirect()->route('admin.blog.category.index')
+            ->withSuccess(trans('blog::messages.category updated'));
     }
 
     /**
@@ -94,8 +92,7 @@ class CategoryController extends AdminBaseController
     {
         $this->category->destroy($category);
 
-        flash(trans('blog::messages.category deleted'));
-
-        return redirect()->route('admin.blog.category.index');
+        return redirect()->route('admin.blog.category.index')
+            ->withSuccess(trans('blog::messages.category deleted'));
     }
 }

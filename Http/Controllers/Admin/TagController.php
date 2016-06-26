@@ -1,7 +1,6 @@
 <?php namespace Modules\Blog\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use Laracasts\Flash\Flash;
 use Modules\Blog\Entities\Tag;
 use Modules\Blog\Repositories\TagRepository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
@@ -52,9 +51,8 @@ class TagController extends AdminBaseController
     {
         $this->tag->create($request->all());
 
-        flash()->success(trans('core::core.messages.resource created', ['name' => trans('blog::tag.title.tag')]));
-
-        return redirect()->route('admin.blog.tag.index');
+        return redirect()->route('admin.blog.tag.index')
+            ->withSuccess(trans('core::core.messages.resource created', ['name' => trans('blog::tag.title.tag')]));
     }
 
     /**
@@ -79,9 +77,8 @@ class TagController extends AdminBaseController
     {
         $this->tag->update($tag, $request->all());
 
-        flash()->success(trans('core::core.messages.resource updated', ['name' => trans('blog::tag.title.tag')]));
-
-        return redirect()->route('admin.blog.tag.index');
+        return redirect()->route('admin.blog.tag.index')
+            ->withSuccess(trans('core::core.messages.resource updated', ['name' => trans('blog::tag.title.tag')]));
     }
 
     /**
@@ -94,8 +91,7 @@ class TagController extends AdminBaseController
     {
         $this->tag->destroy($tag);
 
-        flash()->success(trans('core::core.messages.resource deleted', ['name' => trans('blog::tag.title.tag')]));
-
-        return redirect()->route('admin.blog.tag.index');
+        return redirect()->route('admin.blog.tag.index')
+            ->withSuccess(trans('core::core.messages.resource deleted', ['name' => trans('blog::tag.title.tag')]));
     }
 }
