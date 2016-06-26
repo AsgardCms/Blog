@@ -4,5 +4,11 @@ use Illuminate\Routing\Router;
 
 /** @var Router $router */
 
-$router->resource('tag', 'TagController');
-$router->get('tag/findByName/{name?}', ['as' => 'api.tag.findByName', 'uses' => 'TagController@findByName']);
+$router->post('tag', [
+    'as' => 'api.tag.store',
+    'uses' => 'TagController@store'
+]);
+$router->get('tag/findByName/{name?}', [
+    'as' => 'api.tag.findByName',
+    'uses' => 'TagController@findByName',
+]);
