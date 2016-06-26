@@ -103,6 +103,9 @@
                 { key: 'b', route: "<?= route('admin.blog.post.index') ?>" }
             ]
         });
+        $.ajaxSetup({
+           headers: { 'Authorization': 'Bearer {{ $currentUser->getFirstApiKey() }}' }
+        });
         $('.input-tags').MySelectize({
             'findUri' : '<?= route('api.tag.findByName') ?>/',
             'createUri' : '<?= route('api.tag.store') ?>',
