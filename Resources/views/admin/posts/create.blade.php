@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('styles')
-<link href="{{{ Module::asset('blog:css/selectize.css') }}}" rel="stylesheet" type="text/css" />
+<link href="{!! Module::asset('blog:css/selectize.css') !!}" rel="stylesheet" type="text/css" />
 @stop
 
 @section('content-header')
