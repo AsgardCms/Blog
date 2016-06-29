@@ -31,12 +31,6 @@
     "orchestra/testbench": "~3.2",
     "fzaninotto/faker": "~1.5"
   },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/nWidart/modules"
-    }
-  ],
   "scripts": {
     "post-install-cmd": [
       "php artisan module:migrate Blog",
