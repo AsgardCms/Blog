@@ -1,4 +1,6 @@
-<?php namespace Modules\Blog\Widgets;
+<?php
+
+namespace Modules\Blog\Widgets;
 
 use Modules\Blog\Repositories\CategoryRepository;
 use Modules\Dashboard\Foundation\Widgets\BaseWidget;

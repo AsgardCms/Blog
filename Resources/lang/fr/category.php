@@ -18,6 +18,6 @@ return [
         'slug' => 'Slug',
     ],
     'navigation' => [
-        'back to index' => 'Retour vers l\'index des catégories'
+        'back to index' => 'Retour vers l\'index des catégories',
     ],
 ];

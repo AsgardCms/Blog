@@ -19,7 +19,7 @@ return [
         'slug' => 'URL amigable',
     ],
     'navigation' => [
-        'back to index' => 'Regresar al índice de entradas'
+        'back to index' => 'Regresar al índice de entradas',
     ],
     'latest posts' => 'Últimas entradas',
 ];

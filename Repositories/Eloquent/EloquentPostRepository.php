@@ -1,4 +1,6 @@
-<?php namespace Modules\Blog\Repositories\Eloquent;
+<?php
+
+namespace Modules\Blog\Repositories\Eloquent;
 
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Blog\Entities\Post;

@@ -1,4 +1,6 @@
-<?php namespace Modules\Blog\Repositories\Cache;
+<?php
+
+namespace Modules\Blog\Repositories\Cache;
 
 use Modules\Blog\Repositories\Collection;
 use Modules\Blog\Repositories\PostRepository;

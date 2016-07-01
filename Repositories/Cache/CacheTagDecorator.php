@@ -1,4 +1,6 @@
-<?php namespace Modules\Blog\Repositories\Cache;
+<?php
+
+namespace Modules\Blog\Repositories\Cache;
 
 use Modules\Blog\Repositories\TagRepository;
 use Modules\Core\Repositories\Cache\BaseCacheDecorator;

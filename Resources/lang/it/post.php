@@ -19,7 +19,7 @@ return [
         'slug' => 'Slug',
     ],
     'navigation' => [
-        'back to index' => 'Indietro all\'indice articoli'
+        'back to index' => 'Indietro all\'indice articoli',
     ],
     'latest posts' => 'Ultimi articoli',
 ];

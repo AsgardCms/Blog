@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'title' => '日志'
+    'title' => '日志',
 ];

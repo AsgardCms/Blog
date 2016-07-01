@@ -1,4 +1,6 @@
-<?php namespace Modules\Blog\Widgets;
+<?php
+
+namespace Modules\Blog\Widgets;
 
 use Modules\Blog\Repositories\PostRepository;
 use Modules\Core\Contracts\Setting;

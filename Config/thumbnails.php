@@ -7,7 +7,7 @@ return [
             'height' => '150',
             'callback' => function ($constraint) {
                 $constraint->upsize();
-            }
+            },
         ],
-    ]
+    ],
 ];

@@ -1,4 +1,6 @@
-<?php namespace Modules\Blog\Repositories\Eloquent;
+<?php
+
+namespace Modules\Blog\Repositories\Eloquent;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\App;
@@ -49,7 +51,7 @@ class EloquentTagRepository extends EloquentBaseRepository implements TagReposit
         $data = [
             $lang => [
                 'name' => $name,
-                'slug' => str_slug($name)
+                'slug' => str_slug($name),
             ],
         ];
 

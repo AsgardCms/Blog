@@ -1,4 +1,6 @@
-<?php namespace Modules\Blog\Tests;
+<?php
+
+namespace Modules\Blog\Tests;
 
 class EloquentPostRepositoryTest extends BaseBlogTestCase
 {

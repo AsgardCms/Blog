@@ -19,7 +19,7 @@ return [
         'slug' => 'Slug',
     ],
     'navigation' => [
-        'back to index' => '返回到日志列表'
+        'back to index' => '返回到日志列表',
     ],
     'latest posts' => '最近日志',
 ];

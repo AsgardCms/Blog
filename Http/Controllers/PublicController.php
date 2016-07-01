@@ -1,4 +1,6 @@
-<?php namespace Modules\Blog\Http\Controllers;
+<?php
+
+namespace Modules\Blog\Http\Controllers;
 
 use Illuminate\Support\Facades\App;
 use Modules\Blog\Repositories\PostRepository;

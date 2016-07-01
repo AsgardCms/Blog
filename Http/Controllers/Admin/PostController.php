@@ -1,4 +1,6 @@
-<?php namespace Modules\Blog\Http\Controllers\Admin;
+<?php
+
+namespace Modules\Blog\Http\Controllers\Admin;
 
 use Modules\Blog\Entities\Post;
 use Modules\Blog\Entities\Status;

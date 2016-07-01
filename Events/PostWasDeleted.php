@@ -1,4 +1,6 @@
-<?php namespace Modules\Blog\Events;
+<?php
+
+namespace Modules\Blog\Events;
 
 use Modules\Media\Contracts\DeletingMedia;
 

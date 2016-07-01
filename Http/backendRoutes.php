@@ -3,7 +3,6 @@
 use Illuminate\Routing\Router;
 
 /** @var Router $router */
-
 $router->bind('category', function ($id) {
     return app(\Modules\Blog\Repositories\CategoryRepository::class)->find($id);
 });

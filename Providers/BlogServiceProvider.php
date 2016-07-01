@@ -1,4 +1,6 @@
-<?php namespace Modules\Blog\Providers;
+<?php
+
+namespace Modules\Blog\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Modules\Blog\Entities\Category;

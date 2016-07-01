@@ -19,7 +19,7 @@ return [
         'slug' => 'Ярлык',
     ],
     'navigation' => [
-        'back to index' => 'Вернуться к списку записей'
+        'back to index' => 'Вернуться к списку записей',
     ],
     'latest posts' => 'Последние записи',
 ];

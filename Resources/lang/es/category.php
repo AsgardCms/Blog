@@ -19,6 +19,6 @@ return [
         'slug' => 'URL amigable',
     ],
     'navigation' => [
-        'back to index' => 'Regresar al índice de categorías'
+        'back to index' => 'Regresar al índice de categorías',
     ],
 ];

@@ -19,6 +19,6 @@ return [
         'slug' => 'Slug',
     ],
     'navigation' => [
-        'back to index' => '返回到分类列表'
+        'back to index' => '返回到分类列表',
     ],
 ];

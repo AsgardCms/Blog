@@ -1,4 +1,6 @@
-<?php namespace Modules\Blog\Http\Controllers\Admin;
+<?php
+
+namespace Modules\Blog\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use Modules\Blog\Entities\Tag;

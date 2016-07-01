@@ -1,4 +1,6 @@
-<?php namespace Modules\Blog\Presenters;
+<?php
+
+namespace Modules\Blog\Presenters;
 
 use Laracasts\Presenter\Presenter;
 use Modules\Blog\Entities\Status;

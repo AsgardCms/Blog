@@ -1,4 +1,6 @@
-<?php namespace Modules\Blog\Sidebar;
+<?php
+
+namespace Modules\Blog\Sidebar;
 
 use Maatwebsite\Sidebar\Group;
 use Maatwebsite\Sidebar\Item;

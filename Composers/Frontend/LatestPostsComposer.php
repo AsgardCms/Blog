@@ -1,4 +1,6 @@
-<?php namespace Modules\Blog\Composers\Frontend;
+<?php
+
+namespace Modules\Blog\Composers\Frontend;
 
 use Illuminate\Contracts\View\View;
 use Modules\Blog\Repositories\PostRepository;

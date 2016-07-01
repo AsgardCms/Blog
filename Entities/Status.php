@@ -1,4 +1,6 @@
-<?php namespace Modules\Blog\Entities;
+<?php
+
+namespace Modules\Blog\Entities;
 
 /**
  * Class Status
