@@ -7,7 +7,6 @@ use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Blog\Entities\Category;
 use Modules\Blog\Http\Requests\StoreCategoryRequest;
-use Modules\Blog\Http\Requests\UpdateCategoryRequest;
 use Modules\Blog\Repositories\CategoryRepository;
 
 class CategoryController extends Controller
