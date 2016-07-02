@@ -4,7 +4,7 @@ namespace Modules\Blog\Composers\Frontend;
 
 use Illuminate\Contracts\View\View;
 use Modules\Blog\Repositories\PostRepository;
-use Modules\Core\Contracts\Setting;
+use Modules\Setting\Contracts\Setting;
 
 class LatestPostsComposer
 {

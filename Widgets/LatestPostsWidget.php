@@ -3,8 +3,8 @@
 namespace Modules\Blog\Widgets;
 
 use Modules\Blog\Repositories\PostRepository;
-use Modules\Core\Contracts\Setting;
 use Modules\Dashboard\Foundation\Widgets\BaseWidget;
+use Modules\Setting\Contracts\Setting;
 
 class LatestPostsWidget extends BaseWidget
 {
