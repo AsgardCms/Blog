@@ -5,7 +5,7 @@ namespace Modules\Blog\Sidebar;
 use Maatwebsite\Sidebar\Group;
 use Maatwebsite\Sidebar\Item;
 use Maatwebsite\Sidebar\Menu;
-use Modules\Core\Contracts\Authentication;
+use Modules\User\Contracts\Authentication;
 
 class SidebarExtender implements \Maatwebsite\Sidebar\SidebarExtender
 {
