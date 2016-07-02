@@ -3,6 +3,7 @@ versions:
     "2.0@unreleased":
         added:
             - Laravel 5.2 compatibility
+            - API endpoints to manage Blog Categories
         changed:
             - Using new more flexible way of handle permissions via middleware
             - Removing api resource controller to manual route definition
