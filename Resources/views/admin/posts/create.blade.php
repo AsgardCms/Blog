@@ -1,7 +1,6 @@
 @extends('layouts.master')
 
 @section('styles')
-<link href="{!! Module::asset('blog:css/selectize.css') !!}" rel="stylesheet" type="text/css" />
 @stop
 
 @section('content-header')
@@ -88,7 +87,6 @@
 @stop
 
 @section('scripts')
-<script src="{{ Module::asset('blog:js/selectize.min.js') }}" type="text/javascript"></script>
 <script src="{{ Module::asset('blog:js/MySelectize.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
     $(function() {
