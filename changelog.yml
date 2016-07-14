@@ -10,6 +10,7 @@ versions:
             - Adding api protection via api tokens
         removed:
             - Removing laracasts/flash dependency
+            - Requiring selectize manually in create/edit views. Now loaded by default.
     "1.15.0":
         added:
             - Added the partial to add a thumbnail on the Post create view
