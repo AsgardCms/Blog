@@ -16,6 +16,7 @@ use Modules\Blog\Repositories\Eloquent\EloquentTagRepository;
 use Modules\Blog\Repositories\PostRepository;
 use Modules\Blog\Repositories\TagRepository;
 use Modules\Core\Traits\CanPublishConfiguration;
+use Modules\Media\Image\ThumbnailManager;
 
 class BlogServiceProvider extends ServiceProvider
 {
@@ -42,7 +43,8 @@ class BlogServiceProvider extends ServiceProvider
         $this->publishConfig('blog', 'config');
         $this->publishConfig('blog', 'permissions');
         $this->publishConfig('blog', 'settings');
-        $this->publishConfig('blog', 'thumbnails');
+
+        $this->registerThumbnails();
     }
 
     /**
@@ -86,5 +88,18 @@ class BlogServiceProvider extends ServiceProvider
 
             return new CacheTagDecorator($repository);
         });
+    }
+
+    private function registerThumbnails()
+    {
+        $this->app[ThumbnailManager::class]->registerThumbnail('blogThumb', [
+            'fit' => [
+                'width' => '150',
+                'height' => '150',
+                'callback' => function ($constraint) {
+                    $constraint->upsize();
+                },
+            ],
+        ]);
     }
 }
