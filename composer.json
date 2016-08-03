@@ -29,17 +29,9 @@
   "require-dev": {
     "phpunit/phpunit": "~4.0",
     "orchestra/testbench": "~3.2",
-    "fzaninotto/faker": "~1.5"
-  },
-  "scripts": {
-    "post-install-cmd": [
-      "php artisan module:migrate Blog",
-      "php artisan asgard:publish:module Blog"
-    ],
-    "post-update-cmd": [
-      "php artisan module:migrate Blog",
-      "php artisan asgard:publish:module Blog"
-    ]
+    "fzaninotto/faker": "~1.5",
+    "phpro/grumphp": "^0.9.1",
+    "friendsofphp/php-cs-fixer": "^1.11"
   },
   "extra": {
     "branch-alias": {
