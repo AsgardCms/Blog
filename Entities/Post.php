@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Laracasts\Presenter\PresentableTrait;
 use Modules\Blog\Presenters\PostPresenter;
+use Modules\Media\Entities\File;
 use Modules\Media\Support\Traits\MediaRelation;
 
 class Post extends Model
@@ -33,7 +34,7 @@ class Post extends Model
 
     /**
      * Get the thumbnail image for the current blog post
-     * @return string
+     * @return File|string
      */
     public function getThumbnailAttribute()
     {
@@ -43,7 +44,7 @@ class Post extends Model
             return '';
         }
 
-        return $thumbnail->path;
+        return $thumbnail;
     }
 
     /**
