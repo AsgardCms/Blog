@@ -43,7 +43,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
 
         $post->tags()->sync(array_get($data, 'tags', []));
 
-        event(new PostWasUpdated($post->id, $data));
+        event(new PostWasUpdated($post, $data));
 
         return $post;
     }
