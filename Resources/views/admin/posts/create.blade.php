@@ -62,13 +62,10 @@
                 </div>
                 <div class='form-group{{ $errors->has("tags") ? ' has-error' : '' }}'>
                    {!! Form::label("tags", 'Tags:') !!}
-                   {{--{!! Form::text("tags", old("tags"), ['class' => 'input-tags', 'placeholder' => 'Tags']) !!}--}}
                    <select name="tags[]" id="tags" class="input-tags" multiple></select>
                    {!! $errors->first("tags", '<span class="help-block">:message</span>') !!}
                 </div>
-                @include('media::admin.fields.new-file-link-single', [
-                    'zone' => 'thumbnail'
-                ])
+                @mediaSingle('thumbnail')
             </div>
         </div>
     </div>
