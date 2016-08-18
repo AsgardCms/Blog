@@ -32,6 +32,21 @@ class Post extends Model
     }
 
     /**
+     * Get the thumbnail image for the current blog post
+     * @return string
+     */
+    public function getThumbnailAttribute()
+    {
+        $thumbnail = $this->files()->where('zone', 'thumbnail')->first();
+
+        if ($thumbnail === null) {
+            return '';
+        }
+
+        return $thumbnail->path;
+    }
+
+    /**
      * Check if the post is in draft
      * @param Builder $query
      * @return bool
