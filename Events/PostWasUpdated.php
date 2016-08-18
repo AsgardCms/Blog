@@ -2,20 +2,41 @@
 
 namespace Modules\Blog\Events;
 
-class PostWasUpdated
+use Modules\Blog\Entities\Post;
+use Modules\Media\Contracts\StoringMedia;
+
+class PostWasUpdated implements StoringMedia
 {
     /**
      * @var array
      */
     public $data;
     /**
-     * @var int
+     * @var Post
      */
-    public $postId;
+    public $post;
 
-    public function __construct($postId, array $data)
+    public function __construct(Post $post, array $data)
     {
         $this->data = $data;
-        $this->postId = $postId;
+        $this->post = $post;
+    }
+
+    /**
+     * Return the entity
+     * @return \Illuminate\Database\Eloquent\Model
+     */
+    public function getEntity()
+    {
+        return $this->post;
+    }
+
+    /**
+     * Return the ALL data sent
+     * @return array
+     */
+    public function getSubmissionData()
+    {
+        return $this->data;
     }
 }
