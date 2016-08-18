@@ -60,10 +60,10 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <div class='form-group{{ $errors->has("tags") ? ' has-error' : '' }}'>
-                   {!! Form::label("tags", 'Tags:') !!}
+                <div class='form-group{{ $errors->has('tags') ? ' has-error' : '' }}'>
+                   {!! Form::label('tags', 'Tags:') !!}
                    <select name="tags[]" id="tags" class="input-tags" multiple></select>
-                   {!! $errors->first("tags", '<span class="help-block">:message</span>') !!}
+                   {!! $errors->first('tags', '<span class="help-block">:message</span>') !!}
                 </div>
                 @mediaSingle('thumbnail')
             </div>
