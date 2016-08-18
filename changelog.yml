@@ -8,6 +8,8 @@ versions:
             - Using new more flexible way of handle permissions via middleware
             - Removing api resource controller to manual route definition
             - Adding api protection via api tokens
+            - Adding method to get the thumbnail attribute on the <code>Post</code> entity
+            - Using the new blade directives for the media on blog posts
         removed:
             - Removing laracasts/flash dependency
             - Requiring selectize manually in create/edit views. Now loaded by default.
