@@ -26,7 +26,7 @@ class CacheTagDecorator extends BaseCacheDecorator implements TagRepository
     public function findByName($name)
     {
         return $this->cache
-            ->tags($this->entityName, 'global')
+            ->tags([$this->entityName, 'global'])
             ->remember("{$this->locale}.{$this->entityName}.findByName.{$name}", $this->cacheTime,
                 function () use ($name) {
                     return $this->repository->findByName($name);
