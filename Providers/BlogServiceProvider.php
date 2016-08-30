@@ -43,6 +43,7 @@ class BlogServiceProvider extends ServiceProvider
         $this->publishConfig('blog', 'config');
         $this->publishConfig('blog', 'permissions');
         $this->publishConfig('blog', 'settings');
+        $this->loadMigrationsFrom(__DIR__.'/../Database/Migrations');
 
         $this->registerThumbnails();
     }
