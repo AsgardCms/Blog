@@ -93,6 +93,7 @@ abstract class BaseBlogTestCase extends TestCase
                 'content' => $faker->paragraph(),
             ],
             'category_id' => 1,
+            'status' => 1,
         ];
 
         return $this->post->create($data);

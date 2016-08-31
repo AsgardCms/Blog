@@ -17,6 +17,7 @@ class EloquentPostRepositoryTest extends BaseBlogTestCase
                 'content' => 'lorem ipsum',
             ],
             'category_id' => 1,
+            'status' => 1,
         ];
         $this->post->create($data);
 
