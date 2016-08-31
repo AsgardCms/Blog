@@ -13,7 +13,7 @@ class AddStatusColumnToPostTable extends Migration
     {
         Schema::table('blog__posts', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            $table->integer('status')->after('category_id');
+            $table->integer('status')->after('category_id')->default(1);
         });
     }
 
