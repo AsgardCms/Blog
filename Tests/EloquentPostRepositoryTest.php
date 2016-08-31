@@ -2,6 +2,8 @@
 
 namespace Modules\Blog\Tests;
 
+use Modules\Blog\Entities\Status;
+
 class EloquentPostRepositoryTest extends BaseBlogTestCase
 {
     /** @test */
@@ -17,7 +19,7 @@ class EloquentPostRepositoryTest extends BaseBlogTestCase
                 'content' => 'lorem ipsum',
             ],
             'category_id' => 1,
-            'status' => 1,
+            'status' => Status::PUBLISHED,
         ];
         $this->post->create($data);
 
