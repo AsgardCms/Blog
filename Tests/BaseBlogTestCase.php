@@ -7,6 +7,7 @@ use Illuminate\Support\Str;
 use Maatwebsite\Sidebar\SidebarServiceProvider;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider;
+use Modules\Blog\Entities\Status;
 use Modules\Blog\Providers\BlogServiceProvider;
 use Modules\Core\Providers\CoreServiceProvider;
 use Modules\Media\Image\ImageServiceProvider;
@@ -93,7 +94,7 @@ abstract class BaseBlogTestCase extends TestCase
                 'content' => $faker->paragraph(),
             ],
             'category_id' => 1,
-            'status' => 1,
+            'status' => Status::PUBLISHED,
         ];
 
         return $this->post->create($data);
