@@ -9,6 +9,9 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider;
 use Modules\Blog\Providers\BlogServiceProvider;
 use Modules\Core\Providers\CoreServiceProvider;
+use Modules\Media\Image\ImageServiceProvider;
+use Modules\Media\Providers\MediaServiceProvider;
+use Modules\Tag\Providers\TagServiceProvider;
 use Nwidart\Modules\LaravelModulesServiceProvider;
 use Orchestra\Testbench\TestCase;
 
@@ -40,6 +43,9 @@ abstract class BaseBlogTestCase extends TestCase
             LaravelModulesServiceProvider::class,
             LaravelLocalizationServiceProvider::class,
             CoreServiceProvider::class,
+            ImageServiceProvider::class,
+            TagServiceProvider::class,
+            MediaServiceProvider::class,
             BlogServiceProvider::class,
             SidebarServiceProvider::class,
         ];
@@ -118,12 +124,9 @@ abstract class BaseBlogTestCase extends TestCase
 
     private function resetDatabase()
     {
-        // Relative to the testbench app folder: vendors/orchestra/testbench/src/fixture
-        $migrationsPath = realpath('Database/Migrations');
         // Makes sure the migrations table is created
         $this->artisan('migrate', [
             '--database' => 'sqlite',
-            '--realpath' => $migrationsPath,
         ]);
         // We empty all tables
         $this->artisan('migrate:reset', [
@@ -132,7 +135,10 @@ abstract class BaseBlogTestCase extends TestCase
         // Migrate
         $this->artisan('migrate', [
             '--database' => 'sqlite',
-            '--realpath'     => $migrationsPath,
+        ]);
+        $this->artisan('migrate', [
+            '--database' => 'sqlite',
+            '--path'     => 'Modules/Media/Database/Migrations',
         ]);
     }
 }
