@@ -3,7 +3,7 @@
 use Illuminate\Routing\Router;
 
 /** @var Router $router */
-$router->group(['prefix' => 'v1', 'middleware' => 'api.token.admin'], function (Router $router) {
+$router->group(['prefix' => 'v1', 'middleware' => 'api.token'], function (Router $router) {
     $router->post('tag', [
         'as' => 'api.tag.store',
         'uses' => 'TagController@store',
@@ -14,7 +14,7 @@ $router->group(['prefix' => 'v1', 'middleware' => 'api.token.admin'], function (
     ]);
 });
 
-$router->group(['prefix' => 'v1/blog', 'middleware' => 'api.token.admin'], function (Router $router) {
+$router->group(['prefix' => 'v1/blog', 'middleware' => 'api.token'], function (Router $router) {
     $router->get('categories', [
         'as' => 'api.blog.category.index',
         'uses' => 'V1\CategoryController@index',
