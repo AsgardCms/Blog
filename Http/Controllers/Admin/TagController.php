@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 use Modules\Blog\Entities\Tag;
 use Modules\Blog\Http\Requests\StoreTagRequest;
+use Modules\Blog\Http\Requests\UpdateTagRequest;
 use Modules\Blog\Repositories\TagRepository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 
@@ -73,10 +74,10 @@ class TagController extends AdminBaseController
      * Update the specified resource in storage.
      *
      * @param  Tag $tag
-     * @param  Request $request
+     * @param  UpdateTagRequest $request
      * @return Response
      */
-    public function update(Tag $tag, Request $request)
+    public function update(Tag $tag, UpdateTagRequest $request)
     {
         $this->tag->update($tag, $request->all());
 
