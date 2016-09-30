@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Laracasts\Flash\Flash;
 use Modules\Blog\Entities\Tag;
+use Modules\Blog\Http\Requests\StoreTagRequest;
 use Modules\Blog\Repositories\TagRepository;
 use Modules\Core\Http\Controllers\Admin\AdminBaseController;
 
@@ -45,10 +46,10 @@ class TagController extends AdminBaseController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  Request $request
+     * @param  StoreTagRequest $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(StoreTagRequest $request)
     {
         $this->tag->create($request->all());
 
