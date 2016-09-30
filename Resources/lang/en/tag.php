@@ -18,6 +18,10 @@ return [
         'slug' => 'Slug',
     ],
     'messages' => [
+        'name is required' => 'Title is required',
+        'name is unique' => 'This name is already taken',
+        'slug is required' => 'Slug is required',
+        'slug is unique' => 'This slug is already taken',
     ],
     'validation' => [
     ],
