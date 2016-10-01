@@ -1,13 +1,21 @@
 <?php namespace Modules\Blog\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use Modules\Core\Internationalisation\BaseFormRequest;
 
-class UpdateCategoryRequest extends FormRequest
+class UpdateCategoryRequest extends BaseFormRequest
 {
     public function rules()
     {
+        return [];
+    }
+
+    public function translationRules()
+    {
+        $id = $this->route()->getParameter('category')->id;
+
         return [
-           // 'slug[en]' => 'required'
+            "name" => "required",
+            "slug" => "required|unique:blog__category_translations,slug,$id,category_id,locale,$this->localeKey",
         ];
     }
 
@@ -19,5 +27,14 @@ class UpdateCategoryRequest extends FormRequest
     public function messages()
     {
         return [];
+    }
+
+    public function translationMessages()
+    {
+        return [
+            'name.required' => trans('blog::category.messages.name is required'),
+            'slug.required' => trans('blog::category.messages.slug is required'),
+            'slug.unique' => trans('blog::category.messages.slug is unique'),
+        ];
     }
 }

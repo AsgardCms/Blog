@@ -1,13 +1,19 @@
 <?php namespace Modules\Blog\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use Modules\Core\Internationalisation\BaseFormRequest;
 
-class StoreCategoryRequest extends FormRequest
+class StoreCategoryRequest extends BaseFormRequest
 {
     public function rules()
     {
+        return [];
+    }
+
+    public function translationRules()
+    {
         return [
-           // 'slug[en]' => 'required'
+            'name' => 'required',
+            'slug' => "required|unique:blog__category_translations,slug,null,category_id,locale,$this->localeKey",
         ];
     }
 
@@ -19,5 +25,14 @@ class StoreCategoryRequest extends FormRequest
     public function messages()
     {
         return [];
+    }
+
+    public function translationMessages()
+    {
+        return [
+            'name.required' => trans('blog::category.messages.name is required'),
+            'slug.required' => trans('blog::category.messages.slug is required'),
+            'slug.unique' => trans('blog::category.messages.slug is unique'),
+        ];
     }
 }
