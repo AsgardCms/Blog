@@ -7,16 +7,14 @@
             <tbody><tr>
                 <th style="width: 10px">#</th>
                 <th>{{ trans('blog::post.table.title') }}</th>
-                <th>{{ trans('blog::post.table.slug') }}</th>
+                <th>{{ trans('core::core.table.created at') }}</th>
             </tr>
             <?php if (isset($posts)): ?>
                 <?php foreach ($posts as $post): ?>
                     <tr>
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
-                        <td>
-                            {{ $post->slug }}
-                        </td>
+                        <td>{{ $post->created_at }}</td>
                     </tr>
                 <?php endforeach; ?>
             <?php endif; ?>

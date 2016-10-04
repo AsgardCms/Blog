@@ -11,4 +11,9 @@ return [
         'view'         => 'text',
         'translatable' => true,
     ],
+    'widget-posts-amount' => [
+        'description' => 'blog::settings.widget-posts-amount',
+        'view' => 'text',
+        'translatable' => true,
+    ],
 ];
