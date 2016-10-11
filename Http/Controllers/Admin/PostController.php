@@ -93,11 +93,12 @@ class PostController extends AdminBaseController
     public function edit(Post $post)
     {
         $thumbnail = $this->file->findFileByZoneForEntity('thumbnail', $post);
+        $galleryFiles = $this->file->findMultipleFilesByZoneForEntity('gallery', $post);
         $categories = $this->category->allTranslatedIn(app()->getLocale());
         $statuses = $this->status->lists();
         $this->assetPipeline->requireJs('ckeditor.js');
 
-        return view('blog::admin.posts.edit', compact('post', 'categories', 'thumbnail', 'statuses'));
+        return view('blog::admin.posts.edit', compact('post', 'categories', 'thumbnail', 'statuses', 'galleryFiles'));
     }
 
     /**
