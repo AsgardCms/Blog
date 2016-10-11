@@ -35,6 +35,13 @@
                         @include($partial)
                     <?php endforeach; ?>
                 <?php endif; ?>
+                <div class="">
+                    @include('media::admin.fields.file-link-multiple', [
+                        'entityClass' => 'Modules\\\\Blog\\\\Entities\\\\Post',
+                        'entityId' => $post->id,
+                        'zone' => 'gallery'
+                    ])
+                </div>
                 <div class="box-footer">
                     <button type="submit" class="btn btn-primary btn-flat">{{ trans('core::core.button.update') }}</button>
                     <button class="btn btn-default btn-flat" name="button" type="reset">{{ trans('core::core.button.reset') }}</button>
