@@ -21,15 +21,13 @@
 <div class="row">
     <div class="col-md-10">
         <div class="nav-tabs-custom">
-            @include('partials.form-tab-headers', ['fields' => ['title', 'slug']])
+
             <div class="tab-content">
                 <?php $i = 0; ?>
-                <?php foreach (LaravelLocalization::getSupportedLocales() as $locale => $language): ?>
                     <?php $i++; ?>
-                    <div class="tab-pane {{ App::getLocale() == $locale ? 'active' : '' }}" id="tab_{{ $i }}">
-                        @include('blog::admin.posts.partials.edit-fields', ['lang' => $locale])
+                    <div class="tab-pane active" id="tab_{{ $i }}">
+                        @include('blog::admin.posts.partials.edit-fields', ['lang' => 'default'])
                     </div>
-                <?php endforeach; ?>
                 <?php if (config('asgard.blog.config.post.partials.normal.edit') !== []): ?>
                     <?php foreach (config('asgard.blog.config.post.partials.normal.edit') as $partial): ?>
                         @include($partial)
@@ -75,6 +73,16 @@
                         <?php endforeach; ?>
                     </select>
                     {!! $errors->first("tags", '<span class="help-block">:message</span>') !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::label("locale", 'Post Language:') !!}
+                    <select name="locale" id="locale" class="form-control">
+                        <?php foreach (LaravelLocalization::getSupportedLocales() as $locale => $language): ?>
+                            <option value="{{ $locale }}" {{ old('locale', $post->locale) == $locale ? 'selected' : '' }}>
+                                {{ $language['native'] }}
+                            </option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
                 @include('media::admin.fields.file-link', [
                     'entityClass' => 'Modules\\\\Blog\\\\Entities\\\\Post',
