@@ -32,6 +32,7 @@
                             <th>{{ trans('blog::post.table.status') }}</th>
                             <th>{{ trans('blog::post.table.title') }}</th>
                             <th>{{ trans('blog::post.table.slug') }}</th>
+                            <th>{{ trans('core::core.table.language') }}</th>
                             <th>{{ trans('core::core.table.created at') }}</th>
                             <th data-sortable="false">{{ trans('core::core.table.actions') }}</th>
                         </tr>
@@ -39,6 +40,7 @@
                     <tbody>
                     <?php if (isset($posts)): ?>
                         <?php foreach ($posts as $post): ?>
+                            @define $post->translate($post->locale)
                             <tr>
                                 <td>
                                     <a href="{{ route('admin.blog.post.edit', [$post->id]) }}">
@@ -61,9 +63,10 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="{{ route('admin.blog.post.edit', [$post->id]) }}">
-                                        {{ $post->created_at }}
-                                    </a>
+                                    {{ $post->locale }}
+                                </td>
+                                <td>
+                                    {{ $post->created_at }}
                                 </td>
                                 <td>
                                     <div class="btn-group">

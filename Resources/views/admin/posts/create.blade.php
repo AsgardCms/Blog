@@ -23,12 +23,6 @@
             @include('partials.form-tab-headers', ['fields' => ['title', 'slug']])
             <div class="tab-content">
                 <?php $i = 0; ?>
-                <?php foreach (LaravelLocalization::getSupportedLocales() as $locale => $language): ?>
-                    <?php $i++; ?>
-                    <div class="tab-pane {{ App::getLocale() == $locale ? 'active' : '' }}" id="tab_{{ $i }}">
-                        @include('blog::admin.posts.partials.create-fields', ['lang' => $locale])
-                    </div>
-                <?php endforeach; ?>
                 <?php if (config('asgard.blog.config.post.partials.normal.create') !== []): ?>
                     <?php foreach (config('asgard.blog.config.post.partials.normal.create') as $partial): ?>
                     @include($partial)
