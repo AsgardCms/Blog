@@ -40,6 +40,10 @@ class BlogServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        $this->publishes([
+            __DIR__ . '/../Resources/views' => base_path('resources/views/asgard/blog'),
+        ]);
+
         $this->publishConfig('blog', 'config');
         $this->publishConfig('blog', 'permissions');
         $this->publishConfig('blog', 'settings');
