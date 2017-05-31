@@ -60,31 +60,28 @@ class Post extends Model
     /**
      * Check if the post is pending review
      * @param Builder $query
-     * @return bool
      */
     public function scopePending(Builder $query)
     {
-        return (bool) $query->whereStatus(1);
+        return $query->whereStatus(1);
     }
 
     /**
      * Check if the post is published
      * @param Builder $query
-     * @return bool
      */
     public function scopePublished(Builder $query)
     {
-        return (bool) $query->whereStatus(2);
+        return $query->whereStatus(2);
     }
 
     /**
      * Check if the post is unpublish
      * @param Builder $query
-     * @return bool
      */
     public function scopeUnpublished(Builder $query)
     {
-        return (bool) $query->whereStatus(3);
+        return $query->whereStatus(3);
     }
 
     /**
