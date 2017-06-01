@@ -54,7 +54,7 @@ class Post extends Model
      */
     public function scopeDraft(Builder $query)
     {
-        return $query->whereStatus(0);
+        return $query->whereStatus(Status::DRAFT);
     }
 
     /**
@@ -64,7 +64,7 @@ class Post extends Model
      */
     public function scopePending(Builder $query)
     {
-        return $query->whereStatus(1);
+        return $query->whereStatus(Status::PENDING);
     }
 
     /**
@@ -74,7 +74,7 @@ class Post extends Model
      */
     public function scopePublished(Builder $query)
     {
-        return $query->whereStatus(2);
+        return $query->whereStatus(Status::PUBLISHED);
     }
 
     /**
@@ -84,7 +84,7 @@ class Post extends Model
      */
     public function scopeUnpublished(Builder $query)
     {
-        return $query->whereStatus(3);
+        return $query->whereStatus(Status::UNPUBLISHED);
     }
 
     /**
