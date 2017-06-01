@@ -50,41 +50,41 @@ class Post extends Model
     /**
      * Check if the post is in draft
      * @param Builder $query
-     * @return bool
+     * @return Builder
      */
     public function scopeDraft(Builder $query)
     {
-        return (bool) $query->whereStatus(0);
+        return $query->whereStatus(0);
     }
 
     /**
      * Check if the post is pending review
      * @param Builder $query
-     * @return bool
+     * @return Builder
      */
     public function scopePending(Builder $query)
     {
-        return (bool) $query->whereStatus(1);
+        return $query->whereStatus(1);
     }
 
     /**
      * Check if the post is published
      * @param Builder $query
-     * @return bool
+     * @return Builder
      */
     public function scopePublished(Builder $query)
     {
-        return (bool) $query->whereStatus(2);
+        return $query->whereStatus(2);
     }
 
     /**
      * Check if the post is unpublish
      * @param Builder $query
-     * @return bool
+     * @return Builder
      */
     public function scopeUnpublished(Builder $query)
     {
-        return (bool) $query->whereStatus(3);
+        return $query->whereStatus(3);
     }
 
     /**
