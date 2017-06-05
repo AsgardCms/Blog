@@ -28,4 +28,12 @@ class UpdateCategoryRequest extends BaseFormRequest
     {
         return [];
     }
+
+    public function translationMessages()
+    {
+        return [
+            'name.required' => trans('blog::messages.name is required'),
+            'slug.required' => trans('blog::messages.slug is required'),
+        ];
+    }
 }
