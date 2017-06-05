@@ -2,16 +2,21 @@
 
 namespace Modules\Blog\Http\Requests;
 
-use Illuminate\Foundation\Http\FormRequest;
+use Modules\Core\Internationalisation\BaseFormRequest;
 
-class UpdateCategoryRequest extends FormRequest
+class UpdateCategoryRequest extends BaseFormRequest
 {
-    public function rules()
+    public function translationRules()
     {
         return [
             'name' => 'required',
             'slug' => 'required',
         ];
+    }
+
+    public function rules()
+    {
+        return [];
     }
 
     public function authorize()
