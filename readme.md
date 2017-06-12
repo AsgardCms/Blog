@@ -18,8 +18,11 @@ Execute the following command in your terminal
 
     composer require asgardcms/blog-module
 
-
 Followed by a composer update
+
+Then install the database tables
+    
+    php artisan module:migrate Blog
 
 **Note: After installation you'll have to give you the required permissions to get to the blog module pages in the backend.**
 
