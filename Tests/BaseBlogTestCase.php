@@ -108,7 +108,7 @@ abstract class BaseBlogTestCase extends TestCase
         $enSlug = Str::slug($enName);
 
         $frName = $faker->word;
-        $frSlug = Str::slug($enName);
+        $frSlug = Str::slug($frName);
 
         $data = [
             'en' => [
