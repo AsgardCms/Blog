@@ -3,7 +3,6 @@
 [![Latest Version](https://img.shields.io/github/release/asgardcms/blog.svg?style=flat-square)](https://github.com/asgardcms/blog/releases)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/AsgardCms/Blog/2.0.svg?style=flat-square)](https://travis-ci.org/AsgardCms/Blog)
-[![Scrutinizer Coverage](https://img.shields.io/scrutinizer/coverage/g/AsgardCms/Blog.svg?style=flat-square)](https://scrutinizer-ci.com/g/AsgardCms/Blog/?branch=master)
 [![Quality Score](https://img.shields.io/scrutinizer/g/asgardcms/blog.svg?style=flat-square)](https://scrutinizer-ci.com/g/asgardcms/blog)
 [![SensioLabs Insight](https://img.shields.io/sensiolabs/i/c54f38d9-20fb-41e8-b2be-bdeb7144ad4b.svg)](https://insight.sensiolabs.com/projects/c54f38d9-20fb-41e8-b2be-bdeb7144ad4b)
 [![Total Downloads](https://img.shields.io/packagist/dt/asgardcms/blog-module.svg?style=flat-square)](https://packagist.org/packages/asgardcms/blog-module)
