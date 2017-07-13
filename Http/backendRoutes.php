@@ -107,5 +107,4 @@ $router->group(['prefix' => '/blog'], function (Router $router) {
         'uses' => 'TagController@destroy',
         'middleware' => 'can:blog.tags.destroy',
     ]);
-
 });

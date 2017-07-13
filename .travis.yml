@@ -24,6 +24,11 @@ after_script:
 
 sudo: false
 
+branches:
+  only:
+    - 2.0
+    - master
+
 notifications:
   email:
     - n.widart@gmail.com
