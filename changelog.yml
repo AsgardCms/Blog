@@ -1,8 +1,8 @@
 url: https://github.com/AsgardCms/Blog
 versions:
-    "2.0@unreleased":
+    "2.0":
         added:
-            - Laravel 5.2 compatibility
+            - Laravel 5.4 compatibility
             - API endpoints to manage Blog Categories
         changed:
             - Using new more flexible way of handle permissions via middleware
