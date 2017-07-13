@@ -33,7 +33,6 @@ class SidebarExtender implements \Maatwebsite\Sidebar\SidebarExtender
     {
         $menu->group(trans('core::sidebar.content'), function (Group $group) {
             $group->item(trans('blog::blog.title'), function (Item $item) {
-
                 $item->icon('fa fa-copy');
                 $item->weight(0);
 
