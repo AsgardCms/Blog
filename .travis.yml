@@ -9,7 +9,7 @@ cache:
     - $HOME/.composer/cache
 
 env:
-  - LARAVEL_VERSION="~5.2" TESTBENCH_VERSION="~3.2"
+  - LARAVEL_VERSION="~5.4" TESTBENCH_VERSION="~3.4"
 
 before_script:
   - travis_retry composer self-update
