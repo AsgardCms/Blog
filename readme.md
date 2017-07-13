@@ -11,12 +11,25 @@
 
 ## Installation
 
+### Module Download
+
+Using AsgardCMS's module download command:
+
+``` bash
+php artisan asgard:download:module asgardcms/blog --migrations
+```
+
+This will download the module and run its migrations .
+
+This is the recommended way if you wish to customise the fields, views, etc.
+
+### Composer
 Execute the following command in your terminal
 
     composer require asgardcms/blog-module
 
+This is if the contact module is perfect for your use-case as-is, and doesn't need any changes to fit your needs.
 
-Followed by a composer update
 
 **Note: After installation you'll have to give you the required permissions to get to the blog module pages in the backend.**
 
@@ -35,7 +48,6 @@ Followed by a composer update
 
 ## Resources
 
-- [View the changelog](CHANGELOG.md)
 - [Contribute to AsgardCMS](CONTRIBUTING.md)
 - [License](LICENSE.md)
 
