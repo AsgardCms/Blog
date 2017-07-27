@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Blog
 versions:
+    "2.1.0@unreleased":
+        changed:
+            - Using new <code>@editor</code> blade directive for wysiwyg
     "2.0":
         added:
             - Laravel 5.4 compatibility
