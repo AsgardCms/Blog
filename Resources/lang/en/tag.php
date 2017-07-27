@@ -21,4 +21,8 @@ return [
     ],
     'validation' => [
     ],
+    'list resource' => 'List tags',
+    'create resource' => 'Create tags',
+    'edit resource' => 'Edit tags',
+    'destroy resource' => 'Delete tags',
 ];

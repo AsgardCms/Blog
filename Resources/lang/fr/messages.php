@@ -2,10 +2,10 @@
 
 return [
     /* Post management */
-    'post created' => 'Post créé',
-    'post not found' => 'Post non trouvé',
-    'post updated' => 'Post mis à jour',
-    'post deleted' => 'Post supprimé',
+    'post created' => 'Article créé',
+    'post not found' => 'Article non trouvé',
+    'post updated' => 'Article mis à jour',
+    'post deleted' => 'Article supprimé',
 
     'title is required' => 'Le titre est requis',
     'slug is required' => 'Le slug est requis',

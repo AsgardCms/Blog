@@ -21,4 +21,8 @@ return [
     'navigation' => [
         'back to index' => 'Back to category index',
     ],
+    'list resource' => 'List categories',
+    'create resource' => 'Create categories',
+    'edit resource' => 'Edit categories',
+    'destroy resource' => 'Delete categories',
 ];
