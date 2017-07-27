@@ -5,7 +5,9 @@ namespace Modules\Blog\Tests;
 use Illuminate\Support\Facades\Event;
 use Modules\Blog\Entities\Status;
 use Modules\Blog\Events\PostIsCreating;
+use Modules\Blog\Events\PostIsUpdating;
 use Modules\Blog\Events\PostWasCreated;
+use Modules\Blog\Events\PostWasUpdated;
 
 class EloquentPostRepositoryTest extends BaseBlogTestCase
 {
@@ -65,6 +67,45 @@ class EloquentPostRepositoryTest extends BaseBlogTestCase
         });
 
         $post = $this->createBlogPost();
+
+        $this->assertEquals('awesome title', $post->translate('en')->title);
+    }
+
+    /** @test */
+    public function it_triggers_event_when_post_was_updated()
+    {
+        Event::fake();
+
+        $post = $this->createBlogPost();
+        $this->post->update($post, []);
+
+        Event::assertDispatched(PostWasUpdated::class, function ($e) use ($post) {
+            return $e->post->translate('en')->title === $post->translate('en')->title;
+        });
+    }
+
+    /** @test */
+    public function it_triggers_event_when_post_is_updating()
+    {
+        Event::fake();
+
+        $post = $this->createBlogPost();
+        $this->post->update($post, []);
+
+        Event::assertDispatched(PostIsUpdating::class, function ($e) use ($post) {
+            return $e->getPost()->translate('en')->title === $post->translate('en')->title;
+        });
+    }
+
+    /** @test */
+    public function it_can_change_data_when_it_is_updating_event()
+    {
+        Event::listen(PostIsUpdating::class, function (PostIsUpdating $event) {
+            $event->setAttributes(['en' => ['title' => 'awesome title']]);
+        });
+
+        $post = $this->createBlogPost();
+        $this->post->update($post, ['en' => ['title' => 'not awesome title']]);
 
         $this->assertEquals('awesome title', $post->translate('en')->title);
     }
