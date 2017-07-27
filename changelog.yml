@@ -1,6 +1,8 @@
 url: https://github.com/AsgardCms/Blog
 versions:
     "2.1.0@unreleased":
+        added:
+            - Creating new hook when a post is creating
         changed:
             - Using new <code>@editor</code> blade directive for wysiwyg
     "2.0":
