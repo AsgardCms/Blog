@@ -24,7 +24,9 @@ class CachePostDecorator extends BaseCacheDecorator implements PostRepository
     {
         return $this->cache
             ->tags([$this->entityName, 'global'])
-            ->remember("{$this->locale}.{$this->entityName}.latest.{$amount}", $this->cacheTime,
+            ->remember(
+                "{$this->locale}.{$this->entityName}.latest.{$amount}",
+                $this->cacheTime,
                 function () use ($amount) {
                     return $this->repository->latest($amount);
                 }
@@ -42,7 +44,9 @@ class CachePostDecorator extends BaseCacheDecorator implements PostRepository
 
         return $this->cache
             ->tags([$this->entityName, 'global'])
-            ->remember("{$this->locale}.{$this->entityName}.getPreviousOf.{$postId}", $this->cacheTime,
+            ->remember(
+                "{$this->locale}.{$this->entityName}.getPreviousOf.{$postId}",
+                $this->cacheTime,
                 function () use ($post) {
                     return $this->repository->getPreviousOf($post);
                 }
@@ -60,7 +64,9 @@ class CachePostDecorator extends BaseCacheDecorator implements PostRepository
 
         return $this->cache
             ->tags([$this->entityName, 'global'])
-            ->remember("{$this->locale}.{$this->entityName}.getNextOf.{$postId}", $this->cacheTime,
+            ->remember(
+                "{$this->locale}.{$this->entityName}.getNextOf.{$postId}",
+                $this->cacheTime,
                 function () use ($post) {
                     return $this->repository->getNextOf($post);
                 }
