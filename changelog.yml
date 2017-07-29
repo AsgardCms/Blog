@@ -4,6 +4,7 @@ versions:
         added:
             - Creating new hook when a post is creating
             - Creating new hook when a post is updating
+            - Adding new <code>PostContentIsRendering</code> hook
         changed:
             - Using new <code>@editor</code> blade directive for wysiwyg
     "2.0":
