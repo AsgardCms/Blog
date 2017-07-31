@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Blog
 versions:
+    "2.2.0":
+        changed:
+            - Register the blog sidebar via event handler
     "2.1.0":
         added:
             - Creating new hook when a post is creating
