@@ -4,8 +4,9 @@ namespace Modules\Blog\Events\Handlers;
 
 use Maatwebsite\Sidebar\Group;
 use Maatwebsite\Sidebar\Item;
+use Modules\Core\Sidebar\AbstractAdminSidebar;
 
-class RegisterBlogSidebar extends \Modules\Core\Sidebar\AbstractAdminSidebar
+class RegisterBlogSidebar extends AbstractAdminSidebar
 {
     /**
      * Method used to define your sidebar menu groups and items
