@@ -1,10 +1,11 @@
 url: https://github.com/AsgardCms/Blog
 versions:
-    "2.1.0@unreleased":
+    "2.1.0":
         added:
             - Creating new hook when a post is creating
             - Creating new hook when a post is updating
             - Adding new <code>PostContentIsRendering</code> hook
+            - Moving translations from Translation module back to Block
         changed:
             - Using new <code>@editor</code> blade directive for wysiwyg
     "2.0":
