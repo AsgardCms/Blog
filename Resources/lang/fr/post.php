@@ -2,12 +2,12 @@
 
 return [
     'title' => [
-        'post' => 'Posts',
-        'create post' => 'Créer un post',
-        'edit post' => 'Edition d\'un post',
+        'post' => 'Articles',
+        'create post' => 'Créer un article',
+        'edit post' => 'Edition d\'un article',
     ],
     'button' => [
-        'create post' => 'Créer un post',
+        'create post' => 'Créer un article',
     ],
     'table' => [
         'title' => 'Titre',
@@ -19,7 +19,7 @@ return [
         'slug' => 'Slug',
     ],
     'navigation' => [
-        'back to index' => 'Retour vers l\'index des posts',
+        'back to index' => 'Retour vers l\'index des articles',
     ],
-    'latest posts' => 'Derniers posts',
+    'latest posts' => 'Derniers articles',
 ];

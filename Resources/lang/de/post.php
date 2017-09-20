@@ -2,15 +2,16 @@
 
 return [
     'title' => [
-        'post' => 'Beiträge',
-        'create post' => 'Beiträge erstellen',
-        'edit post' => 'Beiträge bearbeiten',
+        'posts' => 'Beiträge',
+        'post' => 'Beitrag',
+        'create post' => 'Beitrag erstellen',
+        'edit post' => 'Beitrag bearbeiten',
     ],
     'button' => [
-        'create post' => 'Beiträge erstellen',
+        'create post' => 'Beitrag erstellen',
     ],
     'table' => [
-        'title' => 'Title',
+        'title' => 'Titel',
         'slug' => 'Slug',
         'status' => 'Status',
     ],

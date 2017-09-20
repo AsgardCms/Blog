@@ -11,11 +11,11 @@ return [
     ],
     'table' => [
         'created at' => 'Erstellt am',
-        'name' => 'Namen',
+        'name' => 'Name',
         'slug' => 'Slug',
     ],
     'form' => [
-        'name' => 'Namen',
+        'name' => 'Name',
         'slug' => 'Slug',
     ],
     'navigation' => [

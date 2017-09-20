@@ -10,9 +10,7 @@
        {!! $errors->first("$lang.slug", '<span class="help-block">:message</span>') !!}
     </div>
 
-    <textarea class="ckeditor" name="{{$lang}}[content]" rows="10" cols="80">
-        {!! old("{$lang}.content") !!}
-    </textarea>
+    @editor('content', trans('blog::post.form.content'), old("{$lang}.content"), $lang)
 
     <?php if (config('asgard.blog.config.post.partials.translatable.create') !== []): ?>
         <?php foreach (config('asgard.blog.config.post.partials.translatable.create') as $partial): ?>

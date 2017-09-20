@@ -6,6 +6,7 @@ use Illuminate\Support\ServiceProvider;
 use Modules\Blog\Entities\Category;
 use Modules\Blog\Entities\Post;
 use Modules\Blog\Entities\Tag;
+use Modules\Blog\Events\Handlers\RegisterBlogSidebar;
 use Modules\Blog\Repositories\Cache\CacheCategoryDecorator;
 use Modules\Blog\Repositories\Cache\CachePostDecorator;
 use Modules\Blog\Repositories\Cache\CacheTagDecorator;
@@ -15,12 +16,14 @@ use Modules\Blog\Repositories\Eloquent\EloquentPostRepository;
 use Modules\Blog\Repositories\Eloquent\EloquentTagRepository;
 use Modules\Blog\Repositories\PostRepository;
 use Modules\Blog\Repositories\TagRepository;
+use Modules\Core\Events\BuildingSidebar;
+use Modules\Core\Traits\CanGetSidebarClassForModule;
 use Modules\Core\Traits\CanPublishConfiguration;
 use Modules\Media\Image\ThumbnailManager;
 
 class BlogServiceProvider extends ServiceProvider
 {
-    use CanPublishConfiguration;
+    use CanPublishConfiguration, CanGetSidebarClassForModule;
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -36,6 +39,11 @@ class BlogServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerBindings();
+
+        $this->app['events']->listen(
+            BuildingSidebar::class,
+            $this->getSidebarClassForModule('blog', RegisterBlogSidebar::class)
+        );
     }
 
     public function boot()

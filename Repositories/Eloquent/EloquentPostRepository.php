@@ -5,6 +5,8 @@ namespace Modules\Blog\Repositories\Eloquent;
 use Illuminate\Database\Eloquent\Builder;
 use Modules\Blog\Entities\Post;
 use Modules\Blog\Entities\Status;
+use Modules\Blog\Events\PostIsCreating;
+use Modules\Blog\Events\PostIsUpdating;
 use Modules\Blog\Events\PostWasCreated;
 use Modules\Blog\Events\PostWasDeleted;
 use Modules\Blog\Events\PostWasUpdated;
@@ -39,7 +41,8 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      */
     public function update($post, $data)
     {
-        $post->update($data);
+        event($event = new PostIsUpdating($post, $data));
+        $post->update($event->getAttributes());
 
         $post->tags()->sync(array_get($data, 'tags', []));
 
@@ -55,7 +58,8 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
      */
     public function create($data)
     {
-        $post = $this->model->create($data);
+        event($event = new PostIsCreating($data));
+        $post = $this->model->create($event->getAttributes());
 
         $post->tags()->sync(array_get($data, 'tags', []));
 

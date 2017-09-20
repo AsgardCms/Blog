@@ -17,9 +17,14 @@ return [
     'form' => [
         'title' => 'Title',
         'slug' => 'Slug',
+        'content' => 'Content',
     ],
     'navigation' => [
         'back to index' => 'Back to posts index',
     ],
     'latest posts' => 'Latest posts',
+    'list resource' => 'List posts',
+    'create resource' => 'Create posts',
+    'edit resource' => 'Edit posts',
+    'destroy resource' => 'Delete posts',
 ];
