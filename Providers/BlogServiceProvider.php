@@ -20,6 +20,7 @@ use Modules\Core\Events\BuildingSidebar;
 use Modules\Core\Traits\CanGetSidebarClassForModule;
 use Modules\Core\Traits\CanPublishConfiguration;
 use Modules\Media\Image\ThumbnailManager;
+use Modules\Tag\Repositories\TagManager;
 
 class BlogServiceProvider extends ServiceProvider
 {
@@ -58,6 +59,7 @@ class BlogServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
 
         $this->registerThumbnails();
+        $this->app[TagManager::class]->registerNamespace(new Post());
     }
 
     /**

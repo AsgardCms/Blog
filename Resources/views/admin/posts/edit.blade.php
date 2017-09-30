@@ -65,16 +65,7 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <div class='form-group{{ $errors->has('tags') ? ' has-error' : '' }}'>
-                    {!! Form::label('tags', 'Tags:') !!}
-                    <select name="tags[]" id="tags" class="input-tags" multiple>
-                        <?php foreach ($post->tags()->get() as $tag): ?>
-                            <?php $tagName = $tag->hasTranslation(locale()) === true ? $tag->translate(locale())->name : 'Not translated';  ?>
-                            <option value="{{ $tag->id }}" selected>{{ $tagName }}</option>
-                        <?php endforeach; ?>
-                    </select>
-                    {!! $errors->first('tags', '<span class="help-block">:message</span>') !!}
-                </div>
+                @tags('asgardcms/post', $post)
                 @mediaSingle('thumbnail', $post)
             </div>
         </div>
@@ -95,27 +86,12 @@
 @stop
 
 @section('scripts')
-<script src="{{ Module::asset('blog:js/MySelectize.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
-    $(function() {
-        //CKEDITOR.replaceAll(function( textarea, config ) {
-//            console.log(textarea);
-//            config.language = '<?= App::getLocale() ?>';
-//        } );
-    });
     $( document ).ready(function() {
         $(document).keypressAction({
             actions: [
                 { key: 'b', route: "<?= route('admin.blog.post.index') ?>" }
             ]
-        });
-        $.ajaxSetup({
-            headers: { 'Authorization': 'Bearer {{ $currentUser->getFirstApiKey() }}' }
-        });
-        $('.input-tags').MySelectize({
-            'findUri' : '<?= route('api.tag.findByName') ?>/',
-            'createUri' : '<?= route('api.tag.store') ?>',
-            'token': '<?= csrf_token() ?>'
         });
     });
 </script>

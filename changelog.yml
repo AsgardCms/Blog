@@ -1,5 +1,8 @@
 url: https://github.com/AsgardCms/Blog
 versions:
+    "3.0.0@unreleased":
+        changed:
+            - Tags are new set using the Tag module (BC)
     "2.2.0":
         changed:
             - Register the blog sidebar via event handler

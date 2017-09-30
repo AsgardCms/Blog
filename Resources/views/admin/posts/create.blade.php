@@ -60,11 +60,7 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <div class='form-group{{ $errors->has('tags') ? ' has-error' : '' }}'>
-                   {!! Form::label('tags', 'Tags:') !!}
-                   <select name="tags[]" id="tags" class="input-tags" multiple></select>
-                   {!! $errors->first('tags', '<span class="help-block">:message</span>') !!}
-                </div>
+                @tags('asgardcms/post')
                 @mediaSingle('thumbnail')
             </div>
         </div>
@@ -84,27 +80,12 @@
 @stop
 
 @section('scripts')
-<script src="{{ Module::asset('blog:js/MySelectize.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
-    $(function() {
-        //CKEDITOR.replaceAll(function( textarea, config ) {
-          //  config.language = '<?= App::getLocale() ?>';
-        //} );
-    });
-
     $( document ).ready(function() {
         $(document).keypressAction({
             actions: [
                 { key: 'b', route: "<?= route('admin.blog.post.index') ?>" }
             ]
-        });
-        $.ajaxSetup({
-           headers: { 'Authorization': 'Bearer {{ $currentUser->getFirstApiKey() }}' }
-        });
-        $('.input-tags').MySelectize({
-            'findUri' : '<?= route('api.tag.findByName') ?>/',
-            'createUri' : '<?= route('api.tag.store') ?>',
-            'token': '<?= csrf_token() ?>'
         });
     });
 </script>

@@ -44,7 +44,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
         event($event = new PostIsUpdating($post, $data));
         $post->update($event->getAttributes());
 
-        $post->tags()->sync(array_get($data, 'tags', []));
+        $post->setTags(array_get($data, 'tags'));
 
         event(new PostWasUpdated($post, $data));
 
@@ -61,7 +61,7 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
         event($event = new PostIsCreating($data));
         $post = $this->model->create($event->getAttributes());
 
-        $post->tags()->sync(array_get($data, 'tags', []));
+        $post->setTags(array_get($data, 'tags'));
 
         event(new PostWasCreated($post, $data));
 
@@ -70,6 +70,8 @@ class EloquentPostRepository extends EloquentBaseRepository implements PostRepos
 
     public function destroy($model)
     {
+        $model->untag();
+
         event(new PostWasDeleted($model->id, get_class($model)));
 
         return $model->delete();

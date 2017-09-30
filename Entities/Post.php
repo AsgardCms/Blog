@@ -7,12 +7,15 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Laracasts\Presenter\PresentableTrait;
 use Modules\Blog\Presenters\PostPresenter;
+use Modules\Core\Traits\NamespacedEntity;
 use Modules\Media\Entities\File;
 use Modules\Media\Support\Traits\MediaRelation;
+use Modules\Tag\Contracts\TaggableInterface;
+use Modules\Tag\Traits\TaggableTrait;
 
-class Post extends Model
+class Post extends Model implements TaggableInterface
 {
-    use Translatable, MediaRelation, PresentableTrait;
+    use Translatable, MediaRelation, PresentableTrait, NamespacedEntity, TaggableTrait;
 
     public $translatedAttributes = ['title', 'slug', 'content'];
     protected $fillable = ['category_id', 'status', 'title', 'slug', 'content'];
@@ -21,15 +24,11 @@ class Post extends Model
     protected $casts = [
         'status' => 'int',
     ];
+    protected static $entityNamespace = 'asgardcms/post';
 
     public function category()
     {
         return $this->belongsTo(Category::class);
-    }
-
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class, 'blog__post_tag')->withTimestamps();
     }
 
     /**
