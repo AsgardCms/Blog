@@ -78,7 +78,7 @@ class EloquentPostRepositoryTest extends BaseBlogTestCase
         Event::fake();
 
         $post = $this->createBlogPost();
-        $this->post->update($post, []);
+        $this->post->update($post, ['tags' => []]);
 
         Event::assertDispatched(PostWasUpdated::class, function ($e) use ($post) {
             return $e->post->translate('en')->title === $post->translate('en')->title;
@@ -91,7 +91,7 @@ class EloquentPostRepositoryTest extends BaseBlogTestCase
         Event::fake();
 
         $post = $this->createBlogPost();
-        $this->post->update($post, []);
+        $this->post->update($post, ['tags' => []]);
 
         Event::assertDispatched(PostIsUpdating::class, function ($e) use ($post) {
             return $e->getPost()->translate('en')->title === $post->translate('en')->title;
@@ -106,7 +106,7 @@ class EloquentPostRepositoryTest extends BaseBlogTestCase
         });
 
         $post = $this->createBlogPost();
-        $this->post->update($post, ['en' => ['title' => 'not awesome title']]);
+        $this->post->update($post, ['en' => ['title' => 'not awesome title', 'tags' => []]]);
 
         $this->assertEquals('awesome title', $post->translate('en')->title);
     }

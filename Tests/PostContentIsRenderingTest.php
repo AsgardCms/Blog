@@ -20,6 +20,7 @@ class PostContentIsRenderingTest extends BaseBlogTestCase
             'fr' => ['title' => 'lorem fr', 'slug' => 'quelque-chose', 'content' => 'My Post Body'],
             'category_id' => 1,
             'status' => Status::PUBLISHED,
+            'tags' => [],
         ]);
 
         $this->assertEquals('<strong>My Post Body</strong>', $post->content);
@@ -33,6 +34,7 @@ class PostContentIsRenderingTest extends BaseBlogTestCase
             'fr' => ['title' => 'lorem fr', 'slug' => 'quelque-chose', 'content' => 'My Post Body'],
             'category_id' => 1,
             'status' => Status::PUBLISHED,
+            'tags' => [],
         ]);
 
         $this->assertEquals('My Post Body', $post->content);

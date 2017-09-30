@@ -25,6 +25,7 @@
     "composer/installers": "~1.0",
     "idavoll/core-module": "~3.0",
     "idavoll/media-module": "~3.0",
+    "idavoll/tag-module": "~3.0",
     "doctrine/dbal": "^2.5"
   },
   "require-dev": {
