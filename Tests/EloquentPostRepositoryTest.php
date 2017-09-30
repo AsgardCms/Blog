@@ -106,7 +106,13 @@ class EloquentPostRepositoryTest extends BaseBlogTestCase
         });
 
         $post = $this->createBlogPost();
-        $this->post->update($post, ['en' => ['title' => 'not awesome title', 'tags' => []]]);
+        $this->post->update($post, [
+            'tags' => [],
+            'en' => [
+                'title' =>
+                    'not awesome title',
+                ]
+        ]);
 
         $this->assertEquals('awesome title', $post->translate('en')->title);
     }
