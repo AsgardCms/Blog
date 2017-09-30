@@ -95,6 +95,7 @@ abstract class BaseBlogTestCase extends TestCase
             ],
             'category_id' => 1,
             'status' => Status::PUBLISHED,
+            'tags' => [],
         ];
 
         return $this->post->create($data);

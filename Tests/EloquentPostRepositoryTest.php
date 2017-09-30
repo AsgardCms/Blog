@@ -25,6 +25,7 @@ class EloquentPostRepositoryTest extends BaseBlogTestCase
             ],
             'category_id' => 1,
             'status' => Status::PUBLISHED,
+            'tags' => [],
         ];
         $this->post->create($data);
 
