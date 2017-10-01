@@ -2,13 +2,14 @@ language: php
 
 php:
   - 7
+  - 7.1
 
 cache:
   directories:
     - $HOME/.composer/cache
 
 env:
-  - LARAVEL_VERSION="~5.4" TESTBENCH_VERSION="~3.4"
+  - LARAVEL_VERSION="~5.5" TESTBENCH_VERSION="~3.5"
 
 before_script:
   - travis_retry composer self-update
