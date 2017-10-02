@@ -59,6 +59,6 @@ class LatestPostsWidget extends BaseWidget
     {
         $limit = $this->setting->get('blog::widget-posts-amount', locale(), 5);
 
-        return ['posts' => $this->post->latest($limit)];
+        return ['latestPosts' => $this->post->latest($limit)];
     }
 }

@@ -8,6 +8,7 @@ return [
     */
     'latest-posts' => [
         'blog.*',
+        'blog::admin.widgets.latest-posts',
     ],
 
     'post' => [

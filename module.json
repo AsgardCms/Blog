@@ -16,6 +16,5 @@
         "Modules\\Blog\\Widgets\\LatestPostsWidget"
     ],
     "files": [
-        "composers.php"
     ]
 }

@@ -60,6 +60,7 @@ class BlogServiceProvider extends ServiceProvider
 
         $this->registerThumbnails();
         $this->app[TagManager::class]->registerNamespace(new Post());
+        $this->registerViewComposers();
     }
 
     /**
@@ -116,5 +117,18 @@ class BlogServiceProvider extends ServiceProvider
                 },
             ],
         ]);
+    }
+
+    private function registerViewComposers()
+    {
+        $this->app['view']->composer(
+            config('asgard.blog.config.latest-posts', ['blog.*']),
+            \Modules\Blog\Composers\Frontend\LatestPostsComposer::class
+        );
+
+        $this->app['view']->composer([
+            'blog::admin.posts.create',
+            'blog::admin.posts.edit',
+        ], \Modules\Core\Composers\CurrentUserViewComposer::class);
     }
 }
