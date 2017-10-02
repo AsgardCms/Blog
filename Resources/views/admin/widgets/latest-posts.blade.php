@@ -9,15 +9,15 @@
                 <th>{{ trans('blog::post.table.title') }}</th>
                 <th>{{ trans('core::core.table.created at') }}</th>
             </tr>
-            <?php if (isset($latestPosts)): ?>
-                <?php foreach ($latestPosts as $post): ?>
+            @if (isset($latestPosts))
+                @foreach ($latestPosts as $post)
                     <tr>
                         <td>{{ $post->id }}</td>
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->created_at }}</td>
                     </tr>
-                <?php endforeach; ?>
-            <?php endif; ?>
+                @endforeach
+            @endif
             </tbody>
         </table>
     </div><!-- /.box-body -->
