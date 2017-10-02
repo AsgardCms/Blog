@@ -94,16 +94,6 @@ class BlogServiceProvider extends ServiceProvider
 
             return new CacheCategoryDecorator($repository);
         });
-
-        $this->app->bind(TagRepository::class, function () {
-            $repository = new EloquentTagRepository(new Tag());
-
-            if (config('app.cache') === false) {
-                return $repository;
-            }
-
-            return new CacheTagDecorator($repository);
-        });
     }
 
     private function registerThumbnails()

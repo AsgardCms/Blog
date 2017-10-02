@@ -35,7 +35,6 @@ abstract class BaseBlogTestCase extends TestCase
         $this->resetDatabase();
 
         $this->post = app('Modules\Blog\Repositories\PostRepository');
-        $this->tag = app('Modules\Blog\Repositories\TagRepository');
     }
 
     protected function getPackageProviders($app)
