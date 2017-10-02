@@ -18,7 +18,7 @@ class RegisterBlogSidebar extends AbstractAdminSidebar
         $menu->group(trans('core::sidebar.content'), function (Group $group) {
             $group->item(trans('blog::blog.title'), function (Item $item) {
                 $item->icon('fa fa-copy');
-                $item->weight(0);
+                $item->weight(15);
 
                 $item->item(trans('blog::post.title.post'), function (Item $item) {
                     $item->icon('fa fa-copy');
