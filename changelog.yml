@@ -3,6 +3,7 @@ versions:
     "3.0.0@unreleased":
         changed:
             - Tags are new set using the Tag module (BC)
+            - Allow the latest posts widget to be included on its own
     "2.2.0":
         changed:
             - Register the blog sidebar via event handler
