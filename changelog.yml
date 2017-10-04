@@ -1,6 +1,8 @@
 url: https://github.com/AsgardCms/Blog
 versions:
     "3.0.1@unreleased":
+        added:
+            - Read the sidebar position from configuration file, default to 15
         changed:
             - Removed usages of <code>URL::route()</code> in favor of <code>route()</code>
         removed:
