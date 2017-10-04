@@ -8,6 +8,8 @@ versions:
         removed:
             - Removing tag routes, controllers and permissions
     "3.0.0":
+        added:
+            - AsgardCMS v3 support
         changed:
             - Tags are new set using the Tag module (BC)
             - Allow the latest posts widget to be included on its own
