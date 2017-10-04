@@ -3,6 +3,8 @@ versions:
     "3.0.1@unreleased":
         changed:
             - Removed usages of <code>URL::route()</code> in favor of <code>route()</code>
+        removed:
+            - Removing tag routes, controllers and permissions
     "3.0.0":
         changed:
             - Tags are new set using the Tag module (BC)
