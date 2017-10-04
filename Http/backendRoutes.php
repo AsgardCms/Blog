@@ -10,10 +10,6 @@ $router->bind('post', function ($id) {
     return app(\Modules\Blog\Repositories\PostRepository::class)->find($id);
 });
 
-$router->bind('tag', function ($id) {
-    return app(Modules\Blog\Repositories\TagRepository::class)->find($id);
-});
-
 $router->group(['prefix' => '/blog'], function (Router $router) {
     $router->get('posts', [
         'as' => 'admin.blog.post.index',
@@ -75,36 +71,5 @@ $router->group(['prefix' => '/blog'], function (Router $router) {
         'as' => 'admin.blog.category.destroy',
         'uses' => 'CategoryController@destroy',
         'middleware' => 'can:blog.categories.destroy',
-    ]);
-
-    $router->get('tags', [
-        'as' => 'admin.blog.tag.index',
-        'uses' => 'TagController@index',
-        'middleware' => 'can:blog.tags.index',
-    ]);
-    $router->get('tags/create', [
-        'as' => 'admin.blog.tag.create',
-        'uses' => 'TagController@create',
-        'middleware' => 'can:blog.tags.create',
-    ]);
-    $router->post('tags', [
-        'as' => 'admin.blog.tag.store',
-        'uses' => 'TagController@store',
-        'middleware' => 'can:blog.tags.create',
-    ]);
-    $router->get('tags/{tag}/edit', [
-        'as' => 'admin.blog.tag.edit',
-        'uses' => 'TagController@edit',
-        'middleware' => 'can:blog.tags.edit',
-    ]);
-    $router->put('tags/{tag}', [
-        'as' => 'admin.blog.tag.update',
-        'uses' => 'TagController@update',
-        'middleware' => 'can:blog.tags.edit',
-    ]);
-    $router->delete('tags/{tag}', [
-        'as' => 'admin.blog.tag.destroy',
-        'uses' => 'TagController@destroy',
-        'middleware' => 'can:blog.tags.destroy',
     ]);
 });

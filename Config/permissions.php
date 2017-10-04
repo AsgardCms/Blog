@@ -13,10 +13,4 @@ return [
         'edit' => 'blog::category.edit resource',
         'destroy' => 'blog::category.destroy resource',
     ],
-    'blog.tags' => [
-        'index' => 'blog::tag.list resource',
-        'create' => 'blog::tag.create resource',
-        'edit' => 'blog::tag.edit resource',
-        'destroy' => 'blog::tag.destroy resource',
-    ],
 ];
