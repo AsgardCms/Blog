@@ -1,6 +1,6 @@
 url: https://github.com/AsgardCms/Blog
 versions:
-    "3.0.0@unreleased":
+    "3.0.0":
         changed:
             - Tags are new set using the Tag module (BC)
             - Allow the latest posts widget to be included on its own
