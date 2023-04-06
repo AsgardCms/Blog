@@ -4,6 +4,7 @@ namespace Modules\Blog\Repositories;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Modules\Blog\Entities\Post;
 use Modules\Blog\Entities\Status;
 use Modules\Blog\Events\PostIsCreating;
@@ -156,5 +157,17 @@ class PostRepository extends EloquentBaseRepository
         return $this->model->whereHas('translations', function (Builder $q) use ($slug) {
             $q->where('slug', "$slug");
         })->with('translations')->whereStatus(Status::PUBLISHED)->firstOrFail();
+    }
+
+    /**
+     * Returns random published and translated articles in given language
+     */
+    public function getRandomArticles(int $count = 3, $locale = null): Collection
+    {
+        $articles = $this->allTranslatedIn($locale ?? locale());
+
+        return $articles->random(
+            min($count, $articles->count())
+        );
     }
 }

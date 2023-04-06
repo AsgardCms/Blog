@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Laracasts\Presenter\PresentableTrait;
 use Modules\Blog\Presenters\PostPresenter;
+use Modules\Bocian\Support\MediaHelper;
 use Modules\Bocian\Support\Translatable;
 use Modules\Core\Traits\NamespacedEntity;
 use Modules\Media\Entities\File;
@@ -33,7 +34,7 @@ use Modules\Tag\Traits\TaggableTrait;
  */
 class Post extends Model implements TaggableInterface
 {
-    use Translatable, MediaRelation, PresentableTrait, NamespacedEntity, TaggableTrait;
+    use Translatable, MediaRelation, MediaHelper, PresentableTrait, NamespacedEntity, TaggableTrait;
 
     public $translatedAttributes = ['title', 'slug', 'content', 'meta_title', 'meta_description', 'meta_keywords', 'og_title', 'og_description',];
     protected $fillable = ['category_id', 'status', 'title', 'slug', 'content', 'post_date', 'meta_title', 'meta_description', 'meta_keywords', 'og_title', 'og_description',];
