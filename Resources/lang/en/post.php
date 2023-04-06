@@ -19,6 +19,12 @@ return [
         'title' => 'Title',
         'slug' => 'Slug',
         'content' => 'Content',
+        'meta tags' => 'Meta tagy',
+        'meta_title' => 'Meta titulek',
+        'meta_description' => 'Meta popis',
+        'meta_keywords' => 'Klíčová slova',
+        'og_title' => 'OpenGraph titulek',
+        'og_description' => 'OpenGraph popis',
     ],
     'navigation' => [
         'back to index' => 'Back to posts index',

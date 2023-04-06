@@ -67,12 +67,19 @@ class PostRepository extends EloquentBaseRepository
      */
     public function create($data)
     {
-        event($event = new PostIsCreating($data));
-        $post = $this->model->create($event->getAttributes());
+        try {
+            event($event = new PostIsCreating($data));
+            \DB::beginTransaction();
 
-        $post->setTags(Arr::get($data, 'tags'));
+            $post = $this->model->create($event->getAttributes());
+            $post->setTags(Arr::get($data, 'tags'));
 
-        event(new PostWasCreated($post, $data));
+            event(new PostWasCreated($post, $data));
+            \DB::commit();
+        } catch (\Exception $e) {
+            \DB::rollBack();
+            throw $e;
+        }
 
         return $post;
     }

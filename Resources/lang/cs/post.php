@@ -18,6 +18,13 @@ return [
     'form' => [
         'title' => 'Titulek',
         'slug' => 'URL Slug',
+        'content' => 'Obsah',
+        'meta tags' => 'Meta tagy',
+        'meta_title' => 'Meta titulek',
+        'meta_description' => 'Meta popis',
+        'meta_keywords' => 'Klíčová slova',
+        'og_title' => 'OpenGraph titulek',
+        'og_description' => 'OpenGraph popis',
     ],
     'navigation' => [
         'back to index' => 'Zpět na seznam novinek'

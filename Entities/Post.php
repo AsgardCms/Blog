@@ -2,8 +2,10 @@
 
 namespace Modules\Blog\Entities;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Laracasts\Presenter\PresentableTrait;
 use Modules\Blog\Presenters\PostPresenter;
 use Modules\Bocian\Support\Translatable;
@@ -13,12 +15,29 @@ use Modules\Media\Support\Traits\MediaRelation;
 use Modules\Tag\Contracts\TaggableInterface;
 use Modules\Tag\Traits\TaggableTrait;
 
+/**
+ * @property int $id
+ * @property int $category_id
+ * @property int $status
+ * @property string $title
+ * @property string $slug
+ * @property string $content
+ * @property Carbon $post_date
+ * @property string $meta_title
+ * @property string $meta_description
+ * @property string $meta_keywords
+ * @property string $og_title
+ * @property string $og_description
+ * @property Category $category
+ * @property File|string $thumbnail
+ */
 class Post extends Model implements TaggableInterface
 {
     use Translatable, MediaRelation, PresentableTrait, NamespacedEntity, TaggableTrait;
 
-    public $translatedAttributes = ['title', 'slug', 'content'];
-    protected $fillable = ['category_id', 'status', 'title', 'slug', 'content', 'post_date',];
+    public $translatedAttributes = ['title', 'slug', 'content', 'meta_title', 'meta_description', 'meta_keywords', 'og_title', 'og_description',];
+    protected $fillable = ['category_id', 'status', 'title', 'slug', 'content', 'post_date', 'meta_title', 'meta_description', 'meta_keywords', 'og_title', 'og_description',];
+
     protected $table = 'blog__posts';
     protected $presenter = PostPresenter::class;
     protected $casts = [
@@ -27,7 +46,7 @@ class Post extends Model implements TaggableInterface
     ];
     protected static $entityNamespace = 'asgardcms/post';
 
-    public function category()
+    public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
     }
@@ -49,40 +68,32 @@ class Post extends Model implements TaggableInterface
 
     /**
      * Check if the post is in draft
-     * @param Builder $query
-     * @return Builder
      */
-    public function scopeDraft(Builder $query)
+    public function scopeDraft(Builder $query): Builder
     {
         return $query->whereStatus(Status::DRAFT);
     }
 
     /**
      * Check if the post is pending review
-     * @param Builder $query
-     * @return Builder
      */
-    public function scopePending(Builder $query)
+    public function scopePending(Builder $query): Builder
     {
         return $query->whereStatus(Status::PENDING);
     }
 
     /**
      * Check if the post is published
-     * @param Builder $query
-     * @return Builder
      */
-    public function scopePublished(Builder $query)
+    public function scopePublished(Builder $query): Builder
     {
         return $query->whereStatus(Status::PUBLISHED);
     }
 
     /**
      * Check if the post is unpublish
-     * @param Builder $query
-     * @return Builder
      */
-    public function scopeUnpublished(Builder $query)
+    public function scopeUnpublished(Builder $query): Builder
     {
         return $query->whereStatus(Status::UNPUBLISHED);
     }
