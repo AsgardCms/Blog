@@ -35,38 +35,6 @@
                     <?php endforeach; ?>
                 <?php endif; ?>
 
-{{--                <div class="panel box box-primary">--}}
-{{--                    <div class="box-header">--}}
-{{--                        <h4 class="box-title">--}}
-{{--                            <a href="#collapseMeta-cs" data-toggle="collapse" data-parent="#accordion" class="collapsed" aria-expanded="false">--}}
-{{--                                Meta data--}}
-{{--                            </a>--}}
-{{--                        </h4>--}}
-{{--                    </div>--}}
-{{--                    <div id="collapseMeta-cs" class="panel-collapse collapse" style="height: 0px;" aria-expanded="false">--}}
-{{--                        <div class="box-body">--}}
-{{--                            <div class="el-form-item">--}}
-{{--                                <label class="el-form-item__label">Meta titulek</label>--}}
-{{--                                <div class="el-form-item__content">--}}
-{{--                                    <div class="el-input">--}}
-{{--                                        <input type="text" autocomplete="off" class="el-input__inner">--}}
-{{--                                    </div>--}}
-
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="el-form-item">--}}
-{{--                                <label class="el-form-item__label">Meta popis</label>--}}
-{{--                                <div class="el-form-item__content">--}}
-{{--                                    <div class="el-textarea">--}}
-{{--                                        <textarea autocomplete="off" maxlength="186" class="el-textarea__inner" style="min-height: 33px; height: 33px;"></textarea>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-
-
                 <div class="form-group">
                     @mediaMultiple('gallery', $post)
                 </div>
@@ -82,7 +50,7 @@
         <div class="box box-primary">
             <div class="box-body">
                 <div class="form-group">
-                    {!! Form::label("category", trans('blog::blog.category:') ) !!}
+                    {!! Form::label("category", trans('blog::post.form.category') ) !!}
                     <select name="category_id" id="category" class="form-control">
                         <?php foreach ($categories as $category): ?>
                         <option value="{{ $category->id }}" {{ old('category_id', $post->category_id) == $category->id ? 'selected' : '' }}>
@@ -92,7 +60,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    {!! Form::label("status", trans('blog::blog.post status:')) !!}
+                    {!! Form::label("status", trans('blog::post.form.status')) !!}
                     <select name="status" id="status" class="form-control">
                         <?php foreach ($statuses as $id => $status): ?>
                         <option value="{{ $id }}" {{ old('status', $post->status) == $id ? 'selected' : '' }}>
@@ -105,7 +73,7 @@
 
                 <div class='form-group{{ $errors->has("post_date") ? ' has-error' : '' }}'>
                     <?php $oldPostDate = isset($post->post_date) ? date('Y-m-d', strToTime($post->post_date)) : date('Y-m-d'); ?>
-                    {!! Form::label("post_date", trans('blog::post.form.post_date')) !!}
+                    {!! Form::label("post_date", trans('blog::post.form.post date')) !!}
                     {!! Form::text("post_date", old("post_date", $oldPostDate), ['class' => 'form-control datepicker', 'placeholder' => trans('blog::post.form.post_date')]) !!}
                     {!! $errors->first("post_date", '<span class="help-block">:message</span>') !!}
                 </div>

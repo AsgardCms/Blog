@@ -47,7 +47,7 @@
         <div class="box box-primary">
             <div class="box-body">
                 <div class="form-group">
-                    {!! Form::label("category", trans('blog::blog.category')) !!}
+                    {!! Form::label("category", trans('blog::post.table.category')) !!}
                     <select name="category_id" id="category" class="form-control">
                         <?php foreach ($categories as $category): ?>
                            <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -55,7 +55,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    {!! Form::label("status", trans('blog::blog.post status')) !!}
+                    {!! Form::label("status", trans('blog::blog.table.status')) !!}
                     <select name="status" id="status" class="form-control">
                         <?php foreach ($statuses as $id => $status): ?>
                         <option value="{{ $id }}" {{ old('status', 0) == $id ? 'selected' : '' }}>{{ $status }}</option>
@@ -65,7 +65,7 @@
                 @tags('asgardcms/post')
                 <div class='form-group{{ $errors->has("post_date") ? ' has-error' : '' }}'>
                     <?php $oldPostDate = isset($post->post_date) ? date('Y-m-d', strToTime($post->post_date)) : date('Y-m-d'); ?>
-                    {!! Form::label("post_date", trans('blog::post.form.post_date')) !!}
+                    {!! Form::label("post_date", trans('blog::post.form.post date')) !!}
                     {!! Form::text("post_date", old("post_date", $oldPostDate), ['class' => 'form-control datepicker', 'placeholder' => trans('blog::post.form.post_date')]) !!}
                     {!! $errors->first("post_date", '<span class="help-block">:message</span>') !!}
                 </div>
