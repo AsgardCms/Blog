@@ -13,6 +13,7 @@ return [
         'title' => 'Titulek',
         'slug' => 'URL Slug',
         'status' => 'Status',
+        'post date' => 'Datum publikování',
     ],
     'form' => [
         'title' => 'Titulek',

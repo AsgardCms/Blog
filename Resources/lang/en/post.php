@@ -13,6 +13,7 @@ return [
         'title' => 'Title',
         'slug' => 'Slug',
         'status' => 'Status',
+        'post date' => 'Post date',
     ],
     'form' => [
         'title' => 'Title',

@@ -2,12 +2,16 @@
 
 namespace Modules\Blog\Repositories;
 
-use Modules\Core\Repositories\BaseRepository;
+use Modules\Blog\Entities\Category;
+use Modules\Bocian\Support\EloquentRepositoryHelper;
+use Modules\Core\Repositories\Eloquent\EloquentBaseRepository;
 
-/**
- * Interface CategoryRepository
- * @package Modules\Blog\Repositories
- */
-interface CategoryRepository extends BaseRepository
+class CategoryRepository extends EloquentBaseRepository
 {
+    public function __construct(Category $model)
+    {
+        parent::__construct($model);
+    }
+
+    use EloquentRepositoryHelper;
 }

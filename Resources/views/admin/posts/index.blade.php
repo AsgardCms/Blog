@@ -32,7 +32,7 @@
                             <th>{{ trans('blog::post.table.status') }}</th>
                             <th>{{ trans('blog::post.table.title') }}</th>
                             <th>{{ trans('blog::post.table.slug') }}</th>
-                            <th>{{ trans('core::core.table.created at') }}</th>
+                            <th>{{ trans('blog::post.table.post date') }}</th>
                             <th data-sortable="false">{{ trans('core::core.table.actions') }}</th>
                         </tr>
                     </thead>
@@ -62,12 +62,20 @@
                                 </td>
                                 <td>
                                     <a href="{{ route('admin.blog.post.edit', [$post->id]) }}">
-                                        {{ $post->created_at }}
+                                        {{ $post->post_date->format('Y-m-d') }}
                                     </a>
                                 </td>
                                 <td>
                                     <div class="btn-group">
                                         <a href="{{ route('admin.blog.post.edit', [$post->id]) }}" class="btn btn-default btn-flat"><i class="fa fa-pencil"></i></a>
+
+                                        @if (config('asgard.bocian.blocks.blocks-by-entity.' . \Modules\Blog\Entities\Post::class))
+                                            <a href="{{ route('admin.bocian.blocks.edit', [$post->id, get_class($post)]) }}" class="btn btn-primary btn-flat">
+                                                <i class="fa fa-file-text-o"></i>
+                                                {{ UniversalBlock::all($post)->count() }}
+                                            </a>
+                                        @endif
+
                                         <button class="btn btn-danger btn-flat" data-toggle="modal" data-target="#modal-delete-confirmation" data-action-target="{{ route('admin.blog.post.destroy', [$post->id]) }}"><i class="fa fa-trash"></i></button>
                                     </div>
                                 </td>
@@ -120,7 +128,7 @@
             "paginate": true,
             "lengthChange": true,
             "filter": true,
-            "sort": true,
+            "sort": false,
             "info": true,
             "autoWidth": true,
             "order": [[ 0, "desc" ]],

@@ -2,11 +2,11 @@
 
 namespace Modules\Blog\Entities;
 
-use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Laracasts\Presenter\PresentableTrait;
 use Modules\Blog\Presenters\PostPresenter;
+use Modules\Bocian\Support\Translatable;
 use Modules\Core\Traits\NamespacedEntity;
 use Modules\Media\Entities\File;
 use Modules\Media\Support\Traits\MediaRelation;
@@ -18,11 +18,12 @@ class Post extends Model implements TaggableInterface
     use Translatable, MediaRelation, PresentableTrait, NamespacedEntity, TaggableTrait;
 
     public $translatedAttributes = ['title', 'slug', 'content'];
-    protected $fillable = ['category_id', 'status', 'title', 'slug', 'content'];
+    protected $fillable = ['category_id', 'status', 'title', 'slug', 'content', 'post_date',];
     protected $table = 'blog__posts';
     protected $presenter = PostPresenter::class;
     protected $casts = [
         'status' => 'int',
+        'post_date' => 'datetime',
     ];
     protected static $entityNamespace = 'asgardcms/post';
 

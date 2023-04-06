@@ -2,8 +2,8 @@
 
 namespace Modules\Blog\Entities;
 
-use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Bocian\Support\Translatable;
 
 class Category extends Model
 {
